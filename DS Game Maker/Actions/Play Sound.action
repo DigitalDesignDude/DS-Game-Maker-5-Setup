@@ -1,0 +1,6 @@
+TYPE 1
+DISPLAY Play !1!
+ICON Sound.png
+ARG Sound,6
+AS_SoundQuickPlay(!1!);
+NOAPPLIES

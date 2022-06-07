@@ -1,0 +1,12 @@
+TYPE 2
+DISPLAY If !1! is Divisible by !2!
+ICON Variable.png
+CONDITION 1
+ARG Variable,3
+ARG Value,0
+if (Is_Divisible(!1!, !2!)) {
+
+
+
+
+NOAPPLIES

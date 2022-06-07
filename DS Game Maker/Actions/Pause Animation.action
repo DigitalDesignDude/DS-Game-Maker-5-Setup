@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Pause Animation
+ICON ObjectAnimatePause.png
+CONDITION 0
+ARG Pause?,2
+PA_SpriteAnimPause(Instances[AppliesTo].Screen, AppliesTo, !1!);

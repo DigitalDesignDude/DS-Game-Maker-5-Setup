@@ -1,0 +1,6 @@
+TYPE 5
+DISPLAY Set Rumble to $1$
+ICON Rumble.png
+ARG Rumble,2
+setRumble(!1!);
+NOAPPLIES

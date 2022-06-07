@@ -1,0 +1,7 @@
+TYPE 2
+DISPLAY Go to Next Room
+ICON RoomNext.png
+CONDITION 0
+Goto_Next_Room();
+
+NOAPPLIES

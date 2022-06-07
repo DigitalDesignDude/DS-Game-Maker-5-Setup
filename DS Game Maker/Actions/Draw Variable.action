@@ -1,0 +1,12 @@
+TYPE 3
+DISPLAY Draw !4! on %1% at Position !2!, !3!
+ICON VariableDraw.png
+CONDITION 0
+ARG Screen,1
+ARG X,0
+ARG Y,0
+ARG Variable,3
+PA_OutputText(!1!, !2!, !3!, "     ");
+PA_OutputText(!1!, !2!, !3!, "%d", !4!);
+
+NOAPPLIES

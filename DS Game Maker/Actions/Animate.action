@@ -1,0 +1,9 @@
+TYPE 0
+DISPLAY Start Animating from !1! to !2! at !3! FPS
+ICON ObjectAnimate.png
+CONDITION 0
+ARG First Frame,0
+ARG Last Frame,0
+ARG FPS,0
+//PA_StartSpriteAnim(Instances[AppliesTo].Screen, AppliesTo, !1!, !2!, !3!);
+Animate(AppliesTo, !1!, !2!, !3!);

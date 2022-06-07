@@ -1,0 +1,6 @@
+TYPE 1
+DISPLAY Set Volume to !1!
+ICON SoundVolume.png
+CONDITION 0
+ARG Volume (0-127),0
+Set_Volume(!1!);

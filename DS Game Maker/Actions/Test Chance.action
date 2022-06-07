@@ -1,0 +1,12 @@
+TYPE 2
+DISPLAY Test Chance with !1! Sides
+ICON Chance.png
+CONDITION 1
+ARG Sides,0
+if (Test_Chance(!1!)) {
+
+
+
+
+
+NOAPPLIES

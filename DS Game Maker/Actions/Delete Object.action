@@ -1,0 +1,5 @@
+TYPE 0
+DISPLAY Delete Object
+ICON ObjectDelete.png
+CONDITION 0
+Delete_Instance(AppliesTo);

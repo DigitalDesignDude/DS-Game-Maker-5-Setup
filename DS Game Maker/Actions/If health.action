@@ -1,0 +1,13 @@
+TYPE 4
+DISPLAY If health is $1$ !2!
+ICON Health.png
+CONDITION 1
+ARG If health is,10
+ARG the following:,0
+if (health !1! !2!) {
+
+
+
+
+
+NOAPPLIES

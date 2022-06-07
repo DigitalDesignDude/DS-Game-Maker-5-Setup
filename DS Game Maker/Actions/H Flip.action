@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Flip Horizontally
+ICON FlipHorizontally.png
+CONDITION 0
+ARG Flip,2
+Set_H_Flip(AppliesTo, !1!);

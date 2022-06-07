@@ -1,0 +1,8 @@
+TYPE 4
+DISPLAY Set lives to !1!
+ICON Lives.png
+CONDITION 0
+ARG Value,0
+lives = !1!;
+
+NOAPPLIES

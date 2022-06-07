@@ -1,0 +1,9 @@
+TYPE 0
+DISPLAY Load Collision Map on %1%
+ICON ChangeBackground.png
+ARG Screen,1
+ARG Background,5
+RoomData.CollisionLoaded = true;
+PA_LoadBackground(!1!, 3, &!2!);
+
+NOAPPLIES

@@ -1,0 +1,7 @@
+TYPE 2
+DISPLAY If Stylus Pressed
+ICON Stylus.png
+CONDITION 1
+if (Stylus.Newpress) {
+
+NOAPPLIES

@@ -1,0 +1,12 @@
+TYPE 3
+DISPLAY Draw lives at !2!, !3! on %1%
+ICON LivesDraw.png
+CONDITION 0
+ARG Screen,1
+ARG X Tiles,0
+ARG Y Tiles,0
+Draw_Lives(!1!, !2!, !3!);
+
+
+
+NOAPPLIES

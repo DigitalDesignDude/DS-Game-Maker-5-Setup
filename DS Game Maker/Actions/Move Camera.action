@@ -1,0 +1,11 @@
+TYPE 3
+DISPLAY Move Camera
+ICON CameraMove.png
+CONDITION 0
+ARG Screen,1
+ARG X,0
+ARG Y,0
+Set_Camera_XY(!1!, !2!, !3!);
+
+
+NOAPPLIES

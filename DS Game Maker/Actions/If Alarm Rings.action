@@ -1,0 +1,8 @@
+TYPE 5
+DISPLAY If Alarm !1! Rings
+ICON Alarm.png
+CONDITION 1
+ARG Alarm ID (0-31),0
+//Action Created by Baron Khan
+if (Alarms[!1!].Rang) {
+ Alarms[!1!].Rang = false;

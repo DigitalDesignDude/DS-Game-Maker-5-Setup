@@ -1,0 +1,9 @@
+TYPE 5
+DISPLAY Run !1! with !2!
+ICON Script.png
+ARG Script,9
+ARG Arguments,12
+!1!(!2!);
+
+
+NOAPPLIES

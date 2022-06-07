@@ -1,0 +1,5 @@
+TYPE 1
+DISPLAY Pause Background Sound
+ICON SoundPause.png
+Pause_BG_Sound();
+NOAPPLIES

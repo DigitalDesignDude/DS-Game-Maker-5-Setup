@@ -1,0 +1,12 @@
+TYPE 2
+DISPLAY Loop !1! from !2! to !3!
+ICON Loop.png
+ARG Variable,0
+ARG From,0
+ARG To,0
+for (!1! = !2!; !1! <= !3!; !1!++) {
+
+
+
+
+NOAPPLIES

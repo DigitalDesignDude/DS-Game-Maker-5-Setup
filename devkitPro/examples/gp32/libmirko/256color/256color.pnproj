@@ -1,0 +1,1 @@
+<Project name="sprite"><Folder name="include"></Folder><Folder name="source"><File path="source\sprite.c"></File></Folder><File path="Makefile"></File></Project>

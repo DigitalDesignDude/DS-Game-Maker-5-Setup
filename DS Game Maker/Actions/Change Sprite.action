@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Change Sprite to !1!
+ICON Sprite.png
+CONDITION 0
+ARG Sprite,13
+Set_Sprite(AppliesTo, "!1!", true);

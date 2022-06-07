@@ -1,0 +1,7 @@
+TYPE 5
+DISPLAY Run !1!
+ICON ExecuteCode.png
+ARG C Script,14
+!1!();
+
+NOAPPLIES

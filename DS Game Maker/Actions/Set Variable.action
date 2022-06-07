@@ -1,0 +1,9 @@
+TYPE 2
+DISPLAY Set Variable !1! to !2!
+ICON Variable.png
+CONDITION 0
+ARG Name,0
+ARG Value,0
+!1! = !2!;
+
+NOAPPLIES

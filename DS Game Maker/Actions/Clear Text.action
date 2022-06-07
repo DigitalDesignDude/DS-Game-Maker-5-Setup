@@ -1,0 +1,6 @@
+TYPE 3
+DISPLAY Clear Text on %1%
+ICON TextClear.png
+CONDITION 0
+ARG Screen,1
+PA_ClearTextBg(!1!);

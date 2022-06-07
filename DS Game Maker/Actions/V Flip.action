@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Flip Vertically
+ICON FlipVertically.png
+CONDITION 0
+ARG Flip Vertically,2
+Set_V_Flip(AppliesTo, !1!);

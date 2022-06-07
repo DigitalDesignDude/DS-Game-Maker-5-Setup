@@ -1,0 +1,5 @@
+TYPE 2
+DISPLAY Else
+ICON Else.png
+else {
+NOAPPLIES

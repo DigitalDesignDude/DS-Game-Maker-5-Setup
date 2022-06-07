@@ -1,0 +1,9 @@
+TYPE 2
+DISPLAY Declare !1! as type !2! with value of !3!
+ICON SetVariable.png
+ARG Name,0
+ARG C Type,0
+ARG Default Value,0
+!2! !1! = !3!;
+
+NOAPPLIES

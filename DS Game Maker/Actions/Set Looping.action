@@ -1,0 +1,6 @@
+TYPE 1
+DISPLAY Set Looping to !1!
+ICON SoundLoop.png
+ARG Loop Sound?,2
+Set_BG_Looping(!1!);
+NOAPPLIES

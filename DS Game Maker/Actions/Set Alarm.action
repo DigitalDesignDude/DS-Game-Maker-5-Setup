@@ -1,0 +1,7 @@
+TYPE 5
+DISPLAY Set Alarm !1! to !2! Steps
+ICON Alarm.png
+ARG Alarm ID (0-31),0
+ARG Time (Frames),12
+//Action Created by Baron Khan
+Set_Alarm(!1!, !2!);

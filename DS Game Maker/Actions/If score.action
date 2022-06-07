@@ -1,0 +1,12 @@
+TYPE 4
+DISPLAY If score $1$ !2!
+ICON Score.png
+CONDITION 1
+ARG If score is:,10
+ARG the following:,0
+if (score !1! !2!) {
+
+
+
+
+NOAPPLIES

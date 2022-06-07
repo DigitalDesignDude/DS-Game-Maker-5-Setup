@@ -1,0 +1,307 @@
+#---------------------------------------------------------------------------------
+# PAlib Application Makefile
+#---------------------------------------------------------------------------------
+
+# Delete the default suffixes
+.SUFFIXES:
+
+#---------------------------------------------------------------------------------
+# Environment variables & common settings
+#---------------------------------------------------------------------------------
+
+PATH   := $(DEVKITARM)/bin:$(PATH)
+PAPATH  = $(DEVKITPRO)/PAlib
+
+ARM7BIN    := $(PAPATH)/lib/arm7_mp3_dswifi.bin
+
+ICON := $(PAPATH)/lib/defaultlogo.bmp
+
+ifneq ($(strip $(NITRODATA)),)
+	_ADDFILES	:= -d $(NITRO_FILES)
+endif
+
+#---------------------------------------------------------------------------------
+# Options for code generation
+#---------------------------------------------------------------------------------
+
+# Processor settings - compile as THUMB with interworking enabled
+ARCH     := -march=armv5te -mtune=arm946e-s \
+            -mthumb -mthumb-interwork
+
+# C compiler flags
+CFLAGS   := -g -Wall -O2 \
+            $(ARCH) -fomit-frame-pointer -ffast-math \
+            $(INCLUDE) -DARM9
+
+# C++ compiler flags
+CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
+
+# ASM flags
+ASFLAGS  := -g $(ARCH)
+
+# Linker flags
+LDFLAGS  :=  -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
+
+#---------------------------------------------------------------------------------
+# any extra libraries we wish to link with the project
+#---------------------------------------------------------------------------------	
+
+LIBS := -lfat -lnds9 -ldswifi9
+
+# The -lpa9 switch must be placed before other libraries.
+
+LIBS := -lfilesystem -lpa9 $(LIBS)
+ 
+#---------------------------------------------------------------------------------
+# list of directories containing libraries, this must be the top level containing
+# include and lib
+#---------------------------------------------------------------------------------
+
+LIBDIRS := $(DEVKITPRO)/libnds
+
+# Add the PAlib directory
+LIBDIRS += $(PAPATH)
+
+#---------------------------------------------------------------------------------
+# Collect the things we need before building
+#---------------------------------------------------------------------------------
+ifneq ($(BUILD),$(notdir $(CURDIR)))
+#---------------------------------------------------------------------------------
+
+ifeq ($(strip $(RELEASEPATH)),)
+	OUTPATH := $(CURDIR)
+else
+	OUTPATH := $(CURDIR)/$(RELEASEPATH)
+endif
+
+export OUTPUT := $(OUTPATH)/$(TARGET)
+export VPATH  := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+                 $(foreach dir,$(DATA),$(CURDIR)/$(dir))
+
+# Determine the name of the tools
+
+PREFIX := arm-none-eabi-
+
+export CC      := $(PREFIX)gcc
+export CXX     := $(PREFIX)g++
+export AR      := $(PREFIX)ar
+export AS      := $(PREFIX)as
+export OBJCOPY := $(PREFIX)objcopy
+
+# Collect source code files
+CFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
+CPPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
+SFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
+
+# Use CXX to link C++ projects or CC for standard C
+ifeq ($(strip $(CPPFILES)),)
+	export LD := $(CC)
+else
+	export LD := $(CXX)
+endif
+
+# Collect resource files
+BINFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.bin)))
+PCXFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.pcx)))
+PALFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.pal)))
+RAWFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.raw)))
+MAPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.map)))
+JPGFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.jpg)))
+GIFFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.gif)))
+BMPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.bmp)))
+MP3FILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.mp3)))
+
+ifneq ($(strip $(NITRODATA)),)
+	export NITRO_FILES	:=	$(CURDIR)/$(NITRODATA)
+endif
+
+# Object files
+export OFILES := $(BINFILES:.bin=.o) $(PCXFILES:.pcx=.o) $(PALFILES:.pal=.o) \
+                 $(RAWFILES:.raw=.o) $(MAPFILES:.map=.o) $(JPGFILES:.jpg=.o) \
+                 $(GIFFILES:.gif=.o) $(BMPFILES:.bmp=.o) $(MP3FILES:.mp3=.o) \
+                 $(CFILES:.c=.o) $(CPPFILES:.cpp=.o) $(SFILES:.s=.o)
+
+# Include paths
+export INCLUDE := $(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+                  $(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+                  $(foreach dir,$(LIBDIRS),-I$(dir)/include/nds) \
+                  -I$(PAPATH)/include/nds \
+                  -I$(CURDIR)/$(BUILD)
+
+# Library paths
+export LIBPATHS := $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+
+# Header dependencies path (.d files)
+export DEPSDIR := $(CURDIR)/$(BUILD)
+
+.PHONY: $(BUILD) clean
+
+#---------------------------------------------------------------------------------
+# Main build routine
+#---------------------------------------------------------------------------------
+$(BUILD):
+#---------------------------------------------------------------------------------
+
+# Before compiling, show any warning messages that might have detected
+
+	@echo Build process start for project \"$(TARGET)\"...
+	@echo .
+	@[ -d $@ ] || mkdir -p $@
+	@[ -d $(OUTPATH) ] || mkdir -p $(OUTPATH)
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+#---------------------------------------------------------------------------------
+# Clean routine 
+#---------------------------------------------------------------------------------
+clean:
+#---------------------------------------------------------------------------------
+	@echo Clean... $(TARGET)
+	@rm -fr $(BUILD) $(OUTPUT).nds
+
+#---------------------------------------------------------------------------------
+# Rules to build files
+#---------------------------------------------------------------------------------
+else
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+# Main targets
+#---------------------------------------------------------------------------------
+$(OUTPUT).nds:    $(OUTPUT).bin
+$(OUTPUT).bin:    $(OUTPUT).elf
+$(OUTPUT).elf:    $(OFILES)
+
+
+#---------------------------------------------------------------------------------
+%.nds: %.bin
+#---------------------------------------------------------------------------------
+
+ifeq ($(strip $(USE_NITROFS)), YES)
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" $(_ADDFILES) > /dev/null
+else 
+
+ifeq ($(strip $(USE_EFS)), YES)
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" -d ../efsroot > /dev/null
+	@$(CURDIR)/../efs $(OUTPUT).nds
+else
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" > /dev/null
+endif
+endif
+	@echo .
+	@echo Built: $(notdir $@)
+	@echo .
+
+#---------------------------------------------------------------------------------
+%.bin: %.elf
+#---------------------------------------------------------------------------------
+	@$(OBJCOPY) -O binary $(TARGET).elf $(TARGET).bin
+
+#---------------------------------------------------------------------------------
+%.elf:
+#---------------------------------------------------------------------------------
+	@echo .
+	@echo Linking...
+	@$(LD) $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $(TARGET).elf
+
+#---------------------------------------------------------------------------------
+# Rules to build source files
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+%.o: %.cpp
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@
+
+#---------------------------------------------------------------------------------
+%.o: %.c
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@
+
+#---------------------------------------------------------------------------------
+%.o: %.s
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(ASFLAGS) -x assembler-with-cpp -c $< -o $@
+
+#---------------------------------------------------------------------------------
+# bin2o macro - slightly changed for the PAlib naming conventions of resources
+# which doesn't append the file extension to the resource name
+#---------------------------------------------------------------------------------
+
+define bin2o
+	cp $< $*
+	bin2s $* | $(AS) -o $@
+	rm $*
+
+	echo "extern const u8" $*"[];" > $*.h
+	echo "extern const u32" $*_size";" >> $*.h
+endef
+
+#---------------------------------------------------------------------------------
+# Rules to build resource files
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+%.o: %.bin
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.pcx
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.pal
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.raw
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.map
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.jpg
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.gif
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.bmp
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.mp3
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+# Header file dependencies
+#---------------------------------------------------------------------------------
+-include $(DEPSDIR)/*.d
+
+#---------------------------------------------------------------------------------------
+endif
+#---------------------------------------------------------------------------------------

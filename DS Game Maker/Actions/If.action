@@ -1,0 +1,5 @@
+TYPE 2
+DISPLAY If !1!
+ICON If.png
+ARG Condition,0
+if (!1!) {

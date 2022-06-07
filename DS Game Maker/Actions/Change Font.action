@@ -1,0 +1,9 @@
+TYPE 3
+DISPLAY Change %1% Font to !2!
+ICON Font.png
+CONDITION 0
+ARG Screen,1
+ARG Font,11
+PA_LoadText(!1!, 0, &!2!);
+
+NOAPPLIES

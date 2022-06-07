@@ -1,0 +1,465 @@
+#---------------------------------------------------------------------------------
+# PAlib Application Makefile
+#---------------------------------------------------------------------------------
+
+# Delete the default suffixes
+.SUFFIXES:
+
+#---------------------------------------------------------------------------------
+# Environment variables & common settings
+#---------------------------------------------------------------------------------
+
+ifeq ($(strip $(DEVKITARM)),)
+$(error Please set DEVKITARM in your environment)
+endif
+
+PATH   := $(DEVKITARM)/bin:$(PATH)
+PAPATH  = $(DEVKITPRO)/PAlib
+
+TEXT_TO_SAY_1 :=
+TEXT_TO_SAY_2 :=
+TEXT_TO_SAY_3 :=
+TEXT_TO_SAY_4 :=
+NL_AND_PAUSE  :=
+MSG_IS_ERROR  :=
+
+ARM7_IS_OK :=
+
+ifeq ($(strip $(ARM7_SELECTED)),)
+	TEXT_TO_SAY_1 := You forgot to select an ARM7 core! ARM7_MP3 will be selected by default.
+	TEXT_TO_SAY_2 := To select an ARM7 core, uncomment the line of the makefile that specifies
+	TEXT_TO_SAY_3 := the ARM7 core you want.
+	NL_AND_PAUSE   = YES
+	ARM7_SELECTED := ARM7_MP3
+endif
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_BASIC)
+	TEXT_TO_SAY_1 := The ARM7_BASIC core is only here for compatibility with PAlib 080203 and
+	TEXT_TO_SAY_2 := 080823 programs. ARM7_MP3 will be selected by default. If you are upgrading
+	TEXT_TO_SAY_3 := a project, it is highly recommended that you replace your makefile with the
+	TEXT_TO_SAY_4 := one in $(DEVKITPRO)/PAlib.
+	NL_AND_PAUSE   = YES
+	ARM7_SELECTED := ARM7_MP3
+endif
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3)
+	ARM7BIN    := $(PAPATH)/lib/arm7_mp3.bin
+	ARM7_IS_OK := YES
+endif
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3_DSWIFI)
+	ARM7BIN    := $(PAPATH)/lib/arm7_mp3_dswifi.bin
+	ARM7_IS_OK := YES
+endif
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+	ARM7BIN    := $(PAPATH)/lib/arm7_maxmod_dswifi.bin
+	ARM7_IS_OK := YES
+endif
+
+ifeq ($(strip $(ARM7_IS_OK)),)
+	TEXT_TO_SAY_1 := The ARM7 core you selected is invalid: $(strip $(ARM7_SELECTED))
+	TEXT_TO_SAY_2 := ARM7_MP3 will be selected by default.
+	TEXT_TO_SAY_3 := To select a proper ARM7 core, uncomment the line of the makefile
+	TEXT_TO_SAY_4 := that specifies the ARM7 core you want.
+	NL_AND_PAUSE   = YES
+	ARM7_SELECTED := ARM7_MP3
+	ARM7BIN       := $(PAPATH)/lib/arm7_mp3.bin
+endif
+
+# Icon
+ifeq ($(strip $(wildcard $(CURDIR)/../logo.bmp)),)
+	ICON := $(PAPATH)/lib/defaultlogo.bmp
+else
+	ICON := $(CURDIR)/../logo.bmp
+endif
+
+ifneq ($(strip $(NITRODATA)),)
+	_ADDFILES	:= -d $(NITRO_FILES)
+endif
+
+#---------------------------------------------------------------------------------
+# Options for code generation
+#---------------------------------------------------------------------------------
+
+# Processor settings - compile as THUMB with interworking enabled
+ARCH     := -march=armv5te -mtune=arm946e-s \
+            -mthumb -mthumb-interwork
+
+# C compiler flags
+CFLAGS   := -g -Wall -O2 \
+            $(ARCH) -fomit-frame-pointer -ffast-math \
+            $(INCLUDE) -DARM9
+
+# C++ compiler flags
+CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
+
+# ASM flags
+ASFLAGS  := -g $(ARCH)
+
+# Linker flags
+LDFLAGS  :=  -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
+
+#---------------------------------------------------------------------------------
+# any extra libraries we wish to link with the project
+#---------------------------------------------------------------------------------	
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3)
+	LIBS := -lfat -lnds9
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3_DSWIFI)
+	LIBS := -lfat -lnds9 -ldswifi9
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+	LIBS := -lfat -lnds9 -ldswifi9 -lmm9
+endif
+
+# The -lpa9 switch must be placed before other libraries.
+
+LIBS := -lfilesystem -lpa9 $(LIBS)
+ 
+#---------------------------------------------------------------------------------
+# list of directories containing libraries, this must be the top level containing
+# include and lib
+#---------------------------------------------------------------------------------
+
+
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3)
+	LIBDIRS := $(DEVKITPRO)/libnds
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3_DSWIFI)
+	LIBDIRS := $(DEVKITPRO)/libnds
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+	LIBDIRS := $(DEVKITPRO)/libnds
+endif
+
+# Add the PAlib directory
+LIBDIRS += $(PAPATH)
+
+#---------------------------------------------------------------------------------
+# Collect the things we need before building
+#---------------------------------------------------------------------------------
+ifneq ($(BUILD),$(notdir $(CURDIR)))
+#---------------------------------------------------------------------------------
+
+ifeq ($(strip $(RELEASEPATH)),)
+	OUTPATH := $(CURDIR)
+else
+	OUTPATH := $(CURDIR)/$(RELEASEPATH)
+endif
+
+export OUTPUT := $(OUTPATH)/$(TARGET)
+export VPATH  := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+                 $(foreach dir,$(DATA),$(CURDIR)/$(dir))
+
+# Determine the name of the tools
+
+PREFIX := arm-eabi-
+
+export CC      := $(PREFIX)gcc
+export CXX     := $(PREFIX)g++
+export AR      := $(PREFIX)ar
+export AS      := $(PREFIX)as
+export OBJCOPY := $(PREFIX)objcopy
+
+# Collect source code files
+CFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
+CPPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
+SFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
+
+# Use CXX to link C++ projects or CC for standard C
+ifeq ($(strip $(CPPFILES)),)
+	export LD := $(CC)
+else
+	export LD := $(CXX)
+endif
+
+# Collect resource files
+BINFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.bin)))
+PCXFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.pcx)))
+PALFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.pal)))
+RAWFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.raw)))
+MAPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.map)))
+JPGFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.jpg)))
+GIFFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.gif)))
+BMPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.bmp)))
+MP3FILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.mp3)))
+
+# Collect audio files supported by MaxMod (mod, xm, s3m, it, wav)
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+	export AUDIOFILES := $(foreach file,$(notdir $(wildcard $(AUDIO)/*.mod)),$(CURDIR)/$(AUDIO)/$(file)) \
+	                     $(foreach file,$(notdir $(wildcard $(AUDIO)/*.s3m)),$(CURDIR)/$(AUDIO)/$(file)) \
+	                     $(foreach file,$(notdir $(wildcard $(AUDIO)/*.xm)),$(CURDIR)/$(AUDIO)/$(file))  \
+	                     $(foreach file,$(notdir $(wildcard $(AUDIO)/*.it)),$(CURDIR)/$(AUDIO)/$(file))  \
+	                     $(foreach file,$(notdir $(wildcard $(AUDIO)/*.wav)),$(CURDIR)/$(AUDIO)/$(file))
+endif
+
+# Audio files check
+ifeq ($(strip $(AUDIOFILES)),)
+	ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+		TEXT_TO_SAY_2 := No MaxMod-compatible files were found in the audio folder.
+		TEXT_TO_SAY_3 := If you are loading the soundbank from FAT or EFS, ignore this message.
+		TEXT_TO_SAY_4 := " "
+	endif
+	DONT_BUILD_MAXMOD_SOUNDBANK = YES
+endif
+
+# Add the MaxMod soundbank if needed
+ifneq ($(strip $(DONT_BUILD_MAXMOD_SOUNDBANK)), YES)
+	ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+		BINFILES += soundbank_bin.bin
+	endif
+endif
+
+ifneq ($(strip $(NITRODATA)),)
+	export NITRO_FILES	:=	$(CURDIR)/$(NITRODATA)
+endif
+
+# Object files
+export OFILES := $(BINFILES:.bin=.o) $(PCXFILES:.pcx=.o) $(PALFILES:.pal=.o) \
+                 $(RAWFILES:.raw=.o) $(MAPFILES:.map=.o) $(JPGFILES:.jpg=.o) \
+                 $(GIFFILES:.gif=.o) $(BMPFILES:.bmp=.o) $(MP3FILES:.mp3=.o) \
+                 $(CFILES:.c=.o) $(CPPFILES:.cpp=.o) $(SFILES:.s=.o)
+
+# Include paths
+export INCLUDE := $(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+                  $(foreach dir,$(LIBDIRS),-I$(dir)/include) \
+                  $(foreach dir,$(LIBDIRS),-I$(dir)/include/nds) \
+                  -I$(PAPATH)/include/nds \
+                  -I$(CURDIR)/$(BUILD)
+
+# Library paths
+export LIBPATHS := $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+
+# Header dependencies path (.d files)
+export DEPSDIR := $(CURDIR)/$(BUILD)
+
+# Check if the EFS patcher is present
+ifeq ($(strip $(USE_EFS)), YES)
+	WILDCARD_EFS := $(wildcard $(CURDIR)/efs) $(wildcard $(CURDIR)/efs.exe)
+	ifeq ($(strip $(WILDCARD_EFS)),)
+		TEXT_TO_SAY_1 := "It seems your copy of the EFS patcher is missing!"
+		TEXT_TO_SAY_2 := "Without this file, you can't build your project."
+		TEXT_TO_SAY_3 := "You can find it in the following directory:"
+		TEXT_TO_SAY_4 := "$(DEVKITPRO)/PAlib/examples/FAT/EFS"
+		NL_AND_PAUSE := YES
+		MSG_IS_ERROR := YES
+	endif
+endif
+
+.PHONY: $(BUILD) clean
+
+#---------------------------------------------------------------------------------
+# Main build routine
+#---------------------------------------------------------------------------------
+$(BUILD):
+#---------------------------------------------------------------------------------
+
+# Before compiling, show any warning messages that might have detected
+ifneq ($(strip $(TEXT_TO_SAY_1)),)
+ifeq ($(strip $(MSG_IS_ERROR)),)
+	@echo " ===================================="
+	@echo "/ PAlib Project Compilation Warning /"
+	@echo "==================================== "
+else
+	@echo " =================================="
+	@echo "/ PAlib Project Compilation Error /"
+	@echo "================================== "
+endif
+	@echo .
+	@echo $(TEXT_TO_SAY_1)
+endif
+ifneq ($(strip $(TEXT_TO_SAY_2)),)
+	@echo $(TEXT_TO_SAY_2)
+endif
+ifneq ($(strip $(TEXT_TO_SAY_3)),)
+	@echo $(TEXT_TO_SAY_3)
+endif
+ifneq ($(strip $(TEXT_TO_SAY_4)),)
+	@echo $(TEXT_TO_SAY_4)
+endif
+ifneq ($(strip $(NL_AND_PAUSE)),)
+	@echo .
+ifeq ($(strip $(MSG_IS_ERROR)),)
+	@read -n 1 -p "Press any key to continue the compilation..."
+	@echo .
+else
+	@read -n 1 -p "Press any key to exit..."
+endif
+	@echo .
+endif
+ifeq ($(strip $(MSG_IS_ERROR)),)
+	@echo Build process start for project \"$(TARGET)\"...
+	@echo .
+	@[ -d $@ ] || mkdir -p $@
+	@[ -d $(OUTPATH) ] || mkdir -p $(OUTPATH)
+	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+endif
+
+#---------------------------------------------------------------------------------
+# Clean routine 
+#---------------------------------------------------------------------------------
+clean:
+#---------------------------------------------------------------------------------
+	@echo Clean... $(TARGET)
+	@rm -fr $(BUILD) $(OUTPUT).nds
+
+#---------------------------------------------------------------------------------
+# Rules to build files
+#---------------------------------------------------------------------------------
+else
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+# Main targets
+#---------------------------------------------------------------------------------
+$(OUTPUT).nds:    $(OUTPUT).bin
+$(OUTPUT).bin:    $(OUTPUT).elf
+$(OUTPUT).elf:    $(OFILES)
+
+#---------------------------------------------------------------------------------
+# Rule to build the soundbank from audio files
+#---------------------------------------------------------------------------------
+soundbank_bin.bin: $(AUDIOFILES)
+#---------------------------------------------------------------------------------
+ifneq ($(strip $(DONT_BUILD_MAXMOD_SOUNDBANK)), YES)
+	@echo "Generating soundbank..."
+	@echo .
+	@mmutil $^ -d -osoundbank_bin.bin -hsoundbank.h
+endif
+
+#---------------------------------------------------------------------------------
+%.nds: %.bin
+#---------------------------------------------------------------------------------
+
+ifeq ($(strip $(USE_NITROFS)), YES)
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" $(_ADDFILES) > /dev/null
+else 
+
+ifeq ($(strip $(USE_EFS)), YES)
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" -d ../efsroot > /dev/null
+	@$(CURDIR)/../efs $(OUTPUT).nds
+else
+	@ndstool -c $@ -9 $(TARGET).bin -7 $(ARM7BIN) -b $(ICON) "$(TEXT1);$(TEXT2);$(TEXT3)" > /dev/null
+endif
+endif
+	@echo .
+	@echo Built: $(notdir $@)
+	@echo .
+
+#---------------------------------------------------------------------------------
+%.bin: %.elf
+#---------------------------------------------------------------------------------
+	@$(OBJCOPY) -O binary $(TARGET).elf $(TARGET).bin
+
+#---------------------------------------------------------------------------------
+%.elf:
+#---------------------------------------------------------------------------------
+	@echo .
+	@echo Linking...
+	@$(LD) $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $(TARGET).elf
+
+#---------------------------------------------------------------------------------
+# Rules to build source files
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+%.o: %.cpp
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@
+
+#---------------------------------------------------------------------------------
+%.o: %.c
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@
+
+#---------------------------------------------------------------------------------
+%.o: %.s
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(ASFLAGS) -x assembler-with-cpp -c $< -o $@
+
+#---------------------------------------------------------------------------------
+# bin2o macro - slightly changed for the PAlib naming conventions of resources
+# which doesn't append the file extension to the resource name
+#---------------------------------------------------------------------------------
+
+define bin2o
+	cp $< $*
+	bin2s $* | $(AS) -o $@
+	rm $*
+
+	echo "extern const u8" $*"[];" > $*.h
+	echo "extern const u32" $*_size";" >> $*.h
+endef
+
+#---------------------------------------------------------------------------------
+# Rules to build resource files
+#---------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------
+%.o: %.bin
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.pcx
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.pal
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.raw
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.map
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.jpg
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.gif
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.bmp
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+%.o: %.mp3
+#---------------------------------------------------------------------------------
+	@echo $(notdir $<)
+	@$(bin2o)
+
+#---------------------------------------------------------------------------------
+# Header file dependencies
+#---------------------------------------------------------------------------------
+-include $(DEPSDIR)/*.d
+
+#---------------------------------------------------------------------------------------
+endif
+#---------------------------------------------------------------------------------------

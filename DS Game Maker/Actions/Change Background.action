@@ -1,0 +1,10 @@
+TYPE 3
+DISPLAY Change %1% Background to !2!
+ICON Background.png
+CONDITION 0
+ARG Screen,1
+ARG Background,5
+PA_LoadBackground(!1!, 2, &!2!);
+
+
+NOAPPLIES

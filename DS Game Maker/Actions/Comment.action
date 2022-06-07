@@ -1,0 +1,9 @@
+TYPE 2
+DISPLAY !1!
+ICON Comment.png
+CONDITION 0
+ARG Comment,0
+// !1!
+
+
+NOAPPLIES

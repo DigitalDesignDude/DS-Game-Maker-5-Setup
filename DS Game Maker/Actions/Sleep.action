@@ -1,0 +1,10 @@
+TYPE 5
+DISPLAY Sleep for !1! Seconds
+ICON Clock.png
+CONDITION 0
+ARG Seconds,0
+for (DSGML = 0; DSGML <= (!1! * 60); DSGML++) {
+  PA_WaitForVBL();
+}
+
+NOAPPLIES

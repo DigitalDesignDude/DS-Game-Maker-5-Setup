@@ -1,0 +1,13 @@
+TYPE 2
+DISPLAY If !1! is $2$ !3!
+ICON Variable.png
+CONDITION 1
+ARG Variable,0
+ARG is,10
+ARG this:,0
+if (!1! !2! !3!) {
+
+
+
+
+NOAPPLIES

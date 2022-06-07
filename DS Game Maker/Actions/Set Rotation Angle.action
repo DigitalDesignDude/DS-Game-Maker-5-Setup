@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Set Rotation Angle
+ICON Rotate.png
+CONDITION 0
+ARG Angle (Radians),0
+Set_Angle(AppliesTo, !1!);

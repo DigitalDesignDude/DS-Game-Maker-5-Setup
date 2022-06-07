@@ -1,0 +1,12 @@
+TYPE 3
+DISPLAY Set Color on %1% to !2!, !3!, !4!
+ICON GuitarHero.png
+ARG Screen,1
+ARG Red,0
+ARG Green,0
+ARG Blue,0
+PA_SetTextCol(!1!, !2!, !3!, !4!);
+
+
+
+NOAPPLIES

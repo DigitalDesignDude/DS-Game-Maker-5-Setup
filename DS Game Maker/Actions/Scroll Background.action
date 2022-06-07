@@ -1,0 +1,10 @@
+TYPE 5
+DISPLAY Scroll Background
+ICON ScrollBackground.png
+ARG Screen,1
+ARG Layer (default 2),0
+ARG X Co-Ordinate,0
+ARG Y Co-Ordinate,0
+Set_BG_Scroll(!1!, !2!, !3!, !4!);
+
+NOAPPLIES

@@ -1,0 +1,65 @@
+body, div, td {
+ font: 13px Tahoma;
+ background-image: url('images/BGImage.png');
+}
+
+h1 {
+ background-color: rgb(64, 64, 64);
+ color: white;
+ border: 1px solid rgb(192, 192, 192);
+ font: 20px 'Segoe UI Light', 'Segoe UI', 'Tahoma';
+ font-weight: normal;
+ padding: 2px 0px 3px 5px;
+ border-bottom: 4px solid rgb(255, 192, 0);
+ margin: 2px 0px 7px 0px;
+}
+
+h2 {
+ background-image: url('images/HeaderTransBG.png');
+ border: 1px solid rgb(192, 192, 192);
+ font: 17px 'Segoe UI Light', 'Segoe UI', 'Tahoma';
+ font-weight: normal;
+ padding: 2px 0px 3px 5px;
+ border-bottom: 4px solid rgb(210, 210, 210);
+ margin: 2px 0px 7px 0px;
+}
+
+p {
+ text-align: justify;
+ margin: 3px 5px 8px 3px;
+}
+
+p.Lefty {
+ text-align: left;
+}
+
+
+img {
+ border: 0px;
+}
+
+img.Outset {
+ border: 2px solid rgb(210, 210, 210);
+}
+
+.Biggun {
+ vertical-align: top;
+ padding: 20px 0px 0px 20px;
+ font: 14px Arial;
+}
+
+a.BigButton {
+ text-decoration: none;
+ margin: 4px auto 2px auto;
+ padding: 5px;
+ background-color: rgb(72, 72, 72);
+ color: white;
+ border: 2px solid rgb(200, 200, 200);
+ text-align: center;
+ width: 200px;
+}
+
+a.BigButton:hover {
+ background-color: rgb(84, 84, 84);
+ border: 2px solid rgb(180, 180, 180);
+}

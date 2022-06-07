@@ -1,0 +1,12 @@
+TYPE 0
+DISPLAY If !1! Instance Count is !2!
+ICON ObjectCount.png
+CONDITION 1
+ARG Object,4
+ARG Count,0
+if (Count_Instances(!1!) == !2!) {
+
+
+
+
+NOAPPLIES

@@ -1,0 +1,4 @@
+TYPE 3
+DISPLAY Draw "!4!" on %1% at !2!, !3!
+ICON StringDraw.png
+CONDITION 0

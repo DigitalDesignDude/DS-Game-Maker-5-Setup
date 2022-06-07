@@ -1,0 +1,49 @@
+/*
+ * gp32 SDK Replacement Lib  
+ *
+ * Copyright (C) 2003,2004,2005 Mirko Roller <mirko@mirkoroller.de>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * Changelog:
+ *
+ *  21 Aug 2004 - Mirko Roller <mirko@mirkoroller.de>
+ *   first release 
+ *
+ */
+
+
+
+Mirko Roller, Cologne, Germany 2005
+
+have fun
+
+
+
+
+
+---------------------------------------------------------------------
+
+I want say thanks, to all the people on #gp32dev, who will always
+help me solving bugs.
+
+The chatboard is a Jouni Korhonen production, so if you like this
+thing, give him a big kiss :)
+
+Some of the Sound calculating samplerates functions are from 
+Jouni Korhonen, so if you like perfect sampled sound, you now
+know why its perfect   :)
+
+---------------------------------------------------------------------

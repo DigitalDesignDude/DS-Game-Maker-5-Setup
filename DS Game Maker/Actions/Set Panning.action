@@ -1,0 +1,6 @@
+TYPE 1
+DISPLAY Set Panning to !1!
+ICON SoundPanning.png
+ARG Amount (-64 - 64),0
+Set_BG_Panning(!1!);
+NOAPPLIES

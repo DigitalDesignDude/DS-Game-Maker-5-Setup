@@ -1,0 +1,15 @@
+TYPE 2
+DISPLAY Go to !1!
+ICON Room.png
+CONDITION 0
+ARG Room,7
+CurrentRoom = Room_Get_Index("!1!");
+RoomFrames = 0;
+RoomSeconds = 0;
+!1!();
+
+
+
+
+
+NOAPPLIES

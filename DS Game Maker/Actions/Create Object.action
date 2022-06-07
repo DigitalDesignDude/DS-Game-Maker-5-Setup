@@ -1,0 +1,13 @@
+TYPE 0
+DISPLAY Create !1! on %3% at Position !4!, !5!
+ICON ObjectCreate.png
+CONDITION 0
+ARG Object,4
+ARG Instance ID,0
+ARG Screen,1
+ARG X,0
+ARG Y,0
+Create_Object(!1!, !2!, !3!, !4!, !5!);
+
+
+NOAPPLIES

@@ -1,0 +1,8 @@
+TYPE 3
+DISPLAY Set %1% Brightness to !2!
+ICON Brightness.png
+ARG Screen,1
+ARG Brightness,0
+PA_SetBrightness(!1!, !2!);
+
+NOAPPLIES

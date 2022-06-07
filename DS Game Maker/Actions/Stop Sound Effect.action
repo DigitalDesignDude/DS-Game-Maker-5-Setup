@@ -1,0 +1,5 @@
+TYPE 1
+DISPLAY Stop Sound Effect
+ICON SoundStop.png
+Stop_Sound_Effects();
+NOAPPLIES

@@ -1,0 +1,5 @@
+TYPE 5
+DISPLAY Enable Guitar Controller
+ICON GuitarHero.png
+PA_InitGHPad();
+NOAPPLIES

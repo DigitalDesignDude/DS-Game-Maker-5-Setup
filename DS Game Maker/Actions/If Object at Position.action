@@ -1,0 +1,7 @@
+TYPE 0
+DISPLAY If Object is at Position !1!, !2!
+ICON ObjectPosition.png
+CONDITION 1
+ARG X Position,0
+ARG Y Position,0
+if (Get_X(AppliesTo) == !1! && Get_Y(AppliesTo) == !2!) {

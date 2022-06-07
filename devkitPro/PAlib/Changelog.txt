@@ -1,0 +1,1697 @@
+-------------------------------------------------
+| PAlib 100707 QuickFix: The last PAlib release | fincs
+-------------------------------------------------
+
+[General] Removed the ASlib IPC clear code, it was doing more harm than good.
+
+[3DSprites] PA_3DCreateSprite now returns the GFX number.
+
+[Linux] Fixed a backslash (\) path to use forward slash (/).
+
+[Examples] The updating script screwed up some sound examples, it's now fixed.
+
+[EFS] EFS support was dropped in favor of libfilesystem.
+
+[Editors] PN support is now dropped.
+
+[Fix] PAlib now works with devkitARM r31.
+
+[Sprite] Fixed PA_DeleteSprite bug (thanks BassAceGold).
+
+--------------------------------------------------
+| PAlib 0912XX STABLE beta: PAlib.evilness -= 99 | fincs
+--------------------------------------------------
+
+Note: PAlib was a mess in the ARM7 side before this release.
+
+[Bugfix] Fixed the crackling bug on some cards by clearing the ASlib IPC (hopefully).
+
+[libnds] Enabled the libnds functions that use the system FIFO channel.
+
+[Pad/Stylus/RTC/Screen lights/LED blink] Now using stable (and fast/efficent) FIFO-based libnds code instead of the old (and slow/inefficent) IPC-based code.
+
+[Cleanup] Removed the supporting hitchhikr mod player code that made it to former releases (!).
+
+[Fifo] Added a new PAlib Fifo system (i.e. Fifo channel) for some commands that aren't present in libnds.
+
+[DS Lite Brightness/Microphone] Now using Fifo instead of the old IPC system (and extra improvements). Warning! The DS lite code is untested as fincs doesn't own a DS lite :P
+
+[Microphone] Recorded sounds are no longer ugly due to the change above.
+
+[Microphone volume] This area has been improved with an algorithm made by fincs. 0-75 = background noise, 75-150 = regular talking, 150-255 = blowing.
+
+[Microphone] Added a microphone stop function.
+
+[Lid code] Now using FIFO to tell the ARM7 to sleep. Caution: MP3 will glitch if you don't pause it before closing the lid so be careful!
+
+[ARM7] The base code in all ARM7 cores (input/output, etc) was split into a separate ARM7 library.
+
+[IPC] PA_IPC_compat was renamed to PA_Transfer as it's now used as a storing place like libnds does.
+
+[PA_IPC] Deprecated, initialization of it is now optional (via PA_LegacyIPCInit()).
+
+
+[VBlank] Now only flushing the compatibility IPC structure instead of flushing everything, programs should run a bit faster now ^^
+
+[ASlib] The ASlib ARM7 code was moved to the shared ARM7 library so each core that uses it doesn't have its own copy.
+
+[16c] Corrected bug that only erased half of the screen (thanks Soulanger).
+
+[PSG] Now using Fifo, it should be faster at playing new tones/noises now.
+
+[Const correctness] Added const-correctness to the AS_MP3StreamPlay() function.
+
+[ASlib] The default SFX rate was changed to 11025 to better suit PAlib. AS_SetDefaultSettings() is no longer needed for 11025 Hz sound effects (though you can use it to improve the quality of your sound effects via exporting them in a higher frequency and using this function).
+
+[PA_Locate] Fixed by using standard directory functions.
+
+[ASlib] Reorganized the members of the IPC structure for better word-alignment, saved 128 bytes of memory :D
+
+[Directory structure, again] Removed the lib subfolder. The folders include, lib and source are back at the root PAlib directory.
+
+[PA_Makefile] Severe cleanup. Please update your Makefile with the one from the template.
+
+[PA_Makefile] Removed .ds.gba output support as .nds files created by ndstool already include a loader for GBA flashcarts.
+
+[PA_Makefile] The logo.bmp file is now optional. If it doesn't exist it grabs the default one (PAlib/lib/defaultlogo.bmp).
+
+[Core] PA_InitVBL() was disabled as VBlank initialization is now automatically done in PA_Init().
+
+[Functions] Renamed PA_InitText to PA_LoadDefaultText and PA_InitKeyboard to PA_LoadDefaultKeyboard. You can still use the old function names though...
+
+[Backgrounds] Deprecated the old token-pasting macros for backgrounds/fonts and introduced new functions that take a struct pointer instead.
+
+[Examples] Changed examples to use the new background/font functions.
+
+[Documentation] Many Doxygen warnings were fixed and the documentation was cleaned.
+
+[Documentation] Now comes with separate CHM and PDF files.
+
+[Documentation] Added instructions/tools/scripts to generate the documentation.
+
+[Tiled system] Fixed PA_DeleteMap(), it was glitching the tiles instead.
+
+[GIF] GifToTiles() and GifToTex() have been removed as converting graphics at runtime is bad practice.
+
+PAGfx changes (v0.10 by fincs)
+==============================
+
+PAGfx
+-----
+
+[Output] The outputted header is now even cleaner.
+
+[Custom transparent color] Fixed :s
+
+[Backgrounds] Now outputting a background structure instead of pointers to the files.
+
+[Backgrounds] Renamed InfiniteMap to UnlimitedBg.
+
+[Backgrounds] The TiledBg and LargeMap modes were finally obsoleted by EasyBg.
+
+[Backgrounds] EasyBg is now the default.
+
+PAGfx Frontend
+--------------
+
+[Custom transparent color] Fixed :s
+
+[INI load] Marking TiledBg and LargeMap as obsoleted -> EasyBg.
+
+[UI] The UI was made less noisy (no more annoying msgboxes!).
+
+C++ wrapper library (experimental)
+===================
+
+[C++] A new experimental PAlib module that wraps PAlib functionality was added for those C++ users there :)
+
+[C++ template] A template for C++ programs that uses the wrapper classes was added.
+
+[C++ examples] Some C++ examples were added (PAlib/examples/C++)
+
+[PA::Application] Added an application class.
+
+[PA::Fixed] Added a fixed point number wrapper.
+
+[PA::Sprite] Added a simple sprite class.
+
+[PA::HandleProvider] Added a HandleProvider class. Use it to easily manage sprite numbers and such.
+
+--------------------------------------------
+| PAlib 090801 beta: We're almost there... | (You Want It?) | fincs
+--------------------------------------------
+
+[PAlib] Compiled with libnds 1.3.7.
+
+[DMA_Copy] Now checks if the source is NULL and fills with zeros instead, fixes some no$gba warning-related problems.
+
+[Many #defines] All defines that used the format #define PA_Function() { blah } has been changed to #define PA_Function() do{ blah }while(0). This makes every #define "safe".
+
+[inline functions] Changed all extern inlines to static inline.
+
+[3D Sprites] Rotation was fixed.
+
+[no$gba] Reverted back to the latest free version (2.6) now that a FIFO-related problem that was causing this version to not function properly was fixed in libnds.
+
+[Debugging] Added some debugging functions including iDeaS debugging console output and emulator detecting.
+
+[Text system] Updated the default font with the full character set: http://forum.palib.info/index.php?topic=6413.0
+
+[C Standard Library] Now disabling UTF-8 support in the C standard library on startup. It was causing problems with the string functions and extended ASCII characters.
+
+[Environment variables] The PAPATH variable is no longer needed.
+
+[PAGfx and graphics including system] #include "gfx/all_gfx.c" is gone, and new versions of PAGfx and PAGfx Frontend were rolled out.
+
+[Examples] The examples have been updated with the new PAGfx and including system.
+
+[Errors] The PAlib error screens have been improved.
+
+[Speed test] The speed test routines were removed due to uselessness.
+
+[Text functions] Added const-correctness to them.
+
+PAGfx changes (v0.9 by fincs)
+=============================
+
+General
+-------
+
+[Build system] Now maintaining two versions: the .NET version for Windows and the Mono version for Linux/Mac OS X/others.
+
+PAGfx
+-----
+
+[Export] Exporting support for .c files has been removed as the #include "gfx/all_gfx.c" method has been deprecated.
+
+[Transparent colors] Now supporting Hex colors as transparent colors.
+
+[Command line] When specifying another PAGfx.ini it outputs to the folder where the file is in.
+
+[all_gfx.h] The output file is now more clear and uses #pragma once instead of an #include guard.
+
+[Palettes] Now PAGfx doesn't truncate the palette when it has less than 256 colors.
+
+[Invalid C identifiers] PAGfx now replaces all invalid characters in the C identifiers with an underscore ("_").
+
+PAGfx Frontend
+--------------
+
+[Color/Background Modes] Now supporting the whole color and background modes.
+
+[Textures] Texture loading from PAGfx.ini was fixed, it now works.
+
+[Transparent color] Now supports specifying a custom transparent color.
+
+[Color mode warnings] Replaced the annoying color mode warning msgboxes by a status "bar".
+
+[Toolbar] The "Update Row" button has been removed as it only crashed PAGfx.
+
+[INI exporting] Graphic files that are on the same folder as PAGfx.exe or in a subfolder are exported without the full path.
+
+[Mono-version] The PAGfx Frontend was ported to Mono, albeit with some GUI glitches.
+
+[Mono-version] Colormode warnings have been disabled under Mono due to lack of support.
+
+--------------------------------------------
+| PAlib 090621 beta: Some small changes :) | n00bey
+--------------------------------------------
+
+[Makefiles] Two makefiles were added in the PAlib source so now 'make' works again (only concerns Linux users, Windows users can just continue to use the .bat file).
+
+[PA_Locate()] PA_Locate() was put back into PA_Stuff.c
+
+[PA_16cPutPixel] It now 'sets' the pixel instread of just making a logical-or (|) (may be slightly slower, please report back about it, so we can decide about changing it back).
+
+[UserInfo] Fixed personal message and name.
+
+[Keyboard] PA_InitCustomKeyboard fixed (it still used the old PAlib-Keyboard structure name).
+
+[PAlib] Removed the Blank array and replaced every DMA_Copy it was used by with a NULL (what a memory waste, 260000 bytes just for zeros...).
+
+[Examples] PAlib/examples/Bitmap8-16bit/Fake16bit: replaced '\' with '/' in the #include to gain compatiblity with Linux...
+
+[Examples] PAlib/examples/Sprites/Effects/DrawOnDblsize & DrawOnSprite: replaced Blank with NULL
+
+-----------------------------------------------------
+| PAlib 090613 beta: THIS BETA VERSION CONTAINS WIN | fincs
+-----------------------------------------------------
+
+[PAlib] Compiled with devkitARM r26 and libnds 1.3.5
+
+[3D Sprites] The infamous viewport bug has been fixed.
+
+[no$gba] no$gba has been updated to 2.6a as this is the only version that emulates correctly the inner workings of libnds (FIFO).
+
+[iDeaS] iDeaS has been updated to 1.0.3.1.
+
+[Directory structure] The whole directory structure that the library part of PAlib uses has been changed so that it follows the standards.
+
+[PA_Makefile] A new user-friendly pre-compilation warning & error system has been added that checks for common mistakes.
+
+[Template] The template has been made more newbie-friendly.
+
+[HelloWorld] This example has been rewritten with the same newbie-friendly code that the template uses.
+
+[EFSlib] This library has been made compatible with devkitARM r26.
+
+[PA_IO.c] This file was removed due to uselessness.
+
+[PA_Locate()] This function was removed. There are better solutions.
+
+[Wifi] An example on how to download files with ky_GetURL() has been added (Wifi\dswifi\DownloadFile). All credit goes to Kumyco who let me use his code.
+
+[PA_GetHTTP()] As this function was broken, it was removed from PAlib. Use ky_GetURL() instead (look at the Wifi\dswifi\DownloadFile example)
+
+SVN changes that were applied to this release
+---------------------------------------------
+
+[Keyboard] The keyboard now supports the whole US-ASCII character set. The four characters "{", "}", "|" and "~" were added, the first three replacing "[", "]", "\" in capslock mode. The visual representant for the apostroph looks no longer like an acute accent.
+
+[Keyboard] Added key repeat functionality for uppercase letters and symbols.
+
+-------------------------------------------------
+| PAlib 090601 beta: Keep this project alive... | n00bey
+-------------------------------------------------
+
+[PAlib] Compiled with devkitARM r26 and libnds 1.3.4
+
+[RTC] This section has been fixed. time() and gmtime() is used now
+
+[RTC] Instead of printing out the years that passed since 2000 i.e. 09 for this year, PA_RTC.year now is set to the absolute year 2009
+
+[RTC] PA_RTC.FPS also works now that RTC is fixed
+
+[3D Sprites] Added some fixes for 3D Sprites; Deleting 16bit sprites should work now (Thanks to Rodrigo Roman)
+
+[Examples] Removed the PAFS examples.
+
+[Rotational Bitmap Text] Some fixes were applied.
+
+---------------------------------------
+| PAlib 090509 beta: Yet another beta | n00bey
+---------------------------------------
+
+[PAlib] Compiled with devkitARM r26 and libnds 1.3.3
+
+[PAlib] Fixed some #include paths: PAlib now can be compiled on Linux again without errors...
+
+[ARM7_MP3_dswifi] As we all know that inlining is disabled with -Os I removed -Winline...
+
+[Sound] as_lib.c:159: changed IPC_Sound->chan[i] to IPC_Sound->chan[minp_ch] - why noone else saw the warning that it accessed a element out of the arrays size -_- ?
+
+[PA_IO] Fixed PA_ReadTextFile ... It now returns a pointer that has to be free'd afterwards
+
+[General] Yay! No warnings when compiling :P
+
+
+--------------------------------------------------------------------------------------
+| PAlib beta 090408: "Finally working with the latest version of devkitPro" Edition! | fincs
+--------------------------------------------------------------------------------------
+
+[PAlib] Now PAlib is compatible with devkitARM r25 and libnds 1.3.3 thanks to n00bey and fincs!! Enjoy!
+
+[Sound] MikMod and hitchhikr's mod player have been removed in favor of the new MaxMod library that comes with devkitPro (/examples/Sound/MaxMod/)
+
+[Wifi] LibLobby support has been temporarily removed.
+
+[ARM7 cores] The set of ARM7 cores has been modified: ARM7_MP3, ARM7_MP3_DSWIFI and ARM7_MAXMOD_DSWIFI.
+
+[FAT loading] NightFox's FAT loading functions have been removed because they were buggy. Use the latest version of the functions instead.
+
+[Video] This whole section has been removed (legacy stuff that is useless)
+
+[Splash screens] The splash screen functions have been removed because they were useless. Code your own instead.
+
+[Workspace] VisualHAM has been removed in favor of Programmers' Notepad that comes with devkitPro.
+
+[Tools] viDeoconverterS has been removed.
+
+[PAFS] PAFS has been removed.
+
+------------------------------
+| PAlib 080823 : Tighten Up! |
+------------------------------
+
+
+New Stuff
+---------
+
+[Input] Added functions for using the Guitar Hero grip controller. See the example code in /examples/input/GHController for how to use them. These functions were contributed by BassAceGold.
+
+[Input] Added functions for using the Taito Paddle controller. See the example code in /examples/input/TaitoPaddle for how to use these functions. Thanks to Yasu for figuring out how it works.
+
+[FAT Loading] A whole new library for loading graphics and sound assets from FAT (EFS or regular FAT with DLDI) is introduced to PAlib thanks to NightFox! You can now easily load backgrounds, sprites with their palettes, textures, sound effects and other files from FAT. See the examples in /examples/FAT/FATLoading and the PAlib documentation (English only, sorry) for how to use these great new functions.
+
+[8/16bit] A new "fake" 16-bit bitmap drawing mode by fincs. This simulates a 16-bit background using an 8-bit background by changing palettes every HBlank, and thereby frees up the large chunk of VRAM needed for a true 16-bit mode. See the included example in /examples/Bitmap8-16bit/Fake16bit or the PAlib documentation for usage.
+
+[3DSprites] MaaS wrote a new function, PA_3DSetSpritePalCol, for changing 3D sprite palette colors on the fly.
+
+[ARM7] Added a new arm7 core with only aslib and no wireless stuff, so it SHOULD work on M3/G6 Real. For increaed compatibility, this is now the default ARM7 binary, so be sure to select a different one in your Makefile if you need DSWifi or other ARM7 features. (See the readme file in the template folder for information on how to edit the Makefile to select a different ARM7 binary.)
+
+
+Updated Oldies
+--------------
+
+[Installer] Updated the PAlib installer. All items are now optional and the root path is user-selectable.
+
+[AS_Lib/Sound] Noda provided a new AS_Lib version and defines for EFS were removed. Using ASlib with EFSlib v2 now only requires including the efs_lib.c/.h files in your project.
+
+[Sound] PA_InitASLibForSounds, PA_InitASLibForMP3 and PA_InitSound have been removed. You should now use the following methods to initialize AS_Lib in the mode you desire:
+
+/* Init AS_Lib for mp3s */
+PA_VBLFunctionInit(AS_SoundVBL); // easy way to make sure that AS_SoundVBL() is called every frame
+AS_Init(AS_MODE_MP3 | AS_MODE_SURROUND | AS_MODE_16CH);  // initializes AS_Lib
+AS_SetDefaultSettings(AS_PCM_8BIT, 11025, AS_SURROUND);  // or your preferred default sound settings
+
+or
+
+/* Init AS_Lib for sounds only */
+AS_Init(AS_MODE_SURROUND | AS_MODE_16CH);  // initializes AS_Lib
+AS_SetDefaultSettings(AS_PCM_8BIT, 11025, AS_SURROUND); // or your preferred default sound settings
+
+[Random] OlliPolli has improved PAlib's Random functions. They are now faster, better and bigger (bigger random numbers, that is) and PA_InitRand is no longer needed.
+
+[Text] ThemePark has made a very useful change to PA_OutputText and PA_OutputSimpleText. They now support newlines (\n) in the body of the text.
+
+[Backgrounds] Maple identified a problem with PA_DeleteBg and improved the function so that it now fully resets the background instead of just deleteing the tiles and hiding it. This should solve problems when switching between large map backgrounds and regular backgrounds on the same layer.
+
+[Makefile] Removed --gc-sections from the Makefile. Thanks to Noda.
+
+[Makefile] The Makefile in your project directory now only contains lines that will commonly change from project to project with the bulk of the Makefile being moved to /palib/lib/PA_Makefile. This should solve some updating issues and make editing the Makefile easier. Thanks to crash for this change.
+
+[Examples/3DSprites] All 3DSprites examples have been updated so that PA_3DProcess comes after the vblank. This is the prefered method for rendering the 3D sprites and can solve a problem with flickering or tearing textures if a lot of 3D sprites are on screen.
+
+[Examples/EFS_Lib] The EFS_Lib examples in /examples/FAT/EFS_Lib and /examples/Sound/ASLib_with_EFSlib have been updated to use EFS_Lib v2.0. Huge thanks to Noda for creating this wonderful library!
+
+[Emulators] Updated all emulators (iDeaS, DeSmuME, No$GBA, NeonDS) and provided Linux versions where available (iDeaS, DeSmuME).
+
+
+Things Fixed
+------------
+
+[Mic/Sound] Fixed PA_MicReplay by returning the old PA_PlaySoundEx2 to the PAlib source. This also provides a rudimentary alternative sound engine when ASlib cannot be used.
+
+[8/16bit Drawing] Fixed bug in PA_8bitDraw and PA_16bitDraw that caused unwanted lines to appear when turning drawing on and off while the stylus was held down. Thanks to Maple for the solution.
+
+[BMP Loading] Fixed declaration in PA_GetBmpWidth and PA_GetBmpHeight that caused compiler errors for C++ users. Thanks to Frosty Chaotix and others for this.
+
+[Video] dmig has fixed the long time error in PA_LoadVid, which should now be working.
+
+[3DSprites] Fixed misdefinition in PA_3DUpdateSpriteAnims. This fix may help problems with flickering and tearing of textures.  Thanks to SevenString for the catch.
+
+[Sprites] Sylus101 fixed an issue in PA_ResetSpriteSysScreen that stopped sprite animations from working after the function was called.
+
+[Sprites] Fixed PA_GetSpriteNCycles returning wrong type and inconsistent definition for spriteanims.ncycles. Thanks to Salz` for catching this.
+
+[Input] Fixed bug preventing Pad.xxx.Anykey from recognizing the Y button. Thanks to ant512 for uncovering this bug ages ago and now it's finally been fixed in the source.
+
+[GIF Loading] ThemePark fixed a bug in PA_3DCreateFromGif and many transparency related problems in PA_GifToTex/GifToTiles. These functions are optimized and should be working properly now. See the exmaples for new usage.
+
+[Pathfinding] AntonioND updated the PA_Astar path-finding function. It's more efficient, returns an error value (-1) if there is no solution and a possible infinite loop bug has been fixed.
+
+[Window] Schyzophrenic fixed an error in PA_EnableWin that prevented full declaration of layer priorities against the windows.
+
+[Palettes] MaaS fixed bug in PA_SetSpritePalCol that caused corruption of sprites.
+
+[General] Fixed PA_CloseLidSound. Thanks to unkwar.
+
+[General] Finally fixed PA_PowerOff.
+
+
+-----------------------------------
+| PAlib 080313 : Community Update |
+-----------------------------------
+
+
+New Stuff
+---------
+
+[PAlib-arm7] There is now the possibility to choose from several arm7 cores by using different makefile options. See the PAlib template project folder ReadMe.txt for the details.
+
+[Music/Sound] Added Noda's AS_Lib, removed the old modplayer. If you want to play mp3's with AS_Lib, you have to select an arm7 core which supports it. PAlib's old sound functions are thus deprecated and no longer supported, but there are some macros to provide a better compatibility to old code. There is one important difference, however: PA_PlaySimpleSound(sound) and PA_PlaySoundRepeat(sound) now return the sound channel the sound is played on, which is allocated automatically!
+
+[Wifi] Added support for liblobby for direct DS<->DS connections. To use it, you have to download liblobby (see install.txt) and select an arm7 core which supports it. Example is at PAlibExamples/Wifi/libLobby.
+
+[Music] Added the modplayer by hitchhikr ( http://forum.gbadev.org/viewtopic.php?t=14628&highlight= ). To use it, select a proper arm7 core. Example is at PAlibExamples\Sound\ModPlayback.
+
+[Music] Added support for libmikmod by Stonebone ( http://forum.gbadev.org/viewtopic.php?t=14710 ). To use it, download mikmod (see install.txt) and select a proper arm7 core. Example is at PAlibExamples\Sound\MikMod.
+
+[FAT] Added Lick's Locator() as PA_Locate(). Use it to locate the data folder or file of your game on the flash card, so you don't have to force the players to store it in the root of their card or in another specific place.
+
+[Examples] Added example for PA_Locate() in PAlibExamples/FAT/Locate
+
+[Examples] Added converted example for AS_Lib in PAlibExamples/Sound/ASLib_General and ASLib_using_EFSLib to show how to stream mp3's from EFS
+
+[Examples] Added a simple sound playback example for AS_Lib in PAlibExamples/Sound/SoundPlayback
+
+[16cText] Complete rewrite, cleaner code, now allows Rotations. Thanks to Michoko for additional fixes
+
+[8bitText] Complete rewrite, now uses the same base as the 16cText. Easier to maintain code, lighter when using both, allows all the alignements (PA_TextAlign(align)). PA_CenterSmartText and PA_SmartText left for backwards compatibility... Correction function is now PA_8bitText
+
+[dsFont] Added the dsFont tool which generates custom fonts from fonts installed on your PC in PAlib/Tools/dsFont
+
+[EFS_Lib] Added an example for Noda's EFS_Lib in PAlibExamples/FAT/EFS_Lib. See the ReadMe.txt for instructions
+
+[3DSprites] Added PA_3DSetSpritePalCol() to modify the 3D sprite palettes
+
+
+Updated Oldies
+--------------
+
+[Documentation] Updated the documentation using the latest Doxygen (a \~ had to be added before every \param to solve an issue with the languages)
+
+[Examples] All use the new makefile (see "Things Fixed")
+
+[Cleanup] Deleted unneccesary thumbs.db, log.txt, svn files
+
+[3DSprites] Added PA_3DGetSpriteX and PA_3DGetSpriteY (thanks to Pitt)
+
+[3DSprites] Added PA_3DSetSpriteVisible
+
+[Emulators] Updated all emulators to the latest version, added additional emulators
+
+[PA_API] Code was outdated and is now deleted. Try the woopsi window system as a more complete alternative
+
+
+Things Fixed
+------------
+
+[devkitARM] Compiles with devkitARM r21 (fixes in PA_3D.c and PA_3DSprites.c) -> Vista compatibility!
+
+[Makefiles] No longer include a WIFI icon (which is never shown). This allows for example normal .nds files to run in no$gba and, for example, on Supercard SD's - you should no longer need the .sc.nds file, so it is no longer generated.
+
+[Misc] New function PA_PowerOff() to shut down the DS; it was there on the arm7 side but unable to be used
+
+[Wifi] Changed the deprecated close() in the Leaderboard code to the correct closesocket()
+
+[BgTiles] PA_ReLoadBgTiles should work in all cases (thanks to Retrohead)
+
+[PA_SetSpriteAnimFrame] Now sprites changes frame correctly (thanks to Lotti)
+
+[Draw] PA_LoadBmpToBuffer() now works properly (thanks to Chris Lu)
+
+[SpriteAnims] PA_GetSpriteNCycles fixed (thanks to jabba)
+
+[16cText] Left 1 extra pixel letter spacing in the previous release, now fixed
+
+[Jpeg] Potential Jpeg fix, seems fixed but occured very rarely
+
+[Linux] Ubuntu/Debian packages created!
+
+[Linux] Changed all makefiles to Makefile for correct compilation
+
+[Linux] Added #!/bin/sh in PAlib/lib/arm7/clean.sh and PAlib/Tools/PAGfx/PAGfx.sh
+
+
+-----------------------------
+| PAlib 070717 : Misc Stuff |
+-----------------------------
+
+
+New Stuff
+---------
+
+[16bit] Double Buffering added
+
+[Image] ImageSplitter added, an app to split up big images with frames into several smaller sprites. See example to use the app. It's basic and doesn't manage any 'error' ^^
+
+
+Updated Oldies
+--------------
+
+[Text] Now supports %x for Hex output
+
+[16cText] Added PA_16cTextLineSpacing(u8 spacing) and PA_16cTextLetterSpacing(u8 spacing)
+
+[iDeaS] Updated to 1.0.1.7
+
+[Size] Optimised a bit more how PAlib code is organized, saves a few kB everywhere for some projects :)
+
+[Reco] Added PA_RecoInfo.Difference and PA_RecoInfo.Shape for the shape found and the amount of difference (test to find the values you like ^^) to that shape
+
+[Wifi] Updated to latest version
+
+
+Things Fixed
+------------
+
+[RTC] Reverted back to older code, now works
+
+[Linux] PAlib compilation fixed
+
+[3DSprites] Fixed bug of 3D not showing after using scrollable backgrounds. Big thanks to Sumiguchi ^^
+
+[Timers] Chris Liu fixed the Timers !
+
+[Sprites] Fixed PA_GetSpriteAnim (thanks to Doud !)
+
+
+-----------------------------------
+| PAlib 070615 : Sumiguchi's Work |
+-----------------------------------
+
+
+New Stuff
+---------
+
+[Keyboard] Added PA_SetKeyboardScreen(screen) to select the screen to use for the keyboard prior to loading it... Added a 3DSprite examples (on the top screen) using the keyboard. Optimized the code slightly
+
+[Fatlib] Ashai Rey's LoadGif example added, using FAT
+
+[Examples] Sumiguchi's Fireworks demo, using 3DSprite, is now in Demos/Fireworks :)
+
+[Vham+iDeaS] Thanks to Lino, iDeaS (my new best friend ^^) now comes bundled with PAlib, and is included in Vham. Press F8 to compile+load in iDeaS :). Runs at a much more accurate speed for 3DSprites than no$gba
+
+[BgAlpha] Added Sumiguchi's example
+
+[DblBuffer] Added PA_8bitSwapBuffer(u8 screen) and PA_Init8bitDblBuffer(u8 screen, u8 bg_priority)
+
+[8bit] Double-Buffering made it in...
+
+[Wifi] Sumiguchi's LeaderBoard code got added ! bool PA_SubmitScore(char *response, char *gamekey, char *playername, int score, char *level, u8 responsetype)
+
+
+Updated Oldies
+--------------
+
+[libnds] Updated to latest release
+
+[Sprites] Added Error message when overloading Sprite VRAM
+
+
+Things Fixed
+------------
+
+[PAFSSound] Fixed compilation errors in CPP
+
+[Microphone] Should sound better
+
+[VHam IDE] NdsLauncher updated, now looks for no$gba in devkitPro/No$GBA and PAlib/Emulators/
+
+[16cText] Word Wrap is better now
+
+[Tiles] Fixed Hflip, Vflip, and Pal functions, thanks to Pouer
+
+[TextPrint] Quick fix in PA_Print, nothing major
+
+[WindowFade] Fixed 1 pixel showing incorrectly in some fades
+
+[16bi] Minor fix
+
+
+
+
+----------------------------------
+| PAlib 070323 : Texts revisited |
+----------------------------------
+
+
+New Stuff
+---------
+
+[16cText] Added PA_16cTextAlign(u8 align), taking as arguments ALIGN_LEFT, ALIGN_RIGHT, ALIGN_CENTER, or ALIGN_JUSTIFY.
+
+
+Updated Oldies
+--------------
+
+[16cText] Saves 10 to 20kB on the default font sizes : their stores as 1bit fonts instead of 4bit, and only converted to 4bit if used. So unused font sizes won't take up that much space anymore :)
+
+
+Things Fixed
+------------
+
+[TextColors] Fixed them, thanks to Tom :)
+
+[Gif] PA_LoadGifXY fixed, thanks to Ashai Rey
+
+[Sound] PA_PlaySoundRepeat is back, looks like I forgot to save PAlib when I added it :s
+
+[PAFS] Sound is fixed
+
+[PSG] ClrFog fixed the example :s
+
+
+
+----------------------------------
+| PAlib 070316 : Community Build |
+----------------------------------
+
+New Stuff
+---------
+
+[3DSprites] Added PA_Init3D2Banks(void) and PA_Reset3DSprites2Banks(void) to use 2 banks instead of 1, but it removes the backgrounds from screen 0...
+
+[3DSprites] Added functions to load from gif files. Check the example to see how it works. This is much slower than the normal texture functions :)
+
+[3DSprites] Added PA_3DSetSpriteAlpha(sprite, alpha) and PA_3DSetSpritePolyID(sprite, polyID (0-64)) and the example... Sprites must have different polyIDs to alphablend. You might want to set the sprites to different priorities too ;)
+
+[FATlib] Added Sumiguchi's FAT example :) (http://palib.info/forum/modules/newbb/viewtopic.php?topic_id=2556&post_id=16028#forumpost16028)
+
+[Sound] PSG support added, check example for more info
+
+[BgWrap] PA_SetBgWrap(u8 screen, u8 bg, u8 wrap) added, for RotBg, 8bit, and 16bit backgrounds. Usefull if you need to scroll around 8bit/16bit backgrounds. Thanks to mastertop for the tip :)
+
+[BgTrans] Added PA_BgTransCenter(u8 screen, u16 type, u8 invert, s16 state); and the example...
+
+[Transitions] Added BrightnessFade2 and the example
+
+[ModPlayer] Added PA_SetModVolume(0-127) and PA_GetModVolume(), plus a nice example :)
+
+[ModPlayer] Added PA_SetModChanPan(u8 channel, u8 pan) and PA_SetModPan(u8 pan), with the example, as always ^^
+
+[Hardware] Now auto-turns off the DS on lid close by default. You can change that by using PA_SetAutoCheckLid (if you want to have it always on, or have your custom CheckLid).
+
+
+Updated Oldies
+--------------
+
+[PAGfx] Now returns an error message if you give it wrong filenames (typo or name starting with a number)
+
+[ModPlayer] Abrexxes updated the modplayer, should with more mods now :)(http://palib.info/forum/modules/newbb/viewtopic.php?post_id=16043#forumpost16043)
+
+[Sound] Repeat is back. Also added PA_PlaySoundRepeat(PA_Channel, sound) and an example using it. 
+
+
+
+Things Fixed
+------------
+
+[Sprite] PA_SpriteTouched now works in all corners, sorry
+
+[DSMotion] Fixed
+
+[GifToTile] Cedric fixed a memory leak, thanks :)
+
+[3DSprites] Textures were overlapping when using very large sizes, fixed :)
+
+[3DSprites] Textures were overlapping when using very large sizes, fixed :)
+
+[3DSprites] Fixed width/height, now supports non-square textures/sprites. Added rectangle example with 256x32 sprite
+
+[3DSprites] Fixed Priorities on DS
+
+[16bit] PA_Draw16bitRect should be fixed
+
+
+
+----------------------------------
+| PAlib 070222 : Not doing 3D... |
+----------------------------------
+
+New Stuff
+---------
+
+[3DSprites] Animations made it in this release ! Check the 3DSprites Animation examples ;) Works 100% like the normal sprite animations, shouldn't be too hard
+
+[3DSprites] You can now change the corner positions in textures. Check out Deform examples
+
+
+Updated Oldies
+--------------
+
+[3DSprites] Added PA_3DCreateSprite, and DeleteTex now works :)
+
+[Examples] Updates for the whole 3D examples
+
+
+Things Fixed
+------------
+
+[BinFiles] Fixed Bin examples, was a all_gfx.h problem in PAlib
+
+[16cExample] Fixed 16cText2 example, forgot to erase text :s
+
+
+
+--------------------------------
+| PAlib 070220 : 3DSprites WIP |
+--------------------------------
+
+New Stuff
+---------
+
+[3DSprites] Completely new 3D Sprite system, only for one screen though... Check out the examples, there's too much stuff to post here :/ You can all flood DAVIDO with thanks, because he really helped me alot ^^
+
+[Examples] Added Demos/MultipleFiles example to show how to use header and .c files correctly
+
+[PAGfx] Updated to convert textures, still limited right now (check 3DSprite examples). Supported modes : 4colors, 16colors, 256colors, 16bit, A3I5, and A5I3
+
+
+Updated Oldies
+--------------
+
+[Makefile] Makefile updated, thanks to DAVIDO ! Please take the on in the template or any example...
+
+[PAGfxLinux] Updated to match Windows PAGfx...
+
+[Examples] Reorganized examples into subfolders, should make looking for a specific example easier. Please erase your exemple folder before reinstalling...
+
+[TextFont] Updated the Tiled Text Font to Liquid Kidz : http://www.dafont.com/liquid-kidz.font. Hope it pleases more people than the old one ^^
+
+
+Things Fixed
+------------
+
+[PAGfx] 16bit sprite transparency and occasionnal bg compilation error
+
+[Fonts] 16c and 8bit now have the dot at the right height...
+
+
+------------------------------------
+| PAlib 070216 : Transitions Rule  |
+------------------------------------
+
+New Stuff
+---------
+
+[BgTrans] Completely new Background Transition effects, check them out in the Transition examples !
+
+[8bitText] Added a StarWars Text example, in the Text folder. Useless ? Yeah, I know ^^
+
+
+Things Fixed
+------------
+
+[PAFS] Fixed on DS (to be confirmed :/)
+
+
+
+
+-------------------------------
+| PAlib 070214 : Love Edition |
+-------------------------------
+
+New Stuff
+---------
+
+[EasyBg] Added PA_EasyBgLoadPtr(screen, bg_number, bg), which can take the new background pointers ! Requires to convert with the new PAGfx... Added LoadBgPtr example to show how to use an array with it.
+
+
+Things Fixed
+------------
+
+[RotBg] Fixed a bug in PA_Set/GetRotBgTile
+
+[APIButtons] Fixed API Button example, the text wasn't set correctly
+
+[16c] Was using twice as much memory as needed :s
+
+[DSMotion] I had forgotten to update some of the DS Motion examples...
+
+
+
+
+
+------------------------------------
+PAlib 070206 : devkitPro r20 version
+------------------------------------
+
+New Stuff
+---------
+
+[Sound] Added PA_SetSoundChannelVol(channel, volume) to change the sound's playing volume... Added SoundChannelVolume as an example to show how it works
+
+[Sound] Added PA_SetSoundVol(Volume) to change the global volume level, and the example to go with it...
+
+[SpriteTouch] Added PA_SpriteStylusOver, similar to SpriteTouched, but which doesn't check if the stylus is held or not... Can therefore be used with Stylus.Released :)
+
+[DualBg] Added DualEasyBg functions, and an example to go with it : DualBackgrounds/EasyBg
+
+[8bit] Added PA_InitBig8bitBg(u8 screen, u8 bg_priority) : Same as PA_Init8bitBg, but with an available size of 256x256. Takes up a little more space but allows correct vertical scrolling...
+
+[SpriteSys] PA_ResetSpriteSysScreen(screen) added, to reset the sprite system only for a given screen. Highly untested, might give unwanted results, especially for running animations, please report any bug :)
+
+[PAFS_Bg] Added void PA_FSBgNameLoad(u8 screen, u8 bg_number, char* bg_name) to load a background by inputting it's name (should be easier :)   ), and the example to go with it...
+
+[BgPixel] Added PA_EasyBgGetPixel(screen, bg_number, x, y) (to get the palette color number) and PA_EasyBgGetPixelCol (same thing but returns the u16 color). Added 3 examples to go with it (tested with normal backgrounds, largemaps and infinite tile backgrounds...). Scrolling is of course taken into account ;)
+
+[Platform] Added Platform4 example, which changes the collision system to use PA_EasyBgGetPixel, and can now manage diagonal collisions :)
+
+[DSLite] Added PA_SetDSLBrightness(u8 level) to change the DS Lite light level (0-3)
+
+[SoundPan] Added PA_SetSoundChannelPan(channel, pan) to set the pan level (left-right, from 0 to 127) of a sound channel. It is reset to 64 after each sound played. Added an example to test it, works well :)
+
+[16cText] Added PA_16cLetterPos (.Letter[n].X/Y and .NLetters), which allows you to get the position of each letter outputted by the LAST 16cText...
+
+[Demos] Added a TypeWritter demo. It has a nice little cursor to add text anywhere in your string (not just at the end like the plain Keyboard example), and supports different text sizes, all this being done using the 16c Text system and the new PA_16cLetterPos structure
+
+[16c] Added PA_16cClearZone(u8 screen, s16 x1, s16 y1, s16 x2, s16 y2) to erase part of the screen
+
+[16c] Added 16cSprites example to show how to use the system to display 400 shots all over the screens ^^
+
+[16c] Egon added a really nice 16c example on how to use sprite animations on a 16c background !
+
+[16c] Egon added PA_16c8Xi(u8 screen, s16 x, s16 y, u32 *image,u8 i) :)
+
+[Text] The 'u' letter in 16c and 8bit texts, size 2, had an added pixel... I saw that the 'v' following it was missplaced by 1 pixel, it is now fixed :)
+
+[Gif2Frames] Added an app I made to decompose an animated gif into all the frames (in a single gif file)
+
+[Fat] Added latest snapshot of libfat and PA_IO.c/h
+
+[Fat] Added PA_InitFat()  to initialise any disk devices found, returns true if found.
+
+[Fat] Added PA_GetFileSize(FILE* pFile) to return a long of the file size
+
+[Fat] Added PA_ReadTextFile(char* pathname) to return the contents of a file to a char*. Added PA_WriteTextFile(char* pathname, char* text) to Write the contents of "text" to "pathname" returns the Number of bytes Written
+
+[Palettes] Added PA_LoadSprite16cPal(screen, n_palette, palette) and a 16colors sprite example
+
+[Demo] Platform examples 4 and 5 added to the examples/demo section, code updated to match the latest version :)
+
+[RotMaps] Added PA_SetRotMapTile(u8 screen, u8 bg_select, s16 x, s16 y, u8 tile_number) and PA_GetRotMapTile(u8 screen, u8 bg_select, s16 x, s16 y), using gmiller's code...
+
+[CustomFonts] Added PA_16cCustomFont(slot, fontname) and PA_8bitCustomFont(slot, fontname) and the examples to go with it... Wiki will be updated soon with the instructions. Requires the latest PAGfx version... PAGfx has been updated too, to do the conversion... 
+
+[DSMotion] Official DSMotion code added !!! Check the Input examples to see how it works (init/getting the data). Has 2 different ways of playing with it : either get the raw values and use that, or transform the data into Pad.Held.Up/etc data :)
+
+[DSMotion] Added MotionDraw, a simple demo...
+
+[Keyboard] Added PA_InitCustomKeyboard(bg_number, keyb_custom) to load custom keyboards (use instead of PA_InitKeyboard), and the example to go with it... Custom keyboards are 256 colors and should be converted as EasyBg...
+
+[DSMotion] Added MotionDraw2...
+
+[DSMotion] Added Angle and Force variables. Made a quick MotionTurn example to see how to use them
+
+[Compo] Added CompoSplash demo to show the DS Dev Compo Splash screen... Also contains a custom logo for the DS Compo, if you feel like it
+
+[SpriteTouch] Added PA_Sprite16cTouchedPix
+
+[16bitSprites] Added PA_Set16bitSpriteAlpha and the example to go with it
+
+
+Updated Stuff
+-------------
+
+[PAFS] Added PA_FSGetFolder(char *name), to get a folder number from its name... Returns -1 if not found
+
+[Sound] SoundBusy doesn't flush the cache all the time anymore
+
+[PAGfx] Better total time output (useless, but I don't care ^^). Removed the Palette generation purcentage, it always takes less than a second now :p
+
+[PAGfx] Completely new tile detection code, should be MUCH faster when converting very big/complex backgrounds... 
+
+[PAGfx] Found on the net a different method to read images, which is 10 times faster, I'm pretty sure you'll be amazed by how fast it converts backgrounds now ^^. Works for very large sprites too
+
+[Video] Video system moved to use PAFS. GBFS code removed. Example modified...
+
+[Sprites] Updated all the outdated sprite examples
+
+[PAFS] Name length passed to 64 characters. You'll need to use the latest PAFS.exe with the latest PAlib... (PAlib/Tools/PAFS)
+
+[PAGfx] Much better purcentage output (took into account the fact that it slowed down over time) and shows expected time left.
+
+[Arm7] Code cleaning... and again, and again ^^
+
+[Fat] Updated Fat Example to use new driver/code
+
+[Sound] Automatically calls PA_InitSteamSound() when a streaming sound is played
+
+[PAFS] Paco updated PAFS, should work better with FAT32 partitions :)
+
+[Gif] Gif files up to 2048 pixels wide will work now
+
+[MAKEFILE] MAJOR Makefile update, now pads the data files to 32bit, BIG THANKS TO GANDRAN !!! Should solve all the multiple sound inclusion problems/corruption... Please update your project makefile with any PAlibExample or PAlibTemplate makefile...
+
+[Sound] Sound code rewritten, you can now play several sounds per frame. The old sound system is present, it switches automatically to use if you call the Stream commands... You can also, in the same frame, stop a sound channel and launch a sound on that channel :)
+
+[Gif] Added PA_LoadGifXY, to load gifs to a specific part of the screen :). Updated the gif examples to work with it...
+
+[GetSpritePixel] Added PA_GetSprite16cPixel, for 16 color sprites, and an example to go with it...
+
+[Makefile] Makefiles updated, please copy one of the example/template makefiles and paste in your project. Includes the sound padding correction and includes the libwifi
+
+[DSMotion] Now uses an average, jitters less
+
+[Text] PAlib text output c files changed, saves up to 10KB/rom :)
+
+[Stylus] Updated code to the newer more reliable code :)
+
+[16bitSprites] Changed display settings, now uses less memory, requires latest PAGfx to work
+
+[3D] DEPRICATED
+
+[Vham] Added Compile + Launch in No$GBA, with F6. No$GBA isn't installed with PAlib, you must have a copy in c:\devkitPro\no$gba
+
+[Logo] Updated PAlib logo and wifi logo
+
+
+Things Fixed
+------------
+
+[PAGfx] 256 pixel wide backgrounds were rounded up to 512, this is fixed
+
+[Video] Fixed the video system
+
+[EasyBg] Fixed Tile flip bug when loading an EasyBg with more than 1008 tiles, not sure why it was still there :)
+
+[Sound] Sound no longer stops when turning screens off or setting the led to blink mode...
+
+[Microphone] Recoded the whole microphone, now works, though it's ugly...PA_MicGetVol(), PA_MicStartRecording(u8 *Buffer, s32 Length), PA_MicReplay(u8 PA_Channel, u8 *Buffer, s32 Length). See the new example  ;)
+
+[DualSprites] Should work better with big sprites. Added a DualSprite example
+
+[MoveSpritePix] Fixed the bug where the sprite couldn't be moved if partly off-screen... Might not work well with 64x64 sprites that are too much offscreen though, sorry, but that reaches the DS's X/Y corrdinate limits ^^
+
+[GifToTiles] Had a huge typo, width instead of height :s
+
+[PAFS] Paco found a bug that prevented from using other directories than Files...
+
+[SpritePrio] There was a typo : PA_SetSPriteExtPrio instead of PA_SetSpriteExtPrio...
+
+[PAGfx] No longer hangs when loading non-8pixel-padded backgrounds
+
+[Warnings] Fixed the FD_SETSIZE warnings
+
+[TextColors] TEXT_BLUE and TEXT_GREEN were inverted
+
+[Reco] Fixed upper screen mess-up when using the recognition system
+
+[SpriteAnims] Fixed first frame not showing when starting a new animation...
+
+[PAFSBg] Fixed PAFS Bg loading
+
+[PAGfx] No longer hangs if you have non-8 pixel multiple sprites. Automatically resizes it
+
+[Error] Fixed compilation error on projects with multiple cpp files
+
+[8bitText] Fixed 3 8bit text bugs
+
+
+
+
+PAlib 060917 : Biggest update ever ^^
+
+New Stuff
+---------
+
+[Tiles] New infinite tile system. Both PAlib and PAGfx have been updated to achieve this. PAGfx now has an InfiniteMap command to convert backgrounds with more than 1008 tiles... Check out the Backgrounds/InfiniteTiles example to see how it works. Example used has 1790 tiles...
+
+[Gif] Added new gif animation commands : PA_GifSetStartFrame(StartFrame), PA_GifSetEndFrame(EndFrame) and PA_GifGetFrame(). Also moved the examples to a separate Gif example folder. GifAnim2 uses these new commands :)
+
+[Gif Sprite] Added a function to convert gif files into tiles... This can be used to create sprites from a gif file ! PA_GifToTiles(gif, palette). Check the Gif/GifSprite example to see how to correctly use it... Good points : takes much less memory, no need for conversions ! Bad points : takes more RAM if you do not free your pointer after use... And is way much slower...
+
+[BG Prio] Added PA_SetBgPrioSeq(u8 screen, u8  priority0, u8  priority1, u8  priority2, u8  priority3), to set the backgrounds in a certain order. 100% not my code, not my idea, I just copy/pasted it ^^ Thanks to sumiguchi for that one
+
+[SpeedTest] Added a series of macros to test the speed of several functions and see which one is the best speed-wise... Check Math/SpeedTest example to see how it works, it's not very intuitive :/
+
+[PAGfx] New exports .bin files in the /bin folder ! To use .bin files instead of .c, simply copy the .bin files into the 'data' directory (create it in the main folder if not there), and include all_gfx.h, but NOT all_gfx.c... This will include the .bin instead of the .c files... Changes have been made both in PAGfx and PAlib to allow further evolution... Because of this, backgrounds converted with this version of PAGfx CANNOT work with older PAlib versions, and files converted with older PAGfx version CANNOT work with this version of PAlib... Sorry :/
+
+[PAGfx/PAlib] Added a new mode in PAGfx : EasyBg... This will automatically select the best mode for the background (between TiledBg, LargeMap, and InifiniteMap). A new set of commands has been created in PAlib to avoid thinking about it : PA_EasyBgLoad(screen, bg_number, bg_name), PA_EasyBgScrollXY(screen, bg_number, xscroll, yscroll)... (ScrollX and ScrollY also available). Editted the examples (not all) to reflect this new stuff. The wiki will be simplified soon as you don't have to think about what type of background you want now (the seperate explanations will be left in an 'advanced tutorial').
+
+[PAFS Backgrounds] Added PAFS/PAFS_Bg to see how to load backgrounds from PAFS ! You have to give it the number of the first background file (name_Info), and put all the .bin files in PAFS...  => PA_FSBgLoad(screen, bg_number, filenumber)
+
+[PAFS Sprites] Added PAFS/PAFS_Sprite to see how to load sprites from PAFS...
+
+[3d+Sprites] Sprites will now work on the 3d screen :D. Just run PA_Init(), and then PA_Init3D(); Added 3d+Sprites example to go with this... Untested on real DS :/
+
+[3d+Backgrounds] Backgrounds can now be used instead of sprites on the same screen as the 3d ! Just run PA_Init, and then PA_Init3DAndBg()... You cannot have both Backgrounds and Sprites when using 3d, sorry ! Important note : Background 0 is NOT AVAILABLE when using 3d, trying to use it will result in wrong display... Added 3d+Bg example to go with this...  Untested on real DS :/
+
+[FPS Counter] Added an FPS counter : PA_RTC.FPS... Yup, that simple, nothing more to do ^^ Check out the Other/FPSCounter example to see it running. It has a simple stress code to be sure the DS won't work at 60FPS, and you can actually change the amount of stress to see the FPS change...
+
+[SoundBusy] Added 2 functions : PA_SoundChannelIsBusy(channel) returns 1 if busy, 0 if free. PA_GetFreeSoundChannel() returns the first available sound channel, -1 if none free. 
+
+[StopSound] Checked, it worked... Added an example using it :)
+
+[LidSounds] Added PA_CloseLidSound(channel, close_sound) and PA_CloseLidSound2(channel, close_sound, open_sound), allowing you to play goodbye and welcome sounds when the lid is closed/opened ! Go see the Other/CloseLidSound example, sounds great :p  Big thanks to Timonator for the idea...
+
+[PAGfx] Added JustPal command for sprites, to extract the palette
+
+
+Updated Stuff
+-------------
+
+[Examples] Started cleaning up the examples, especially the images, should save a few Mb...
+
+[Examples] Added 16cText2 and 8bitText2, using stdio to output the date and time :)
+
+[Examples] Cleaned the examples... Please delete your PAlib and PAlibExamples folder before updating... Should save some size in the zip and installer, (500-1000kB)
+
+[Examples] Added BinFiles in Background and Sprites to see how it works
+
+[Sound] On by default
+
+[Sound] El Hobito added PA_StopSound(u8 PA_Channel);
+
+[8/16bit Modes] Saved up to 50ko/file when using these modes (Giflib was included by default :s), saved 3ko/file for other .nds files
+
+[PAGfx] Now displays % progression when converting big backgrounds, and total conversion time at the end
+
+[PAGfx] Quick fix, background could be corrupted on some small background sizes
+
+[Palettes] Added PA_Load8bitBgPal(u8 screen, void *Pal) to load palettes for the 8bit backgrounds :)
+
+[GBFS Sound] Removed the main GBFS sound function, should win a few kB in the rom
+
+[GBFS] Removed the GBFS examples
+
+[Installer] Added German language
+
+[Wifilib] Now uses libnds's wifilib
+
+
+Things Fixed
+------------
+
+[Linux] Corrected a typo in the makefile which prevented it from working on Linux
+
+[PAFS] Found and fixed a major bug in PAFS. Now should work correctly (it screwed up the file positions when a file was had a size of 4*n - 1 ^^
+
+[PAFS] No longuer includes the files from the hidden .svn directory, sorry for that one ^^
+
+[InfiniteTiles] Fixed all the errors you could have when compiling
+
+[Doc] Fixed a few minor errors, thanks for reporting them :)
+
+[RotBg] Mastertop found a compilation error, thanks :)
+
+[Compilation] Rockard found yet another bug, thanks ^^
+
+
+
+
+PAlib 060905 Fixes :)
+
+New Stuff
+---------
+
+[Compilation] No longer requires install.bat :)
+
+[VBL] Added a custom function code in the VBL : PA_VBLFunctionInit(your function) will execute, each and every frame, a given function... This can be used to make counters or have critical codes run at full speed when you're low on CPU time. Be aware that too CPU-expensive functions might slow down your program or hang the DS if run from the VBL !!!    PA_VBLFunctionReset() can be used to stop the custom function. An example was added (Other/VBLFunction)
+
+[2D/3D] Seperated the 2D init (still done by default in PA_Init). You can now use PA_Init2D to return to 2D mode after using 3D functions :)
+
+[Gif] Gif speed now works, only tested on emu for now. Thanks to Shaun for the solution :D Removed PA_SetGifSpeed :p
+
+[Gif] New commands available to change the gif speed while playing and pause it ! PA_GifAnimSpeed(float speed), PA_GifAnimStop, PA_GifAnimPause, and PA_GifAnimPlay. Check out the GifAnim example :)
+
+[Demos] Added the Bunny demo to the demo folder. It shows how to use sprite frames and pixel-perfect stylus collision to create stupid minigames ^^
+
+
+Updated Stuff
+-------------
+
+[Stylus] Now includes Stylus.Downtime and Uptime, to know how long the stylus was held on the screen or off of it (check Input/Stylus2 example to see that in action)
+
+[Stylus] Added Stylus.DblClick, may need more testing though, also in Stylus2 example
+
+[DeSmuME] Reverted back to the old version, this one had 'Hickups' :s
+
+[Giflib] Changed its compilation, saves 4kb ^^
+
+[Doc] Updated the doc
+
+
+Things Fixed
+------------
+
+[Compilation] Fixed the 5 last warnings :)
+
+[Examples] FAT example back, thanks Creebo ^^
+
+[PAGfx] Better declarations in all_gfx.h and .c, with #ifndef and CPP compatible stuff :)
+
+[PAGfx] Now works correctly when you don't precise the Sprite/Bg mode (256colors, etc...) Will take the most common mode by default :) (fixes PAGfx.exe errors and PAGfx Frontend import function
+
+[Draw] Draw functions fixed, thanks to PadrinatoR :)
+
+
+
+
+
+
+
+
+PAlib 060902 Small features update
+
+New stuff
+---------
+
+[Gif] Just couldn't seem to find the option that determines the gif's speed in giflib :/ I added a counter for animation speed, you can set it manually : PA_SetGifSpeed(number of VBLs to wait). 60 VBLs = 1 second between 2 frames. Example available in Bitmap/GifSpeed
+
+[Counters] Added 16 possible VBL Counters : PA_VBLCounterStart(ncounter) to reset and start one, PA_VBLCounter[ncounter] to get its current value. Added an example (Other/Counters) to show it works and to extract seconds from that. Also available : Pause and Unpause :)
+
+[RotBg] Added PA_SetRotMapTile(u8 screen, u8 bg_select, s16 x, s16 y, u8 tile_number), thanks to spinal and gmiller ! Modified the code to work with all background sizes, and added an example (Backgrounds/RotBgTile). Only tested on emulator, will need more tests :)
+
+[Splash] Added PA_SplashEyes() to load the PAlib splash screen with eyes following you ! More splash screens to come when available. Example found in Splash/SplashEyes
+
+[Splash] Added PA_SplashBlue() to load up a Splash Screen based on the forum's logo ! More splash screens to come when available. Example found in Splash/SplashBlue
+
+[PAFS] Added PA_LoadFSImage(u8 screen, s16 FSImage) to load Images (jpeg, gif, or bmp format) from PAFS just by giving the file's PAFS number (no need to know which image format it is !). Added PAFS/PAFS_Image as example to go with it :)
+
+[Pad] Added Pad.Newpress.Anykey, (Held and Released too). Modified the basic Pad example to include that in. Seems to work, please confirm if you have any bug/error (should report any key, but not the stylus)
+
+
+Things Fixed
+------------
+
+[PAGfx] Benualdo correct a bug when exporting 8bit backgrounds, thanks :)
+
+[Examples] Removed some examples that were there twice :s
+
+[Example Fix] Fixed the 3d texture compilation error, not sure if it works though, couldn't test
+
+[Examples] Removed GBFS Gif and Bmp examples (GBFS will be depricated soon), added PAFS examples instead
+
+
+
+PAlib 060831 Official Revival Update
+
+[Text] Added TEXT_WHITE, TEXT_RED, etc... macros, thanks to Penjuin. Also updated the TextColors example to show that (using yellow)
+
+[Bugfix] Fixed PA_SetBgColor, thanks to franck569 :)
+
+[Bugfix] PA_ResetBgSys should now leave all screens black, untested though :)
+
+[Bugfix] You can now get the user's name even if he hasn't entered a message ^^ Thanks to PadrinatoR for that one !
+
+[Bugfix ?] A typo, seen by PadrinatoR (again !) was found in the stylus arm7 code. I corrected it, and have no idea what it will change ! If you have any problem with the stylus on this version, please report so that we can revert back to a functionnal stylus code.
+
+[Bugfix] Corrected GBFSInit and migrated to solid function instead of extern inline. Untested, report if problem found... (should we just remove GBFS support and turn towards PAFS, or is everyone still using GBFS or neither one of them ?)
+
+[Bugfix] Corrected a bug in PA_WaitFor ^^
+
+
+
+PAlib 060830 Revival Update
+
+[General] Updated my computer to latest devkitPro :)
+
+[Warnings] Fixed most warnings, 5 more left
+
+[C++] Warnings fixed
+
+[Vham] Updated to 2.6, "New Project" now works correctly, thanks for the help ;)
+
+[16c] Put the 16colors text example back in
+
+[Feature] Added PA_WaitFor(something), check the example (Examples/Other) to see how it work : PA_WaitFor(Pad.Newpress.A), etc...
+
+[PAGfx] Updated to version 0.8, which was on my hard drive since... March ! I have no idea how good/bad it works actually, can't remember if it was fully functionnal or not :/
+
+
+
+PAlib 060304 MAJOR UPDATE
+
+[PAlib] Changed the compilation to do some real stuff... Now only includes what you use ! A simple demo can be as small as 60kB !
+
+[TextBox] Removed the "1" that was drawn on the bottom screen
+
+[Examples] Tested all of them to check that they compiled and worked with the latest version. Made a general cleanup, so please delete PAlibExamples directory before reinstalling...
+	Broken : 16cText, 3D examples using PAlogo (??), Video
+
+
+
+PAlib 060304 MAJOR BUGFIX
+
+[Interrupts] Switched to libnds's interrupt handler. Seems to correct some bugs. Superstar's demo seems to work fine with the new system, so I hope this solves lots of C++ problems :S. Corrected 2 other big projects, so it seems like this could be the most stable release up to now ! It probably broke (very temporarily jialing' streaming system (uses TIMERS), we'll just have to switch the code to libnds's timer system, which shouldn't be long, but I ran out of time today :/
+
+[Arm7] Some unwanted test code slipped in the previous version, could cause some major bugs
+
+[16 color Bg] Added a fake 'bitmap' 16 color background system. It's very usefull to draw SHMUP bullets on it (>600 8x8 bullets from what I tested)
+
+[Text Sizes] Added a new text system for 16color backgrounds. Works like the 8bit text (5 different sizes) but is much much faster, and takes much less memory (both in VRAM and in ROM) -> 45k in rom, and around 30k in VRAM (compared to <200k in rom and 49 in vram for 8bit text). Added an example to go with it
+
+[BoxText] Fixed an evil bug that prevented the boxtext from stopping, thanks too Scognito !
+
+[Sprite Priorities] Fixed
+
+[FAT Driver] Chishm updated his FAT driver :
+2006-03-03
+ * Improved NMMC (MK2 / MK3) driver
+ * Optimised LFNs into loops, thanks to dwedit
+ * Optimised SuperCard SD CFC7, thanks to Cory1492
+ * Added file attribute support
+ * Added read only M3 SD support, thanks to SaTa and Moonlight. Disabled by default due to incompleteness
+ * Fixed SuperCard SD reading, thanks to Loopy
+ * Added EFA2 support, thanks to CyteX
+
+[Version number] Changed the version numbers, I didn't feel like getting to a 1.0 milestone ^^
+
+
+
+PAlib 0.998d
+
+[Sound] Fixed :S
+
+[PAGfx] Updated to add 'const' where it was missing... (thanks Jandujar !)
+
+[PAGfx] Removed the #ifndef from all_gfx.h, you can now include it correclty in multiple files
+
+[PAGfx] Shorter lines on error messages
+
+[PAGfx] 2 bug corrections preventing from working if a file wasn't found
+
+[PAGC Frontend] Corrected error when first moving from sprites to backgrounds view
+
+[Sprite Ext Prio] Fixed order when 2 sprites had the same priority level
+
+[Text] Fixed the '-' not showing for values from 0 to -1
+
+[Text] Fixed the decimal values with negative numbers (thanks to Jandujar !)
+
+
+
+PAlib 0.998c
+
+[Examples] Fixed the keyboard example, had SimpleText instead of Text function, so the line break didn't work :S
+
+[Examples] Added Sprite/Priorities2, which shows how the priority system could be used to create a card game, or an isometric 3D system...
+
+[Screen Lights] Rewrote the code, shouldn't break the sound anymore
+
+[Arm7] Switched to libnds's IRQ system, now works better on MK2/3
+
+[PA3D] Compiles again, sorry !
+
+[Backgrounds] Optimised the Background memory error messages
+
+[Palettes] Added PA_SetSpritePalCol
+
+[C++] Fixed the Pad/Stylus problem (replacing bool by u8, I don't like that...)
+
+
+
+PAlib 0.998b
+
+[Sprites] Fixed sprites on hardware :/
+
+[Vham IDE] Updated to remove the ofile bug when adding files :) Thanks to Kleevah !
+
+
+PAlib 0.998a
+
+[PAGfx] Updated 16colors sprites not working
+
+[PAGfx] Updated broken 512x512 TiledBg, now works correctly
+
+[16bit Sprite] Added a Create16bitSpriteFromGfx function
+
+[SpriteAnims] Added PA_SetSpriteNCycles(bool screen, u8 sprite, s16 NCycles) and PA_GetSpriteNCycles(bool screen, u8 sprite)
+
+[Doc] Updated some missing function infos
+
+[Palettes] PA_CreatePalBright added, to create new palette with different brightness level. ChecK Sprite/PalBrightness to see how to use it (can be used on backgrounds too)
+
+[Sprite Priorities] Added advanced sprite priorities, with 256 possible levels ! Check the Sprite/Priorities example to see how it works (requires an init). Beware, this is much slower than the normal priority system, as it requires sorting the sprites...
+
+[LargeMaps] Fixed scrolling bug when background was larger than 256 pixels, but smaller than 512 (thanks Mtom !), and a nice speed increase (up to twice as fast) on large maps (>512)
+
+[Sprite Animations] Fixed a little bug in the frame number when using UPDOWN, thanks to Costello
+
+[FAT Driver] Included Chishm's FAT Driver, with M3, SC, and MK2/3 support ! I take NO credit whatsoever for this. ALL the credit goes to Chishm and the people who helped him make this driver better... If you have any questions/bugs, please report them on palib.com, and do not bug Chishm... The driver takes around 25k, and can be removed by editing PA_Config.h. Please take the time to read the gba_nds_fat.txt file included with the driver...  I haven't played with it too much yet, just tested listing the files on my MK3... (FAT/FAT example). I also update the Vham Init to take into account the FAT_ functions.
+
+[DeSmuME] Updated
+
+[Makefile] Updated with jandujar's bin2o fix. Does this make the sound work better for anyone ??
+
+
+PAlib 0.997a
+
+[Doc] Updated
+
+[DeSmuME] Updated, perfect backgrounds and nice sprites !! Forget about dualis ;)
+
+[PAGfx] Sprite optimisation and 16bit fixes
+
+[SpecialFx] Fixed a rare compilation error
+
+[Vham IDE] Removed Dualis support... I tested the latest version and it still doesn't work with my Bg+Sprite tester it seems...
+
+[Linux] NDS/nds fixes... again... thanks Gooler... /me hangs himself
+
+[Linux] Added Gooler's compilation script
+
+[Supercard] Added Akuma's makefile to compile a .sc.nds for supercard users, thanks !
+
+[DualSprites] Added all the animation functions
+
+[SpriteTouched] Speed optimisation
+
+[SpriteTouchedPix] New function, similar to SpriteTouched, but with pixel precision ! Require InitSpriteDraw prior to usage, and is MUCH slower than the normal SpriteTouched function (as you could guess)
+
+[MoveSpritePix] New MoveSprite function, which requires InitSpriteDraw (like TouchedPix), but has pixel-perfect detection, and does not center the sprite on the stylus
+
+[Stylus] Slightly better coordinates (I hope, tried to remove eronous values), and added Stylus.Vx and Stylus.Vy !
+
+
+
+PAlib 0.996a
+
+[Backgrounds] Added PA_ClearBg(screen, bg) and extern inline void PA_ClearTextBg(screen) to clear a given background map
+
+[ResetBgSys] Now resets the video mode, fixes some rare issues
+
+[Mode7] Added PA_DeInitMode7, when your finished using it, lol
+
+[Examples] Updated the Mode7 examples to upgrade to PAGfx functions
+
+[LargeMap] Fixed bug when loading not-so-large maps, lol
+
+[SpriteTouched] Added the Stylus.Held check in it because everyone seems to want it, lol
+
+[Linux] Some compilation errors fixed, thanks to Gooler... I hope it works now !
+
+[Animations] Extended the sprite animation system, check out SpriteAnim3 and the wiki !
+
+
+
+PAlib 0.995b
+
+[C++] Fixed a compilation error
+
+[RotBg] Fixed the rotating backgrounds not showing, was a palette bug (they don't use extended palettes like the others...)
+
+[Reco] Added infos to the shape reco : 	PA_RecoInfo;.Length, minX, minY, maxX, maxY, startX, startY, endX, endY, Angle and an example to go with it. Updated the wiki...
+
+
+PAlib 0.995a
+
+[Shape Recognition] Beta testing a shape recognition system ! Added 2 examples in the input folder and updated the wiki...
+
+[Random] New Random Init function, should give better results
+
+[PAGfx] Corrected the Green color bug
+
+[Doc] Added text and recognition stuff
+
+
+PAlib 0.99b
+
+[MoveSprite] Vx and Vy values fixed on DS (worked on emulator but not on DS for some reason)
+
+[LargeMap] Fixed a palette bug on background 1
+
+[SpriteAnim] Fixed a nasty bug in the sprite gfx updating if you had too many sprites, it would update the wrong one
+
+[DeleteSprite] Fixed a bug in DeleteSprite, should work better now
+
+[SpriteDraw] Completely rewrote the draw routines and init. You can init all onscreen sprites with PA_InitAllSpriteDraw(), and you can draw with PA_SetSpritePixel(bool screen, u8 sprite, u8 x, u8 y, u8 color). Only supports 256 colors for now. Check the example given for more details
+
+[Emus] Added DeSmuME, by Yopyop :p
+
+[Vham IDE] Added Launch (+/- Build) in Dualis or DeSmuME (which will soon work better than Dualis... :p)
+
+[Jialing Sound] Updated to work with PAFS
+
+[Libnds] Updated stylus code, please update libnds to the latest version to avoid false values
+
+
+PAlib 0.99a
+
+[Vham] New IDE included, still in beta test ! Now using Vham ! I take NO credit for this, all the credit goes to Peter from http://console-dev.de/ for doing this nive IDE
+
+[Sound] New sound system, by JiaLing !
+
+[Linux] Forgot one of the changes, corrected thanks to Morian
+
+[C++] Corrected the compilation errors
+
+[PAGfx] Updated to correct errors in PAGfx and the frontend
+
+[Gif] Gif repaired, not sure why it didn't work though :/
+
+[TextColors] Added a black color (number 9)
+
+[TextBox] Fixed the "\n " bug and and colors, everything works now
+
+[TextBox] New simplified textbox functions with borders and all ! Check out the 2 new examples
+
+[Text] Added a custom font loading example
+
+[8bit] Fixed an 8bit pixel plotting bug, not sure when it actually got there
+
+[Video] Corrected C++ compilation errors
+
+
+PAlib 0.78b
+
+[Video] Works again...
+
+
+PAlib 0.78a
+
+[Gif] Fixed a few bugs with 8bit gifs
+
+[Bug] Fixed a few stuff for linux compatibility, not sure I got everything though
+
+[Examples] Added a simple gif example, as well as a 2048x2048 map in the largemap example
+
+[Examples] Added a Sin and Cos Trajectory example
+
+[Text Colors] Added %cn as text color trigger in functions OutputText and BoxText... n is the color number (0-7)... Check out the textcolors example to see how to use it... (I just updated it)
+
+[MoveSprite] Optimized PA_MoveSprite code (1 function instead of 2 ! :p) and now works even if isprite is partly out of screen
+
+[Sound] Corrected sound (player too fast depending on the function used to play it !)
+
+[Demos] Added tons of new demos (and removed the original Frisbee one, replaced by a new one) with their comments on the wiki (day 12 and day 13). These demos show how to use the stylus at best, and treat about collisions...
+
+[PAFS] Corrected the bug when the filename wasn't PAFS.ds.gba and you still wanted to use the /silence command... Added the possibility to put /silent instead
+
+[PAGfx] Kleevah updated PAGfx and the Frontend, to solve some issues, add an icon, and have a better about box...
+
+[Doc] Updated
+
+
+PAlib 0.77a : Christmas Release
+
+[Bugfix] MAJOR bugfix for the text, appeared screwed up on the top screen sometimes on DS (not on emulator), now fixed
+
+[PA_Config] Added a 3Ddefinition to PA_COnfig.h, saves 60k when you remove it ! I might turn the 3d off by default for now on...
+
+[PA_Config] Added a keyboard definition to PA_COnfig.h, saves 20k when you remove it, but it will stay on by default in PAlib
+
+[Bugfix] A stylus bug had slipped in when getting at the bottom of the screen ! now fixed thanks to Morian (DS only bug)
+
+[PAFS] Major Bugfix, now should work both in Ram AND Rom... (it used to work only depending on the number of files for some reason)
+
+[PAFS] Removed the press key to exit if you add a '/silence' after the path, puts a log instead, and replaced the old buggy PAFS.exe in all examples but the ram one, had forgotten those !
+
+[PAGfx] Corrected the frontend, which had TiledBg instead of TileBg... minor bugfixes to both the converter and the frontend
+
+[Text] Added #define TEXT_ALLCHARACTERS  to the config file : Replaces the normal default text by a similar one which has pretty much all the special characters... thanks to Morian for that one ! But it takes twice as much memory in video ram, so you can choose which one to include... Will be on by default in PAlib updates... Also updated the small font with a few more characters (like € and others)
+
+[Palettes] Added PA_SetBgPalNCol(bool screen, u8 bg_number, u8 pal_number, u8 color_number, u16 color); (usefull for the 8bit backgrounds... haven't updated the examples yet though)
+
+[Malloc] Added PA_Malloc(void **pointeur, u32 size) for safe malloc... (checks if exists, and if it does, frees before doing the malloc. Thanks Brunni !
+
+
+PAlib 0.76a :
+
+[PAFS Feature] Started to test some PAFS in ram... this should make it work in emulators and WMB, but is still a work in progress... it works well on one example, but seems to fail on another one, not sure why... Check out the PAFS_Ram example to see how to use it...
+
+[Text Feature] PA_SetTextTileCol(screen, color) is out ! What is it ? It changes the color of the next texts to come... this means you can start writing in white, tell that the rest will be in blue, and have both colors on the screen !!! For now, there are only predefined colors, and color is a number form 0 to 6... Check the TextColors example...
+
+[Minor Fix] Fixed a C++ compilation warning
+
+
+PAlib 0.75a :
+
+[Bugfix] Text colors now work (emulator+DS)
+
+[Feature fix] Added PA_InitCustomText(screen, bg_select, text) to replace the custom text functions... Text must be converted using PAGfx as TileBg... (the loading function works like LoadTiledBg)
+
+[Feature] Much Lighter roms (lost like 100k) by removing the neoflash and palib splash screens... Moreover, they were added by default (they shouldn't have been). I'll replace them later on with jpegs, which will be way lighter...
+
+[PAFS] Updated PAFS to add 32bit padding to files, should solve some problems. Added mod and sound playing functions and the corresponding example... Will use all that to do the filesystem tutorial on the wiki...
+
+[Examples] Added the gravity example
+
+
+
+PAlib 0.74d :
+
+[Bugfix] Fixed the background rotations ! 
+
+[Feature] Updated the rotating backgrounds to work easily with PAGfx -> PA_LoadPAGfxRotBg(screen, background number, bg name, wraparound (0-1))
+
+
+PAlib 0.74c :
+
+[Animations] Added PA_SetSpriteAnimFrame(screen, sprite, frame) and Added PA_SetSpriteAnimSpeed(screen, sprite, speed)
+
+[Bugfix] Fixed the stylus position error...
+
+[MODIFICATION] Changed PA_PlaySimpleSound(channel, sound), doesn't require '(void*)' and the size anymore ! Changed the example to reflect this...
+
+
+PAlib 0.74b :
+
+[libnds] Updated to work on the latest libnds update
+
+[Bugfix] Better Sprite Animation code when rapidly changing animation sets
+
+[Examples] Added a nice SpriteAnim2 (using animations, sprite movement, and sprite flipping), and an AlphaBlending example for 1 sprite...
+
+[Doc] Updated the doc
+
+
+PAlib 0.74a :
+
+[Feature] Added the new sprite animation code ! Check out the example to see how to use 
+PA_StartSpriteAnim(bool screen, u8 sprite, s16 firstframe, s16 lastframe, s16 speed (in fps)), PA_StopSpriteAnim(bool screen, u8 sprite), PA_GetSpriteAnimFrame(bool screen, u8 sprite), PA_SpriteAnimPause(bool screen, u8 sprite, bool pause)
+
+[Bugfix] The Text was still broken on hardware, in fact !!! Now it works better... andThis is a temporary fix, which removes custom fonts
+
+[Bugfix] Added the semicolon to PA_Save16bit (yes !)
+
+[Examples] Reworte part of some examples to remove french text and organize them better, added a few examples to go with the wiki...
+
+
+PAlib 0.73b :
+
+[Bugfix] I think I broke the text functions in .73a, with the extended palettes... this is now fixed
+
+
+PAlib 0.73a :
+
+[Change] Extended Palettes now used by default for backgrounds (load them with PA_LoadBgPal(screen, bg_number, pal)). The old PA_LoadPal is left for backwards compatibility but should not be used anymore
+
+[PAGfx Update] Integrates better with PAlib Background functions
+
+[Feature] MAJOR update for the background system, has been greatly simplified with PAGfx ! I recommend everyone to go check the simple LoadBgs example to see how it now works. In order to have correct palette names, please do not input palette names for the backgrounds...  PA_LoadTiledBg and PA_LoadPAGfxLargeBg(screen, bg_number, bg_name)...
+
+[Feature] Added 2 random functions (PA_RandMax and PA_RandMinMax), thanks to SuperStar
+
+
+
+PAlib 0.72a :
+
+[Feature] Delfare updated the 3d code with some call list functions ! Check the examples :)
+
+[Bugfix] Compilation errors for linux users... again... And added a install.sh for them, too
+
+[Change] Now sets the extended sprites on by default, as it's just better... adapted PA_LoadPal to work with that, and renamed PA_LoadSpriteExtPal to PA_LoadSpritePal (left the ExtPal function for compatibility issues). Updated the sprite examples to take that into account...
+
+
+
+PAlib 0.71a :
+
+[PAlibTools] Updated PAGfxConverter to version 0.5. This is a MAJOR update, as it supports backgrounds, sprites, and has Kleevah's nice frontend :)
+
+[Examples] Updated all the examples to use PAGfxConverter instead of gfx2gba
+
+[BugFix] Fixed the PA FS Search function, thanks to Seddy :)
+
+[BugFix] Made the changes suggested by Gooler for compiling under linux, sorry for those !
+
+[Bugfix] Corrected the CPPInstall.bat, should work again, sorry !
+
+[Sourceforge] Removed the PAlib minimal and PAlib examples, please use only the complete packages now...
+
+
+PAlib 0.70a : 
+
+[Feature] Here comes the first version of PASpriteConverter !!! Beware, it needs the .Net FrameWork to work... 
+What so great about it ? Nothing much yet, but great things to come... 
+How does it work ? Check out the SpriteConverter example, it's really simple. 
+Why do I think it's better to use it rather than gfx2gba ? 
+	- Because it handles all image formats (jpeg, bmp, png, etc...), and you don't necessarily need to convert your sprite to a 256 paletted sprite... Though if you have too many colors, it'll fail...
+	- You can easily set which color you want as background (Black, White, Green, or Fuschia)
+
+[Feature] PA File System now available !!! What's so great about it ? It's easier to use than GBFS, and takes much less space in Ram (actually, 0, everything goes in the Rom :p), and it supports directories structures !! Currently, only made the PAFS plain example, I'll add the folder example soon, and then convert all the GBFS functions to it. The search functions are already available... PAFS requires the .Net framework in order to work correctly. If you don't have it, either install it, or use GBFS...
+I ended up adding the folder example today, to test if it worked, and saw I had a stupid bug, now everything's perfect :p Haven't converted all the functions yet, though. I'm sort of tired of working on this, so I'll continue next week, and tweak it to have the possibility to add the file system in RAM instead of ROM, for all those WMB users :-)
+
+[Feature] Got extended palettes for backgrounds working !! You can all thank Benny for this, he's the one who got me motivated to do it :p  It took like 5-10 minutes to change the old code I had and make it work, should have done it ages ago !!! Anyways, expect PAlib to have Extended palettes for backgrounds and sprites by default very soon, just the time for me to change the basic palette loading functions...
+
+[Minor Feature] Added PA_SetBgColor(bool screen, u16 color), to set the background color... (thanks to SuperStar again :p), and PA_DualSetBgColor(u16 color), to set it to both screens
+
+[Minor Fix] Corrected the unerased character on some stylus examples, thanks to SuperStar
+
+
+PAlib 0.67a :
+
+[Feature] Now works for C++ projects !!!! Added a CPPInstall.bat, which compiles PAlib to work with C++ projects... This hasn't been fully tested yet, but seems to work :-)  By default, the lib compiles to C, so if you use C++, you'll have to recompile after install...
+
+[Feature] Added PA_SetScreenLight(screen, light), to set on/off one of the screens lights, and the example to go with it...
+
+[Feature] PA_GetGifHeight and PA_GetGifWidth added, pretty self-explanatory...
+
+[Feature] Mode7 comes in !! Not much yet, you can check the example, but more will come soon... I'll just have to... well... rewrite tons of that code :p  So it'll take more time than I thought, but you can already play with this code a little...
+
+[Bugfix]  Fixed the Rotations Background, I hadn't seen I had messed them up by putting 32bit registers instead of 16...
+
+[Update] Updated the 8bit Draw function, should be less buggy. The 8bit and 16 bit Draw functions should be even faster now, when used with big drawsizes
+
+
+
+PAlib 0.66a : 
+
+[Feature] Added tons of Dual Sprite functions, but they are completely untested... (too many functions to test, sorry), and for palettes
+
+[Feature] Added PA_SetScreenSpace(space) to set the desired pixel space between the screens, for the dual functions. On emulator, 0 looks the best, but on DS I like to put 48 (which is the default value).
+
+[Update] Updated the keyboard with a modified version of Headspin's keyboard ! It looks pretty good like that :p If you want to modify the keyboard layout, or add some keys (I left some spaces empty), you can edit the keyboard.bmp file in PAlib/lib/arm9/PA, and post it on the forum, and I'll change it if I feel it's better...   I also updated the keyboard code a little... 
+
+[Feature] Added PA_SetKeyboardColor(color1, color2), which changes the keyboard's color. 0 for blue, 1 for red, 2 for green... Basically, color1 is for the unpressed keys, color2 for the pressed keys. Blue and red by default. Updated the keyboard example to take that into account, you can change the keyboard colors with A, B, X, and Y
+
+[Bugfix] Delfare corrected the installer, it now creates the correct environnement variable for everyone. By the way, uninstall is not available simply because it deletes the whole devkitPro folder... which is not quite what we want ! I'll change that to uninstall just the PAlib folder some time
+
+
+
+PAlib 0.65a : 
+
+- Great new installer ! You can chose which components to install (examples, documentation...), and it creates an environnement variable (currently only for c:\devkitPro\PAlib, because NSIS doesn't do it just like I would like, so you'll have to modify the path if you install to another directory...) It uses solid LZMA compression, providing much smaller files than the zip files...
+- Added a set of Dual functions -> easy Double screen support ! It's a WIP, so don't expect too much, but I started off with the backgrounds functions... So now, you can load, scroll, and do pretty much anything to a background directly on both screens, just like if there was just one big screen... I'll add support for custom space between the screen, bug corrections, and sprites in the next version. Doing a wrapper for each function just takes too much time right now !
+- Updated the version of gfx2gba used in the examples, shouldn't return a warning about extern thingy anymore...
+
+
+PAlib 0.64e : 
+
+- Delfare's update, with his installer
+- Delfare's new text functions !!
+
+
+PAlib 0.64d : 
+
+- Fixed the compilation errors with the new libnds...
+
+
+PAlib 0.64c : 
+
+- Pathfinding Fixes
+
+
+
+PAlib 0.64b : 
+
+- Fixed the compilation errors on cpp files...
+
+
+PAlib 0.64a : 
+
+- The documentation is back !!
+- Fixed the compilation error some seemed to had (well, should be fixed, I hope...)
+- Faster gif decompression
+- Support for animated gifs on 16bit backgrounds
+- Updated the example makefiles, and added the logos for multiboot and wifime
+- Added PA_LoadGBFSImage, for easy loading of Gif, Jpeg, and Bmp from GBFS
+- Added support for exporting Bmp's into buffers
+- Fixed the problem with PA_SetSpriteAnim not working on sprite initialized with PA_CreateSpriteFromGfx... (untested, but should work)
+- Switched the stylus code to the new libnds one... hope it's better for you !
+
+
+PAlib 0.63a : 
+
+- Fixed the Draw functions to work with different drawing sizes
+- Added a Line function with different sizes
+- Added a Rectangle function
+- Some screens were switched on G6 ! (don't ask me why)... This is fixed (basicly, double-checks the screen on init, and switches if it was wrong)
+- Added support for BMP files ! See the GBFS example (but can be used without GBFS). Currently, only supports 16, 24, and 32 bit bmps, on a 16bit background, but paletted bitmaps are coming...
+- Added support for GIF files ! Thanks Birslip, and thanks to Libungif... Currently, only did the example to load on a 16bit background, but the functions will be updated soon to work on 8 bit backgrounds (with auto-detection of 8/16bit). This might have made the PAlib size go up some more, but some of the files will be removed later on, and optimisations are still to be done speedwise (I have some ideas I haven't had time to put in place...)
+- Changed the makefile a bit :
+	-> To easy change author/game name/website, just open the makefile and you'll see where to change...
+	-> To add support for gif/bmp files in the data folder
+- Lots of bug fixes/enhancements
+
+
+PAlib 0.62a :
+
+- Added a search for *.extension in PA GBFS system
+- Changed the WaitForVBL again, it's even better now, and speeds up the demos on emulator
+- Changed all the convert.bat files (gfx2gba...) to have the -align command in them, should fix some sprite problems
+- Added 16 bit sprites ! With the example to go with it... Only thing : I discovered that 16 bit sprites need to be 128 pixels large... this means that any sprite size takes up a lot more memory than it takes in 256 or 16 color modes... example : an 8x8 pixel will take as much memory as a 128x8 one ! so 16 times more... 
+- Adding 16 bit sprites made me change a line or 2 in the sprite gfx system, apparently it works perfectly, but if you get anything weird, could be my fault... (half-sprites, or double-sprites)

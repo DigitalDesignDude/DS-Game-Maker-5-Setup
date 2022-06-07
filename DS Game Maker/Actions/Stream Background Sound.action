@@ -1,0 +1,7 @@
+TYPE 1
+DISPLAY Stream !1!
+ICON Sound.png
+ARG Sound,6
+AS_MP3StreamPlay("!1!.mp3");
+
+NOAPPLIES

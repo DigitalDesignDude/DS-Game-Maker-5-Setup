@@ -1,0 +1,90 @@
+msys patch
+========================================================================
+GNU patch is an implementation of Larry Wall's program that takes
+"diff's" output and applies it to an original file to generate a
+modified version of that file. Normally, the patched versions are put
+in place of the originals. Backups can be made. 
+
+This version has been modified and compiled for use in the MSYS
+environment. It should be installed into the / == /usr directory, which
+is usually but not always, C:\msys\1.0.
+
+Runtime requirements:
+  msysCORE-1.0.13-2-msys-1.0.13-bin
+
+Build requirements (these, or newer)
+  MSYS toolchain
+    binutils-2.19.51-3-msys-1.0.13-bin
+    gcc-3.4.4-3-msys-1.0.13-bin
+    w32api-3.14-3-msys-1.0.12-dev
+    msysCORE-1.0.13-2-msys-1.0.13-dev
+
+  Devel Tools and Dependent Libraries 
+    autoconf-2.65-1-msys-1.0.13-bin
+    automake-1.11.1-1-msys-1.0.13-bin
+
+  MSYS Environment
+    perl-5.6.1_2-2-msys-1.0.13-bin
+    libcrypt-1.1_1-3-msys-1.0.13-dll-0
+    libgdbm-1.8.3-3-msys-1.0.13-dll-3
+    zlib-1.2.3-2-msys-1.0.13-dll
+    coreutils-5.97-2-msys-1.0.11-bin
+    make-3.81-2-msys-1.0.11-bin
+    bash-3.1.17-2-msys-1.0.11-bin
+    tar-1.23-2-msys-1.0.13-bin
+    xz-4.999.9beta_20100401-1-msys-1.0.13-bin
+    bzip2-1.0.5-X-msys-1.0.13-bin.tar.gz
+    liblzma-4.999.9beta_20100401-1-msys-1.0.13-dll-1
+    libbz2-1.0.5-X-msys-1.0.13-dll-1.tar.gz
+    file-5.04-2-msys-1.0.13-bin
+    grep-2.5.4-2-msys-1.0.13-bin
+    sed-4.2.1-2-msys-1.0.13-bin
+    gawk-3.1.7-2-msys-1.0.13-bin
+ 
+Canonical homepage:
+  http://www.gnu.org/software/patch/
+  http://directory.fsf.org/project/patch/
+
+Canonical download:
+  http://ftp.gnu.org/pub/gnu/patch/
+
+License:
+  GPLv2
+
+Language:
+  C
+
+========================================================================
+
+Build instructions:
+  unpack patch-2.6.1-1-msys-1.0.13-src.tar.lzma
+  ./msys-build-patch patch-2.6.1.tar.gz
+
+This will create:
+  patch-2.6.1-1-msys-1.0.13-src.tar.lzma
+  patch-2.6.1-1-msys-1.0.13-bin.tar.lzma
+  patch-2.6.1-1-msys-1.0.13-doc.tar.lzma
+  patch-2.6.1-1-msys-1.0.13-lic.tar.lzma
+
+========================================================================
+
+Test suite results
+
+This section of this document is updated with each new release.
+No history is maintained here.
+
+No built-in testsuite. Manual testing appears ok.
+
+========================================================================
+
+Port Notes:
+
+----------  patch-2.6.1-1 -- 2010 Apr 22 -----------
+* Update to most recent upstream release
+* Rebuild against msys-1.0.13, using (msys)gcc-3.4.4
+  and (msys)binutils-2.19.51.
+
+----------  patch-2.5.9-1 -- 2009 Aug 13 -----------
+* First release of patch for msys using new packaging standard.
+* Incorporates patches from debian patch 2.5.9-5 and from
+  cygwin patch-2.5.8-9.

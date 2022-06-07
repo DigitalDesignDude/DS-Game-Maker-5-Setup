@@ -1,0 +1,1 @@
+<Project name="3dstars"><MagicFolder excludeFolders="CVS;.svn" filter="*.c;*.cpp" name="source" path="source\"><File path="stars.c"></File></MagicFolder><File path="Makefile"></File></Project>

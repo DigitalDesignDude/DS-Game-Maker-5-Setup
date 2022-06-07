@@ -1,0 +1,9 @@
+TYPE 2
+DISPLAY If Current Room is !1!
+ICON Room.png
+CONDITION 1
+ARG Room,7
+if (CurrentRoom == Room_Get_Index("!1!")) {
+
+
+NOAPPLIES

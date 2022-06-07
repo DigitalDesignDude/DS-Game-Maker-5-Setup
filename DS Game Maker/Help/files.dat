@@ -1,0 +1,24 @@
+0,Introduction,intro
+0,Install DS Game Maker,installdsgm
+0,Install devkitARM & PAlib,installtoolchain
+0,Pro Edition,pro
+0,The Global Concept,global
+0,User Interface,ui
+0,Sprites,sprites
+0,Backgrounds,bgs
+0,Sounds & Music,sound
+0,Paths,paths
+0,Objects, Events & Actions,global2
+0,Creating Rooms,rooms
+1,Use Alarms,alarms
+1,Make things move automatically,automove
+1,Shoot bullets,bullets
+2,Advanced Features,advanced
+2,Fonts & Tiles,fonts
+2,Global Variables,globals
+2,Arrays & Structures,arrays
+2,Collision Theory,collisions
+3,Language Syntax,language
+3,Functions,functions
+4,Game Settings,settings
+4,Efficiency,efficiency

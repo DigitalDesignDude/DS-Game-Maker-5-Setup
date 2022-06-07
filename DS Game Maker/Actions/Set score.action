@@ -1,0 +1,8 @@
+TYPE 4
+DISPLAY Set score to !1!
+ICON Score.png
+CONDITION 0
+ARG Value,0
+score = !1!;
+
+NOAPPLIES

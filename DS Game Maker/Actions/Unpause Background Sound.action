@@ -1,0 +1,5 @@
+TYPE 1
+DISPLAY Unpause Background Sound
+ICON SoundUnpause.png
+Unpause_BG_Sound();
+NOAPPLIES

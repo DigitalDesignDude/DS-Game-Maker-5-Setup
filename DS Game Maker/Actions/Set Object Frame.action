@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY Set Frame to !1!
+ICON ObjectFrame.png
+CONDITION 0
+ARG Frame Number,0
+Set_Frame(AppliesTo, !1!);

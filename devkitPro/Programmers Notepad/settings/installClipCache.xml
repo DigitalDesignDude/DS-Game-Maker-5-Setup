@@ -1,0 +1,807 @@
+<clipSets><clips name="ASCII Characters"><clip name="000 | x00 | NUL" shortcut=""></clip><clip name="001 | x01 | SOH (start of heading)" shortcut=""></clip><clip name="002 | x02 | STX (start of text)" shortcut=""></clip><clip name="003 | x03 | ETX (nd of text)" shortcut=""></clip><clip name="004 | x04 | EOT (end of transmission) " shortcut=""></clip><clip name="005 | x05 | ENQ (enquiry)" shortcut=""></clip><clip name="006 | x06 | ACK (acknowledge)" shortcut=""></clip><clip name="007 | x07 | BEL (bell)" shortcut=""></clip><clip name="008 | x08 | BS (backspace)" shortcut=""></clip><clip name="009 | x09 | TAB (horizontal tab)" shortcut=""></clip><clip name="010 | x0a | LF (NL new line/line feed)" shortcut=""></clip><clip name="011 | x0b | VT (vertical tab)" shortcut=""></clip><clip name="012 | x0c | FF (form feed, NP new page)" shortcut=""></clip><clip name="013 | x0d | CR (carriage return)" shortcut=""></clip><clip name="014 | x0e | SO (shift out)" shortcut=""></clip><clip name="015 | x0f | SI (shift in)" shortcut=""></clip><clip name="016 | x10 | DLE (data link escape)" shortcut=""></clip><clip name="017 | x11 | DC1 (device control 1)" shortcut=""></clip><clip name="018 | x12 | DC2 (device control 2)" shortcut=""></clip><clip name="019 | x13 | DC3 (device control 3)" shortcut=""></clip><clip name="020 | x14 | DC4 (device control 4)" shortcut=""></clip><clip name="021 | x15 | NAK (negative acknowledge)" shortcut=""></clip><clip name="022 | x16 | SYN (synchronous idle)" shortcut=""></clip><clip name="023 | x17 | ETB (end of transmission)" shortcut=""></clip><clip name="024 | x18 | CAN (cancel)" shortcut=""></clip><clip name="025 | x19 | EM (end of medium)" shortcut=""></clip><clip name="026 | x1a | SUB (substitute)" shortcut=""></clip><clip name="027 | x1b | ESC (escape)" shortcut=""></clip><clip name="028 | x1c | FS (file separator)" shortcut=""></clip><clip name="029 | x1d | GS (group separator)" shortcut=""></clip><clip name="030 | x1e | RS (record separator)" shortcut=""></clip><clip name="031 | x1f | US (unit separator)" shortcut=""></clip><clip name="032 | x20 | Space" shortcut=""></clip><clip name="033 | x21 | !" shortcut="">!</clip><clip name="034 | x22 | &quot;" shortcut="">"</clip><clip name="035 | x23 | #" shortcut="">#</clip><clip name="036 | x24 | $" shortcut="">$</clip><clip name="037 | x25 | %" shortcut="">%</clip><clip name="038 | x26 | &amp;" shortcut="">&amp;</clip><clip name="039 | x27 | '" shortcut="">'</clip><clip name="040 | x28 | (" shortcut="">(</clip><clip name="041 | x29 | )" shortcut="">)</clip><clip name="042 | x2a | *" shortcut="">*</clip><clip name="043 | x2b | +" shortcut="">+</clip><clip name="044 | x2c | ," shortcut="">,</clip><clip name="045 | x2d | -" shortcut="">-</clip><clip name="046 | x2e | ." shortcut="">.</clip><clip name="047 | x2f | /" shortcut="">/</clip><clip name="048 | x30 | 0" shortcut="">0</clip><clip name="049 | x31 | 1" shortcut="">1</clip><clip name="050 | x32 | 2" shortcut="">2</clip><clip name="051 | x33 | 3" shortcut="">3</clip><clip name="052 | x34 | 4" shortcut="">4</clip><clip name="053 | x35 | 5" shortcut="">5</clip><clip name="054 | x36 | 6" shortcut="">6</clip><clip name="055 | x37 | 7" shortcut="">7</clip><clip name="056 | x38 | 8" shortcut="">8</clip><clip name="057 | x39 | 9" shortcut="">9</clip><clip name="058 | x3a | :" shortcut="">:</clip><clip name="059 | x3b | ;" shortcut="">;</clip><clip name="061 | x3c | &lt;" shortcut="">&lt;</clip><clip name="062 | x3d | =" shortcut="">=</clip><clip name="063 | x3e | >" shortcut="">&gt;</clip><clip name="064 | x3f | ?" shortcut="">?</clip><clip name="065 | x40 | @" shortcut="">@</clip><clip name="066 | x41 | A" shortcut="">A</clip><clip name="067 | x42 | B" shortcut="">B</clip><clip name="068 | x43 | C" shortcut="">C</clip><clip name="069 | x44 | D" shortcut="">D</clip><clip name="070 | x45 | E" shortcut="">E</clip><clip name="071 | x46 | F" shortcut="">F</clip><clip name="072 | x47 | G" shortcut="">G</clip><clip name="073 | x48 | H" shortcut="">H</clip><clip name="074 | x49 | I" shortcut="">I</clip><clip name="075 | x4a | J" shortcut="">J</clip><clip name="076 | x4b | K" shortcut="">K</clip><clip name="077 | x4c | L" shortcut="">L</clip><clip name="078 | x4d | M" shortcut="">M</clip><clip name="079 | x4e | N" shortcut="">N</clip><clip name="070 | x4f | O" shortcut="">O</clip><clip name="081 | x50 | P" shortcut="">P</clip><clip name="082 | x51 | Q" shortcut="">Q</clip><clip name="083 | x52 | R" shortcut="">R</clip><clip name="084 | x53 | S" shortcut="">S</clip><clip name="085 | x54 | T" shortcut="">T</clip><clip name="086 | x55 | U" shortcut="">U</clip><clip name="087 | x56 | V" shortcut="">V</clip><clip name="088 | x57 | W" shortcut="">W</clip><clip name="089 | x58 | X" shortcut="">X</clip><clip name="090 | x59 | Y" shortcut="">Y</clip><clip name="091 | x5a | Z" shortcut="">Z</clip><clip name="092 | x5b | [" shortcut="">[</clip><clip name="093 | x5c | \" shortcut="">\</clip><clip name="094 | x5d | ]" shortcut="">]</clip><clip name="095 | x5e | ^" shortcut="">^</clip><clip name="096 | x5f | _" shortcut="">_</clip><clip name="096 | x60 | `" shortcut="">`</clip><clip name="096 | x61 | a" shortcut="">a</clip><clip name="096 | x62 | b" shortcut="">b</clip><clip name="096 | x63 | c" shortcut="">c</clip><clip name="096 | x64 | d" shortcut="">d</clip><clip name="096 | x65 | e" shortcut="">e</clip><clip name="096 | x66 | f" shortcut="">f</clip><clip name="096 | x67 | g" shortcut="">g</clip><clip name="096 | x68 | h" shortcut="">h</clip><clip name="096 | x69 | i" shortcut="">i</clip><clip name="096 | x6a | j" shortcut="">j</clip><clip name="096 | x6b | k" shortcut="">k</clip><clip name="096 | x6c | l" shortcut="">l</clip><clip name="096 | x6d | m" shortcut="">m</clip><clip name="096 | x6e | n" shortcut="">n</clip><clip name="096 | x6f | o" shortcut="">o</clip><clip name="096 | x70 | p" shortcut="">p</clip><clip name="096 | x71 | q" shortcut="">q</clip><clip name="096 | x72 | r" shortcut="">r</clip><clip name="096 | x73 | s" shortcut="">s</clip><clip name="096 | x74 | t" shortcut="">t</clip><clip name="096 | x75 | u" shortcut="">u</clip><clip name="096 | x76 | v" shortcut="">v</clip><clip name="096 | x77 | w" shortcut="">w</clip><clip name="096 | x78 | x" shortcut="">x</clip><clip name="096 | x79 | y" shortcut="">y</clip><clip name="096 | x7a | z" shortcut="">z</clip><clip name="096 | x7b | {" shortcut="">{</clip><clip name="096 | x7c | |" shortcut="">|</clip><clip name="096 | x7d | }" shortcut="">}</clip><clip name="096 | x7e | ~" shortcut="">~</clip><clip name="096 | x7f | (del)" shortcut=""></clip></clips><clips name="ASP.NET"><clip name="----- Directives ----" shortcut=""></clip><clip name="Assembly" shortcut="">&lt;%@ Assembly Name="|" %&gt;</clip><clip name="Control (C#)" shortcut="">&lt;%@ Control Language="C#" %&gt;|</clip><clip name="Control (VB)" shortcut="">&lt;%@ Control Language="VB" %&gt;|</clip><clip name="Implements" shortcut="">&lt;%@ Implements Interface="|" %&gt;</clip><clip name="Import" shortcut="">&lt;%@ Import Namespace="|" %&gt;</clip><clip name="OutputCache" shortcut="">&lt;%@ OutputCache Duration="100" VaryByParam="none|" %&gt;</clip><clip name="Page (C#)" shortcut="">&lt;%@ Page Language="C#" ContentType="text/html" ResponseEncoding="iso-8859-1" %&gt;|</clip><clip name="Page (VB)" shortcut="">&lt;%@ Page Language="VB" ContentType="text/html" ResponseEncoding="iso-8859-1" %&gt;|</clip><clip name="Reference (Control)" shortcut="">&lt;%@ Reference Control="|.ascx" %&gt;</clip><clip name="Reference (Page)" shortcut="">&lt;%@ Reference Page="|.aspx" %&gt;</clip><clip name="Register" shortcut="">&lt;%@ Register TagPrefix="|" TagName="" Src="" %&gt;</clip><clip name="----- Web Controls ----" shortcut=""></clip><clip name="AdRotator" shortcut="">&lt;asp:AdRotator id="AdRotator1"
+	AdvertisementFile="|.xml"
+	runat="server"/&gt;</clip><clip name="Button" shortcut="">&lt;asp:Button id="Button1"
+	Text="|"
+	OnClick=""
+	runat="server" /&gt;</clip><clip name="Calendar" shortcut="">&lt;asp:Calendar id="Calendar1"
+	runat="server"&gt;
+&lt;/asp:Calendar&gt;</clip><clip name="CheckBox" shortcut="">&lt;asp:CheckBox id="CheckBox1" 
+	Text="|"
+	runat="server" /&gt;</clip><clip name="CheckBoxList" shortcut="">&lt;asp:CheckBoxList id="CheckBoxList1"
+	DataSource='&lt;%# | %&gt;'
+	DataTextField=""
+	DataValueField=""
+	runat="server"&gt;
+	&lt;asp:ListItem Value="" Selected=""&gt;&lt;/asp:ListItem&gt;
+&lt;/asp:CheckBoxList&gt;</clip><clip name="DataGrid" shortcut="">&lt;asp:DataGrid id="DataGrid1"
+	DataSource='&lt;%# | %&gt;'
+	runat="server"&gt;
+&lt;/asp:DataGrid&gt;</clip><clip name="DataList" shortcut="">&lt;asp:DataList id="DataList1"
+	DataKeyField=""
+	DataSource='&lt;%# | %&gt;'
+	runat="server"&gt;
+&lt;/asp:DataList&gt;</clip><clip name="DropDownList" shortcut="">&lt;asp:DropDownList id="DropDownList1"
+	DataSource='&lt;%# | %&gt;'
+	DataTextField=""
+	DataValueField=""
+	runat="server"&gt;
+	&lt;asp:ListItem Value="" Selected=""&gt;&lt;/asp:ListItem&gt;
+&lt;/asp:DropDownList&gt;</clip><clip name="HyperLink" shortcut="">&lt;asp:HyperLink id="HyperLink1"
+	Text="|"
+	ToolTip=""
+	NavigateUrl=""
+	runat="server" /&gt;</clip><clip name="Image" shortcut="">&lt;asp:Image id="Image1"
+	ImageUrl="|"
+	AlternateText=""
+	ImageAlign=""
+	runat="server" /&gt;</clip><clip name="ImageButton" shortcut="">&lt;asp:ImageButton id="ImageButton1"
+	ImageUrl="|"
+	OnClick=""
+	runat="server" /&gt;</clip><clip name="Label" shortcut="">&lt;asp:Label id="Label1" Text="|" runat="server" /&gt;</clip><clip name="LinkButton" shortcut="">&lt;asp:LinkButton id="LinkButton1"
+	Text="|"
+	OnClick=""
+	runat="server" /&gt;</clip><clip name="ListBox" shortcut="">&lt;asp:ListBox id="ListBox1"
+	DataSource='&lt;%# | %&gt;'
+	DataTextField=""
+	DataValueField=""
+	runat="server"&gt;
+	&lt;asp:ListItem Value="" Selected=""&gt;&lt;/asp:ListItem&gt;
+&lt;/asp:ListBox&gt;</clip><clip name="Literal" shortcut="">&lt;asp:Literal id="Literal1" Text="|" runat="server" /&gt;</clip><clip name="Panel" shortcut="">&lt;asp:Panel id="Panel1" runat="server"&gt;
+|
+&lt;/asp:Panel&gt;</clip><clip name="PlaceHolder" shortcut="">&lt;asp:PlaceHolder id="PlaceHolder1" runat="server" /&gt;</clip><clip name="RadioButton" shortcut="">&lt;asp:RadioButton id="RadioButton1" 
+	Checked="|"
+	GroupName=""
+	Text=""
+	runat="server" /&gt;</clip><clip name="RadioButtonList" shortcut="">&lt;asp:RadioButtonList id="RadioButtonList1"
+	DataSource='&lt;%# | %&gt;'
+	DataTextField=""
+	DataValueField=""
+	RepeatColumns=""
+	RepeatDirection=""
+	RepeatLayout=""
+	TextAlign=""
+	runat="server"&gt;
+	&lt;asp:ListItem Value="" Selected=""&gt;&lt;/asp:ListItem&gt;
+&lt;/asp:RadioButtonList&gt;</clip><clip name="Repeater" shortcut="">&lt;asp:Repeater id="Repeater1"
+	DataSource='&lt;%# | %&gt;'
+	runat="server"&gt;
+	&lt;HeaderTemplate&gt;
+
+	&lt;/HeaderTemplate&gt;
+	&lt;ItemTemplate&gt;
+
+	&lt;/ItemTemplate&gt;
+	&lt;AlternatingItemTemplate&gt;
+
+	&lt;/AlternatingItemTemplate&gt;
+	&lt;SeparatorTemplate&gt;
+
+	&lt;/SeparatorTemplate&gt;
+	&lt;FooterTemplate&gt;
+
+	&lt;/FooterTemplate&gt;
+&lt;/asp:Repeater&gt;</clip><clip name="Table" shortcut="">&lt;asp:Table id="Table1"
+	CellSpacing=""
+	CellPadding=""
+	GridLines=""
+	HorizontalAlign=""
+	runat="server"&gt;
+	&lt;asp:TableRow&gt;
+		&lt;asp:TableCell&gt;
+			|
+		&lt;/asp:TableCell&gt;
+	&lt;/asp:TableRow&gt;
+&lt;/asp:Table&gt;</clip><clip name="TableCell" shortcut="">&lt;asp:TableCell id="TableCell1"
+	ColumnSpan=""
+	RowSpan=""
+	HorizontalAlign=""
+	VerticalAlign=""
+	Wrap=""
+	runat="server"&gt;
+	|
+&lt;/asp:TableCell&gt;</clip><clip name="TableRow" shortcut="">&lt;asp:TableRow id="TableRow1"
+	HorizontalAlign=""
+	VerticalAlign=""
+	runat="server"&gt;
+	&lt;asp:TableCell&gt;
+	|
+	&lt;/asp:TableCell&gt;
+&lt;/asp:TableRow&gt;</clip><clip name="TextBox" shortcut="">&lt;asp:TextBox id="TextBox1"
+	Columns=""
+	MaxLength=""
+	Rows=""
+	Text="|"
+	TextMode=""
+	Wrap=""
+	runat="server" /&gt;</clip><clip name="Xml" shortcut="">&lt;asp:Xml id="Xml1"
+	Document=""
+	DocumentContent=""
+	DocumentSource=""
+	Transform=""
+	TransformSource=""
+	runat="server" /&gt;</clip><clip name="----- Validation Controls -----" shortcut=""></clip><clip name="CompareValidator" shortcut="">&lt;asp:CompareValidator id="CompareValidator1"
+	ControlToValidate="|"
+	ValueToCompare=""
+	Type=""
+	Operator=""
+	ErrorMessage=""
+	runat="server"&gt;
+&lt;/asp:CompareValidator&gt;</clip><clip name="CustomValidator" shortcut="">&lt;asp:CustomValidator id="CustomValidator1"
+	runat="server"
+	ControlToValidate="|"
+	ClientValidationFunction=""
+	OnServerValidate=""
+	ErrorMessage=""&gt;
+&lt;/asp:CustomValidator&gt;</clip><clip name="RangeValidator" shortcut="">&lt;asp:RangeValidator id="RangeValidator1"
+	ControlToValidate="|"
+	MinimumValue=""
+	Type=""
+	ErrorMessage=""
+	runat="server"&gt;
+&lt;/asp:RangeValidator&gt;</clip><clip name="RegularExpressionValidator" shortcut="">&lt;asp:RegularExpressionValidator id="RegularExpressionValidator1" 
+	ControlToValidate="|"
+	ValidationExpression=""
+	ErrorMessage=""
+	runat="server"&gt;
+&lt;/asp:RegularExpressionValidator&gt;</clip><clip name="RequiredFieldValidator" shortcut="">&lt;asp:RequiredFieldValidator id="RequiredFieldValidator1"
+	ControlToValidate="|"
+	InitialValue=""
+	ErrorMessage=""
+	runat="server"&gt;
+&lt;/asp:RequiredFieldValidator&gt;</clip><clip name="ValidationSummary" shortcut="">&lt;asp:ValidationSummary id="ValidationSummary1"
+	DisplayMode="|"
+	EnableClientScript=""
+	ShowSummary=""
+	ShowMessageBox=""
+	HeaderText=""
+	runat="server" /&gt;</clip></clips><clips name="C Standard"><clip name="----- Block -----" shortcut=""></clip><clip name="Main body" shortcut="">
+  void main(void)
+  //
+  {
+    |;
+  }
+
+</clip><clip name="Function body" shortcut="">
+  void | (void)
+  //
+  {
+    ;
+  }
+
+</clip><clip name="return" shortcut="">  return;
+|</clip><clip name="----- Control -----" shortcut=""></clip><clip name="if (short)" shortcut="">  if (|) {;}
+</clip><clip name="if" shortcut="">  if (|)
+  {
+    ;
+  }
+
+</clip><clip name="if else (short)" shortcut="">  if (|) {;} else {;}
+</clip><clip name="if else" shortcut="">  if (|)
+  {
+    ;
+  } 
+  else
+  {
+    ;
+  }
+
+</clip><clip name="if else if" shortcut="">  if (|)
+  {
+    ;
+  }
+  else if ()
+  {
+    ;
+  } 
+  else if ()
+  {
+    ;
+  } 
+  else
+  {
+    ;
+  }
+
+</clip><clip name="switch" shortcut="">  switch (|)
+  {
+    case ():
+      ;
+      break;
+
+    case ():
+      ;
+      break;
+
+    case ():
+      ;
+      break;
+
+    default:
+      ;
+      break;
+  }
+
+</clip><clip name="for (short)" shortcut="">  for(|;;) {;}
+</clip><clip name="for" shortcut="">  for(|;;)
+  {
+    ;    
+  }
+
+</clip><clip name="while (short)" shortcut="">  while(|) {;}
+</clip><clip name="while" shortcut="">  while(|)
+  {
+    ;
+  }
+
+</clip><clip name="do while (short)" shortcut="">  do {;} while (|);
+</clip><clip name="do while" shortcut="">  do
+  {
+    ;
+  }
+  while (|);
+
+</clip><clip name="break" shortcut="">  break;
+|</clip><clip name="continue" shortcut="">  continue;
+|</clip><clip name="----- Other -----" shortcut=""></clip><clip name="#define" shortcut="">#define |</clip><clip name="#include &quot;&quot;" shortcut="">#include "|"</clip><clip name="#include &lt;>" shortcut="">#include &lt;|&gt;</clip><clip name="Comment /**/" shortcut="">/*|*/</clip><clip name="Comment //" shortcut="">//|</clip><clip name="Comment //***" shortcut="">//***|</clip></clips><clips name="Docbook"><clip name="book" shortcut="">
+	&lt;?xml version="1.0"?&gt;
+	
+	&lt;!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+		"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"&gt;
+	
+	&lt;book&gt;
+		&lt;title&gt;|&lt;/title&gt;
+		&lt;titleabbrev&gt;&lt;/titleabbrev&gt;
+		
+		&lt;bookinfo&gt;
+			&lt;legalnotice&gt;
+				&lt;para&gt;    
+				Copyright (c) Company. 2003-200, see &lt;ulink url="http://www.myurl.com/"&gt;www.myurl.com&lt;/ulink&gt;.
+				&lt;/para&gt;
+			&lt;/legalnotice&gt;
+			&lt;author&gt;
+				&lt;firstname&gt;Joe&lt;/firstname&gt;
+				&lt;surname&gt;Bloggs&lt;/surname&gt;
+			&lt;/author&gt;
+			&lt;copyright&gt;
+				&lt;year&gt;2003&lt;/year&gt;
+				&lt;year&gt;2004&lt;/year&gt;
+				&lt;holder&gt;Company.&lt;/holder&gt;
+			&lt;/copyright&gt;
+		&lt;/bookinfo&gt;
+		
+		&lt;preface&gt;
+			&lt;title&gt;Introduction&lt;/title&gt;
+			&lt;para&gt;
+			Welcome to the book.
+			&lt;/para&gt;
+		&lt;/preface&gt;
+	
+	</clip><clip name="part" shortcut="">
+	&lt;part&gt;
+		&lt;title&gt;|&lt;/title&gt;
+		&lt;partintro&gt;
+			&lt;para&gt;
+			Introduction to this part.
+			&lt;/para&gt;
+		&lt;/partintro&gt;
+		
+	&lt;/part&gt;
+	
+	</clip><clip name="chapter" shortcut="">
+&lt;chapter&gt;
+	&lt;title&gt;|&lt;/title&gt;
+&lt;/chapter&gt;
+	</clip><clip name="PN Help Topic" shortcut="">
+	&lt;section&gt;
+		&lt;?dbhh topicname="IDH_project_templates" topicid="13"?&gt;
+		&lt;title&gt;Creating Project Templates&lt;/title&gt;
+	
+		&lt;para&gt;This documentation is still to be written, &lt;ulink url="mailto:ss@pnotepad.org?subject=documentation%20help"&gt;perhaps you can help?&lt;/ulink&gt;&lt;/para&gt;
+	&lt;/section&gt;
+	
+	</clip><clip name="link" shortcut="">&lt;link linkend="|"&gt;&lt;/link&gt;</clip><clip name="keycombo" shortcut="">&lt;keycombo&gt;|&lt;/keycombo&gt;</clip><clip name="htmlhelp topic" shortcut="">&lt;?dbhh topicname="|" topicid="number"?&gt;</clip></clips><clips decodeNames="true" name="HTML Characters"><clip name="Space" shortcut="">&amp;nbsp;</clip><clip name="&quot;" shortcut="">&amp;quot;</clip><clip name="&amp;" shortcut="">&amp;amp;</clip><clip name="&lt;" shortcut="">&amp;lt;</clip><clip name=">" shortcut="">&amp;gt;</clip><clip name="©" shortcut="">&amp;copy;</clip><clip name="®" shortcut="">&lt;SUP&gt;&amp;reg;&lt;/SUP&gt;</clip><clip name="TM" shortcut="">&lt;FONT SIZE="-1"&gt;&lt;SUP&gt;TM&lt;/SUP&gt;&lt;/FONT&gt;</clip><clip name="´" shortcut="">&amp;acute;</clip><clip name="«" shortcut="">&amp;laquo;</clip><clip name="»" shortcut="">&amp;raquo;</clip><clip name="¡" shortcut="">&amp;iexcl;</clip><clip name="¿" shortcut="">&amp;iquest;</clip><clip name="À" shortcut="">&amp;Agrave;</clip><clip name="à" shortcut="">&amp;agrave;</clip><clip name="Á" shortcut="">&amp;Aacute;</clip><clip name="á" shortcut="">&amp;aacute;</clip><clip name="Â" shortcut="">&amp;Acirc;</clip><clip name="â" shortcut="">&amp;acirc;</clip><clip name="Ã" shortcut="">&amp;Atilde;</clip><clip name="ã" shortcut="">&amp;atilde;</clip><clip name="Ä" shortcut="">&amp;Auml;</clip><clip name="ä" shortcut="">&amp;auml;</clip><clip name="Å" shortcut="">&amp;Aring;</clip><clip name="å" shortcut="">&amp;aring;</clip><clip name="Æ" shortcut="">&amp;AElig;</clip><clip name="æ" shortcut="">&amp;aelig;</clip><clip name="Ç" shortcut="">&amp;Ccedil;</clip><clip name="ç" shortcut="">&amp;ccedil;</clip><clip name="Ð" shortcut="">&amp;ETH;</clip><clip name="ð" shortcut="">&amp;eth;</clip><clip name="È" shortcut="">&amp;Egrave;</clip><clip name="è" shortcut="">&amp;egrave;</clip><clip name="É" shortcut="">&amp;Eacute;</clip><clip name="é" shortcut="">&amp;eacute;</clip><clip name="Ê" shortcut="">&amp;Ecirc;</clip><clip name="ê" shortcut="">&amp;ecirc;</clip><clip name="Ë" shortcut="">&amp;Euml;</clip><clip name="ë" shortcut="">&amp;euml;</clip><clip name="Ì" shortcut="">&amp;Igrave;</clip><clip name="ì" shortcut="">&amp;igrave;</clip><clip name="Í" shortcut="">&amp;Iacute;</clip><clip name="í" shortcut="">&amp;iacute;</clip><clip name="Î" shortcut="">&amp;Icirc;</clip><clip name="î" shortcut="">&amp;icirc;</clip><clip name="Ï" shortcut="">&amp;Iuml;</clip><clip name="ï" shortcut="">&amp;iuml;</clip><clip name="Ñ" shortcut="">&amp;Ntilde;</clip><clip name="ñ" shortcut="">&amp;ntilde;</clip><clip name="Ò" shortcut="">&amp;Ograve;</clip><clip name="ò" shortcut="">&amp;ograve;</clip><clip name="Ó" shortcut="">&amp;Oacute;</clip><clip name="ó" shortcut="">&amp;oacute;</clip><clip name="Ô" shortcut="">&amp;Ocirc;</clip><clip name="ô" shortcut="">&amp;ocirc;</clip><clip name="Õ" shortcut="">&amp;Otilde;</clip><clip name="õ" shortcut="">&amp;otilde;</clip><clip name="Ö" shortcut="">&amp;Ouml;</clip><clip name="ö" shortcut="">&amp;ouml;</clip><clip name="Ø" shortcut="">&amp;Oslash;</clip><clip name="ø" shortcut="">&amp;oslash;</clip><clip name="Ù" shortcut="">&amp;Ugrave;</clip><clip name="ù" shortcut="">&amp;ugrave;</clip><clip name="Ú" shortcut="">&amp;Uacute;</clip><clip name="ú" shortcut="">&amp;uacute;</clip><clip name="Û" shortcut="">&amp;Ucirc;</clip><clip name="û" shortcut="">&amp;ucirc;</clip><clip name="Ü" shortcut="">&amp;Uuml;</clip><clip name="ü" shortcut="">&amp;uuml;</clip><clip name="Ý" shortcut="">&amp;Yacute;</clip><clip name="ý" shortcut="">&amp;yacute;</clip><clip name="ÿ" shortcut="">&amp;yuml;</clip><clip name="Þ" shortcut="">&amp;THORN;</clip><clip name="þ" shortcut="">&amp;thorn;</clip><clip name="ß" shortcut="">&amp;szlig;</clip><clip name="§" shortcut="">&amp;sect;</clip><clip name="¶" shortcut="">&amp;para;</clip><clip name="µ" shortcut="">&amp;micro;</clip><clip name="¦" shortcut="">&amp;brvbar;</clip><clip name="±" shortcut="">&amp;plusmn;</clip><clip name="·" shortcut="">&amp;middot;</clip><clip name="¨" shortcut="">&amp;uml;</clip><clip name="¸" shortcut="">&amp;cedil;</clip><clip name="ª" shortcut="">&amp;ordf;</clip><clip name="º" shortcut="">&amp;ordm;</clip><clip name="¬" shortcut="">&amp;not;</clip><clip name="­" shortcut="">&amp;shy;</clip><clip name="¯" shortcut="">&amp;macr;</clip><clip name="°" shortcut="">&amp;deg;</clip><clip name="¹" shortcut="">&amp;sup1;</clip><clip name="²" shortcut="">&amp;sup2;</clip><clip name="³" shortcut="">&amp;sup3;</clip><clip name="¼" shortcut="">&amp;frac14;</clip><clip name="½" shortcut="">&amp;frac12;</clip><clip name="¾" shortcut="">&amp;frac34;</clip><clip name="×" shortcut="">&amp;times;</clip><clip name="÷" shortcut="">&amp;divide;</clip><clip name="¢" shortcut="">&amp;cent;</clip><clip name="£" shortcut="">&amp;pound;</clip><clip name="¤" shortcut="">&amp;curren;</clip><clip name="¥" shortcut="">&amp;yen;</clip></clips><clips name="Java"><clip name="----- Block -----" shortcut=""></clip><clip name="Main body" shortcut="">
+  void main(void)
+  //
+  {
+    |;
+  }
+
+</clip><clip name="Function body" shortcut="">
+  void | (void)
+  //
+  {
+    ;
+  }
+
+</clip><clip name="return" shortcut="">  return;
+|</clip><clip name="----- Control -----" shortcut=""></clip><clip name="if (short)" shortcut="">  if (|) {;}
+</clip><clip name="if" shortcut="">  if (|)
+  {
+    ;
+  }
+
+</clip><clip name="if else (short)" shortcut="">  if (|) {;} else {;}
+</clip><clip name="if else" shortcut="">  if (|)
+  {
+    ;
+  } 
+  else
+  {
+    ;
+  }
+
+</clip><clip name="if else if" shortcut="">  if (|)
+  {
+    ;
+  }
+  else if ()
+  {
+    ;
+  } 
+  else if ()
+  {
+    ;
+  } 
+  else
+  {
+    ;
+  }
+
+</clip><clip name="switch" shortcut="">  switch (|)
+  {
+    case ():
+      ;
+      break;
+
+    case ():
+      ;
+      break;
+
+    case ():
+      ;
+      break;
+
+    default:
+      ;
+      break;
+  }
+
+</clip><clip name="for (short)" shortcut="">  for(|;;) {;}
+</clip><clip name="for" shortcut="">  for(|;;)
+  {
+    ;    
+  }
+
+</clip><clip name="while (short)" shortcut="">  while(|) {;}
+</clip><clip name="while" shortcut="">  while(|)
+  {
+    ;
+  }
+
+</clip><clip name="do while (short)" shortcut="">  do {;} while (|);
+</clip><clip name="do while" shortcut="">  do
+  {
+    ;
+  }
+  while (|);
+
+</clip><clip name="break" shortcut="">  break;
+|</clip><clip name="continue" shortcut="">  continue;
+|</clip><clip name="----- Other -----" shortcut=""></clip><clip name="constant" shortcut="">final static | = ;</clip><clip name="import" shortcut="">import "|";</clip><clip name="#include &lt;>" shortcut="">#include &lt;|&gt;</clip><clip name="Comment /**/" shortcut="">/*|*/</clip><clip name="Comment //" shortcut="">//|</clip></clips><clips name="NAnt"><clip name="Project" shortcut="">&lt;?xml version="1.0"?&gt;
+&lt;project name="myproject" default="build" basedir="."&gt;
+	&lt;target name="build"&gt;
+		|
+	&lt;/target&gt;
+&lt;/project&gt;
+	
+	</clip><clip name="Target" shortcut="">&lt;target name="|"&gt;
+	
+&lt;/target&gt;
+	</clip><clip name="Call" shortcut="">
+	&lt;call target="|"/&gt;
+	</clip><clip name="Echo" shortcut="">
+	&lt;echo message="|"/&gt;
+	</clip><clip name="If" shortcut="">
+	&lt;if test="|"&gt;
+	
+&lt;/if&gt;
+	</clip><clip name="If Not" shortcut="">&lt;ifnot test="|"&gt;
+	
+&lt;/ifnot&gt;
+	</clip><clip name="Property" shortcut="">
+	&lt;property name="|" value="" /&gt;
+	</clip><clip name="Execute" shortcut="">
+	&lt;exec program="|" workingdir="" commandline='' /&gt;
+	</clip><clip name="Copy" shortcut="">
+	&lt;copy file="|" tofile="" /&gt;
+	</clip><clip name="Delete" shortcut="">
+	&lt;delete file="|" failonerror="false" /&gt;
+	</clip><clip name="Move" shortcut="">
+	&lt;move file="|" tofile="" /&gt;
+	</clip><clip name="Make Directory" shortcut="">
+	&lt;mkdir dir="|"/&gt;
+	</clip><clip name="Set Copy" shortcut="">&lt;copy todir="|"&gt;
+	&lt;fileset basedir="."&gt;
+		&lt;include name="*.*"/&gt;
+	&lt;/fileset&gt;
+&lt;/copy&gt;
+	</clip><clip name="Set Delete" shortcut="">&lt;delete&gt;
+	&lt;fileset&gt;
+		&lt;include name="|"/&gt;
+	&lt;/fileset&gt;
+&lt;/delete&gt;
+	</clip><clip name="Set Move" shortcut="">&lt;move todir="|"&gt;
+	&lt;fileset basedir="."&gt;
+		&lt;include name="*.*"/&gt;
+	&lt;/fileset&gt;
+&lt;/move&gt;
+	</clip><clip name="Set Zip" shortcut="">&lt;zip zipfile="|"&gt;
+	&lt;fileset basedir="."&gt;
+		&lt;include name="**/*"/&gt;
+	&lt;/fileset&gt;
+&lt;/zip&gt;
+	</clip><clip name="Property Exists" shortcut="">
+	property::exists('|')
+	</clip></clips><clips name="Pascal/Delphi"><clip name="----- Block -----" shortcut=""></clip><clip name="Main body" shortcut="">
+ 
+  begin
+    |;
+  end.
+
+</clip><clip name="Function body" shortcut="">
+	function |(param1: int):int;
+	var  ;
+	begin
+	end;
+</clip><clip name="Procedure body" shortcut="">
+	Procedure |();
+	var  ;
+	begin
+	end;
+</clip><clip name="exit proc/function" shortcut="">  exit;
+|</clip><clip name="exit program" shortcut="">  halt(0);
+|</clip><clip name="----- Control -----" shortcut=""></clip><clip name="if (short)" shortcut="">  if (|) then ;
+</clip><clip name="if" shortcut="">  if (|) then
+  begin
+    ;
+  end;
+
+</clip><clip name="if else" shortcut="">  if (|) then
+  begin
+    ;
+  end 
+  else begin
+    ;
+  end;
+
+</clip><clip name="if else if" shortcut="">  if (|) then
+  begin
+    ;
+  end 
+  else begin
+    ;
+  end 
+  else begin
+  end;
+
+</clip><clip name="case (switch)" shortcut=""> case (|) of
+      :
+      begin
+      end;
+
+      :
+      begin
+      end;
+
+      :
+      begin
+      end;
+
+      else
+      begin
+      end;
+
+end;
+
+</clip><clip name="for" shortcut="">  for | to do
+  begin
+    ;    
+  end;
+
+</clip><clip name="repeat" shortcut="">  repeat 
+  
+    ;
+  until |;
+
+</clip><clip name="do while" shortcut="">  while (|) do
+  begin
+    ;
+  end;
+
+</clip><clip name="----- Other -----" shortcut=""></clip><clip name="constant" shortcut="">const | = ;</clip><clip name="variable section" shortcut="">var | = ;</clip><clip name="variable assign" shortcut="">  |:=; </clip><clip name="use library" shortcut="">uses "|";</clip><clip name="Comment " shortcut="">{|}</clip><clip name="Comment //" shortcut="">//|</clip></clips><clips name="PHP Control"><clip name="Open/Close PHP Tags" shortcut="">
+&lt;?php
+
+|
+
+?&gt;
+</clip><clip name="For Loop" shortcut="">
+for ( $i = 0; $i &lt;= |; $i++ ) {
+    
+    }
+</clip><clip name="Foreach Loop (array)" shortcut="">
+foreach ( $array as $value ) {
+    |
+    }
+</clip><clip name="Foreach Loop (hash)" shortcut="">
+foreach ( $array as $key =&gt; $value ) {
+    |
+    }
+</clip><clip name="While Loop" shortcut="">
+while ( | ) {
+    
+    }
+</clip><clip name="Do...While Loop" shortcut="">
+do {
+   |
+   } while ( expr );
+</clip><clip name="If..Else If Loop" shortcut="">
+if ( | ) {
+     
+     }
+else if ( expr ) {
+     
+     }
+else {
+     
+     }
+</clip><clip name="Switch (Case)" shortcut="">
+switch ($i) {
+    case |:
+         
+        break;
+    case value:
+        
+        break;
+    default:
+        
+}
+</clip><clip name="Require" shortcut="">
+require( '|' );
+</clip><clip name="Include" shortcut="">
+include( '|' );
+</clip></clips><clips name="Perl"><clip name="----- Block -----" shortcut=""></clip><clip name="Begin Block" shortcut="">BEGIN {
+
+    |;
+
+}
+
+</clip><clip name="End Block" shortcut="">END {
+
+    |;
+
+}
+</clip><clip name="Function" shortcut="">
+sub |($Par1, $Par2)
+{
+    my($Par1,$Par2)=($_[0],$_[1]);
+    return 0;
+}
+
+</clip><clip name="----- Control -----" shortcut=""></clip><clip name="if" shortcut="">
+if (|)
+{
+    ;
+}
+
+</clip><clip name="if else" shortcut="">
+if(|)
+{
+     
+}
+else
+{
+
+}
+
+
+
+</clip><clip name="if else if" shortcut="">
+if(|)
+{
+     
+}
+elsif
+{
+
+}
+else
+{
+
+}
+
+</clip><clip name="unless" shortcut="">unless (|) {
+	
+}
+
+</clip><clip name="switch" shortcut="">SWITCH: {
+	if (|) { 
+		
+		last SWITCH; }
+	if () {
+		
+		last SWITCH; }
+	if () {
+		
+		last SWITCH; }
+}
+
+</clip><clip name="for" shortcut="">for(|;;) {
+	
+}
+
+</clip><clip name="foreach" shortcut="">foreach $x (|) {
+	
+}
+
+</clip><clip name="while" shortcut="">while(|) {
+	
+}
+
+</clip><clip name="do while" shortcut="">do {
+	
+} while ();
+
+</clip><clip name="do until" shortcut="">do {
+	
+} until ();
+
+</clip><clip name="until" shortcut="">until(|) {
+	
+}
+
+</clip><clip name="----- Files and Directories -----" shortcut=""></clip><clip name="Open File for reading" shortcut="">open(FILEREAD, "|/path/to/file")|| die "cannot open: $!";
+</clip><clip name="Open File for writing (clobber)" shortcut="">open(FILEWRITE, "&gt;|/path/to/file")|| die "cannot open: $!";
+</clip><clip name="Open File for writing (append)" shortcut="">open(FILEAPPEND, "&gt;&gt;|/path/to/file")|| die "cannot open: $!";
+</clip><clip name="File Stats" shortcut="">($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,
+ $size,$atime,$mtime,$ctime,$blksize,$blocks) = stat ("|/path/to/file");
+</clip><clip name="----- Other -----" shortcut=""></clip><clip name="use" shortcut="">use |;</clip><clip name="Shebang" shortcut="">#!/usr/bin/perl
+	
+|
+</clip><clip name="Shebang (warnings)" shortcut="">#!/usr/bin/perl -w
+	
+|
+</clip><clip name="POD Documentaion" shortcut="">=head1 NAME
+
+|#TODO Insert name of script
+
+=head1 SYNOPSIS
+
+#TODO Overview of script
+
+=head1 DESCRIPTION
+
+#TODO Write detailed description of script
+
+=head1 AUTHOR
+
+#TODO Insert author name
+
+=head1 REVISION HISTORY
+
+
+
+=cut
+
+</clip><clip name="print error statement" shortcut="">&amp;print("ERROR=".$@."\n");</clip><clip name="call function" shortcut="">&amp;funcName($Var1,$Var2);]&gt;&lt;/clip&gt;
+&lt;clip name="declare and assign variable"&gt;&lt;![CDATA[$VarName="";</clip><clip name="declare array" shortcut="">@MyArr=();</clip><clip name="Access n-element in array" shortcut="">$MyArr[n]=0;</clip><clip name="Comment " shortcut="">#|</clip><clip name="Concatenate 'string' and var " shortcut="">"stringtoconcatenate".$Var</clip><clip name="Compare 2 substrings of length n" shortcut="">substr($S1,0,$n) eq substr($S2,0,$n)</clip></clips><clips name="VBNet"><clip name="----- Block -----" shortcut=""></clip><clip name="Main body" shortcut="">
+Imports System
+Class |
+    Shared Sub main()
+        System.Console.WriteLine("HI!")
+        System.Console.ReadLine()        
+    End Sub
+End Class
+</clip><clip name="Function body" shortcut="">
+  function  | (ByVal Par1 as int16, ByVal Par2 as String) As Int16
+    return 0
+  end function
+</clip><clip name="Procedure body" shortcut=""> sub |() 
+    
+  end sub
+</clip><clip name="return" shortcut="">  return
+|</clip><clip name="----- Control -----" shortcut=""></clip><clip name="if (short)" shortcut="">  if (|) then
+</clip><clip name="if" shortcut="">  if (|) then
+  
+  
+    end if
+
+</clip><clip name="if else" shortcut="">  if (|) then 
+
+  else
+ 
+  end if
+
+</clip><clip name="if else if" shortcut="">  if |
+
+  else if
+
+  else
+ 
+  end if
+
+</clip><clip name="for" shortcut="">  Dim i=0: For i = | To   Step 1
+	
+     Next 
+</clip><clip name="----- Other -----" shortcut=""></clip><clip name="imports" shortcut="">imports |</clip><clip name="Var declaration " shortcut=""> Dim | as new Object() </clip><clip name="Array declaration (size=n) " shortcut=""> Dim MyArr(n-1) of Object</clip><clip name="Comment " shortcut="">'|</clip></clips><clips name="XHTML Tags"><clip name="------ DOCTYPEs ------" shortcut=""></clip><clip name="XHTML 1.0 transitional" shortcut="">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;|</clip><clip name="XHTML 1.0 strict" shortcut="">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;|</clip><clip name="XHTML 1.1" shortcut="">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;|</clip><clip name="------ Tags ------" shortcut=""></clip><clip name="a" shortcut="">&lt;a href="|" target=""&gt;&lt;/a&gt;</clip><clip name="area" shortcut="">&lt;area shape="" coords="" href="|" alt="" /&gt;</clip><clip name="abbr" shortcut="">&lt;abbr&gt;|&lt;/abbr&gt;</clip><clip name="acronym" shortcut="">&lt;acronym&gt;|&lt;/acronym&gt;</clip><clip name="address" shortcut="">&lt;address&gt;|&lt;/address&gt;</clip><clip name="base" shortcut="">&lt;base href="|" /&gt;</clip><clip name="bdo" shortcut="">&lt;bdo dir="ltr"&gt;|&lt;/bdo&gt;</clip><clip name="blockquote" shortcut="">&lt;blockquote&gt;|&lt;/blockquote&gt;</clip><clip name="body" shortcut="">&lt;body&gt;
+|
+&lt;/body&gt;</clip><clip name="br" shortcut="">&lt;br /&gt;|</clip><clip name="button" shortcut="">&lt;button onclick="|" /&gt;</clip><clip name="caption" shortcut="">&lt;caption&gt;|&lt;/caption&gt;</clip><clip name="cite" shortcut="">&lt;cite title=""&gt;|&lt;/cite&gt;</clip><clip name="code" shortcut="">&lt;code&gt;|&lt;/code&gt;</clip><clip name="col" shortcut="">&lt;col /&gt;</clip><clip name="colgroup" shortcut="">&lt;colgroup&gt;|&lt;/colgroup&gt;</clip><clip name="del" shortcut="">&lt;del&gt;|&lt;/del&gt;</clip><clip name="dd" shortcut="">&lt;dd&gt;|&lt;/dd&gt;</clip><clip name="dfn" shortcut="">&lt;dfn&gt;|&lt;/dfn&gt;</clip><clip name="div" shortcut="">&lt;div&gt;|&lt;/div&gt;</clip><clip name="dl" shortcut="">&lt;dl&gt;|&lt;/dl&gt;</clip><clip name="dt" shortcut="">&lt;dt&gt;|&lt;/dt&gt;</clip><clip name="em" shortcut="">&lt;em&gt;|&lt;/em&gt;</clip><clip name="form" shortcut="">&lt;form action="|" method="post"&gt;&lt;/form&gt;</clip><clip name="fieldset" shortcut="">&lt;fieldset&gt;|&lt;/fieldset&gt;</clip><clip name="h1" shortcut="">&lt;h1&gt;|&lt;/h1&gt;</clip><clip name="h2" shortcut="">&lt;h2&gt;|&lt;/h2&gt;</clip><clip name="h3" shortcut="">&lt;h3&gt;|&lt;/h3&gt;</clip><clip name="h4" shortcut="">&lt;h4&gt;|&lt;/h4&gt;</clip><clip name="h5" shortcut="">&lt;h5&gt;|&lt;/h5&gt;</clip><clip name="h6" shortcut="">&lt;h6&gt;|&lt;/h6&gt;</clip><clip name="head" shortcut="">&lt;head&gt;
+|
+&lt;/head&gt;</clip><clip name="html" shortcut="">&lt;html&gt;
+|
+&lt;/html&gt;</clip><clip name="html (strict)" shortcut="">&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+|
+&lt;/html&gt;</clip><clip name="hr" shortcut="">&lt;hr /&gt;</clip><clip name="input (button)" shortcut="">&lt;input type="button" name="|" /&gt;</clip><clip name="input (checkbox)" shortcut="">&lt;input type="checkbox" name="|" /&gt;</clip><clip name="input (file)" shortcut="">&lt;input type="file" name="|" /&gt;</clip><clip name="input (hidden)" shortcut="">&lt;input type="hidden" name="|" /&gt;</clip><clip name="input (image)" shortcut="">&lt;input type="image" name="|" /&gt;</clip><clip name="input (password)" shortcut="">&lt;input type="password" name="|" /&gt;</clip><clip name="input (radio)" shortcut="">&lt;input type="radio" name="|" /&gt;</clip><clip name="input (reset)" shortcut="">&lt;input type="reset" name="|" /&gt;</clip><clip name="input (submit)" shortcut="">&lt;input type="submit" name="|" /&gt;</clip><clip name="input (text)" shortcut="">&lt;input type="text" name="|" /&gt;</clip><clip name="img" shortcut="">&lt;img src="|" width="" height="" title="" alt="" /&gt;</clip><clip name="ins" shortcut="">&lt;ins&gt;|&lt;/ins&gt;</clip><clip name="kbd" shortcut="">&lt;kbd&gt;|&lt;/kbd&gt;</clip><clip name="label" shortcut="">&lt;label&gt;|&lt;/label&gt;</clip><clip name="legend" shortcut="">&lt;legend&gt;|&lt;/legend&gt;</clip><clip name="li" shortcut="">&lt;li&gt;|&lt;/li&gt;</clip><clip name="link" shortcut="">&lt;link href="|" rel="" type="" title="" /&gt;</clip><clip name="link (stylesheet)" shortcut="">&lt;link rel="stylesheet" type="text/css" media="screen" href="|" /&gt;</clip><clip name="map" shortcut="">&lt;map name="" id="|"&gt;&lt;/map&gt;</clip><clip name="meta" shortcut="">&lt;meta name="|" content="" /&gt;</clip><clip name="meta (charset=iso-8859-1)" shortcut="">&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;</clip><clip name="meta (charset=utf-8)" shortcut="">&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;</clip><clip name="noscript" shortcut="">&lt;noscript&gt;|&lt;/noscript&gt;</clip><clip name="object" shortcut="">&lt;object classid="|"&gt;&lt;/object&gt;</clip><clip name="ol" shortcut="">&lt;ol&gt;|&lt;/ol&gt;</clip><clip name="optgroup" shortcut="">&lt;optgroup&gt;|&lt;/optgroup&gt;</clip><clip name="option" shortcut="">&lt;option&gt;|&lt;/option&gt;</clip><clip name="p" shortcut="">&lt;p&gt;|&lt;/p&gt;</clip><clip name="param" shortcut="">&lt;param name="" value=""&gt;|&lt;/param&gt;</clip><clip name="pre" shortcut="">&lt;pre&gt;|&lt;/pre&gt;</clip><clip name="q" shortcut="">&lt;q&gt;|&lt;/q&gt;</clip><clip name="samp" shortcut="">&lt;samp&gt;|&lt;/samp&gt;</clip><clip name="script" shortcut="">&lt;script type="text/javascript"&gt;
+&lt;!--
+|
+//--&gt;
+&lt;/script&gt;</clip><clip name="script src=" shortcut="">&lt;script type="text/javascript" src="|"&gt;&lt;/script&gt;</clip><clip name="select" shortcut="">&lt;select name=""&gt;
+|
+&lt;/select&gt;</clip><clip name="span" shortcut="">&lt;span&gt;|&lt;/span&gt;</clip><clip name="strong" shortcut="">&lt;strong&gt;|&lt;/strong&gt;</clip><clip name="style" shortcut="">&lt;style type="text/css"&gt;
+&lt;!--
+|
+//--&gt;
+&lt;/style&gt;</clip><clip name="style @import" shortcut="">&lt;style type="text/css"&gt;
+&lt;!--
+	@import "|";
+//--&gt;
+&lt;/style&gt;</clip><clip name="table" shortcut="">&lt;table&gt;|&lt;/table&gt;</clip><clip name="tbody" shortcut="">&lt;tbody&gt;|&lt;/tbody&gt;</clip><clip name="td" shortcut="">&lt;td&gt;|&lt;/td&gt;</clip><clip name="textarea" shortcut="">&lt;textarea name="" rows="" cols=""&gt;|&lt;/textarea&gt;</clip><clip name="tfoot" shortcut="">&lt;tfoot&gt;|&lt;/tfoot&gt;</clip><clip name="th" shortcut="">&lt;th&gt;|&lt;/th&gt;</clip><clip name="thead" shortcut="">&lt;thead&gt;|&lt;/thead&gt;</clip><clip name="tr" shortcut="">&lt;tr&gt;|&lt;/tr&gt;</clip><clip name="title" shortcut="">&lt;title&gt;|&lt;/title&gt;</clip><clip name="tt" shortcut="">&lt;tt&gt;|&lt;/tt&gt;</clip><clip name="ul" shortcut="">&lt;ul&gt;|&lt;/ul&gt;</clip></clips><clips name="C#" scheme="csharp"><clip name="class" shortcut="cl">/// &lt;summary&gt;
+/// 
+/// &lt;/summary&gt;
+public class |
+{
+	
+}</clip><clip name="method" shortcut="m">/// &lt;summary&gt;
+/// 
+/// &lt;/summary&gt;
+public void |()
+{
+	
+}</clip><clip name="property" shortcut="prop">private | x;
+
+/// &lt;summary&gt;
+/// Gets or sets 
+/// &lt;/summary&gt;
+public type X
+{
+	get { return this.x; }
+	set { this.x = value; }
+}</clip><clip name="interface" shortcut="iface">public interface I|
+{
+	
+}</clip><clip name="if" shortcut="if">if (|)
+{
+	
+}</clip><clip name="if else" shortcut="ife">if (|)
+{
+	
+}
+else
+{
+	
+}</clip></clips><clips name="Python" scheme="python"><clip name="class" shortcut="cl">class |:</clip><clip name="method" shortcut="m">def |():</clip><clip name="xrange" shortcut="xr">for x in xrange(|):</clip><clip name="PyPN Script File" shortcut="pnscriptfile">###############################################################################
+## Script description
+## By: your name here
+
+import pn
+import scintilla
+from pypn.decorators import script
+
+@script()
+def |():
+	""" What this does """
+    pass</clip><clip name="PyPN Script Method" shortcut="pnscript">@script()
+def |():
+	""" What this does """
+    pass</clip><clip name="PyPN Editor" shortcut="pneditor">editor = scintilla.Scintilla(pn.CurrentDoc())</clip><clip name="PyPN Undo Block" shortcut="undoblock">editor.BeginUndoAction()
+|	
+editor.EndUndoAction()</clip><clip name="PyPN Selected Text" shortcut="pnsel">editor.GetText(editor.SelectionStart, editor.SelectionEnd)</clip></clips><clips name="XML" scheme="xml"><clip name="File Header" shortcut="file">&lt;?xml version="1.0" encoding="utf-8"?&gt;</clip><clip name="Comment" shortcut="co">&lt;!--|--&gt;</clip></clips></clipSets>

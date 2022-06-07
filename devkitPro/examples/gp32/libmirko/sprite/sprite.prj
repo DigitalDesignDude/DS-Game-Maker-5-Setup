@@ -1,0 +1,29 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Group]
+0=include
+1=source
+[Project Information]
+Filter=*.*
+Project Directory=C:\projects\devkitPro\examples\gp32\libmirko\sprite\
+Use Relative Directory=1
+Relative to Project File=1
+Project Wordfile=
+Project Tagfile=
+Create Tagfile=0
+Include Sub Directories=0
+[Files]
+0=C:\projects\devkitPro\examples\gp32\libmirko\sprite\Makefile
+[Files - source]
+0=C:\projects\devkitPro\examples\gp32\libmirko\sprite\source\sprite.c
+[Open Files]
+Open File0=c:\projects\devkitPro\examples\gp32\libmirko\sprite\source\sprite.c
+Open File Pos0=1315
+Open File Line0=485
+Active File Index=0
+Open File Window Pos0=2,3,-1,-1,-4,-23,44,44,940,419
+Open File1=
+Active File Display Mode=3
+[File View]
+Current Select=Project Files
+Scroll Position=0

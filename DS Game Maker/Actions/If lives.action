@@ -1,0 +1,12 @@
+TYPE 4
+DISPLAY If lives are $1$ !2!
+ICON Lives.png
+CONDITION 1
+ARG If lives are,10
+ARG the following:,0
+if (lives !1! !2!) {
+
+
+
+
+NOAPPLIES

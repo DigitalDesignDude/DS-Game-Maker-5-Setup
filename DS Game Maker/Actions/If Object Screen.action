@@ -1,0 +1,6 @@
+TYPE 5
+DISPLAY If Object is on %1%
+ICON ObjectScreen.png
+CONDITION 0
+ARG Screen,1
+if (Instances[AppliesTo].Screen == !1!) {

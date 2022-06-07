@@ -1,0 +1,1 @@
+<Project name="flamme"><MagicFolder excludeFolders="CVS;.svn" filter="*.c;*.cpp" name="source" path="source\"><File path="flamme.c"></File></MagicFolder><File path="Makefile"></File></Project>

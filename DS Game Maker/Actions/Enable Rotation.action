@@ -1,0 +1,5 @@
+TYPE 0
+DISPLAY Enable Rotation
+ICON RotateEnable.png
+CONDITION 0
+Enable_Rotation(AppliesTo);

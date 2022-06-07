@@ -1,0 +1,7 @@
+TYPE 0
+DISPLAY Set Object to Position !1!, !2!
+ICON ObjectPosition.png
+CONDITION 0
+ARG X Position,0
+ARG Y Position,0
+Set_XY(AppliesTo, !1!, !2!);

@@ -1,0 +1,72 @@
+#!/usr/bin/perl -w
+
+eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+
+use strict;
+use Archive::Tar;
+use File::Find;
+
+my $switches = shift @ARGV;
+my $tarfile = "./default.tar";
+my ($create, $list, $extract, $compress, $debug, $verbose) = (0, 0, 0, 0);
+
+if (!$switches) {
+    print<<EOF;
+usage: ptar [xct][v][f][z] [archive_file] [files...]
+    x    Extract from archive_file
+    c    Make archive_file from files
+    t    Print contents of archive_file
+    f    First argument is name of archive_file, default is ./default.tar
+    v    Print filenames as they are added to archive_file
+    z    Read/write gnuzip-compressed archive_file (not always available)
+EOF
+    exit;
+}
+
+foreach (split(//,$switches)) {
+    if ($_ eq "x") {
+	$extract = 1;
+    }
+    elsif ($_ eq "t") {
+	$list = 1;
+    }
+    elsif ($_ eq "c") {
+	$create = 1;
+    }
+    elsif ($_ eq "z") {
+	$compress = 1;
+    }
+    elsif ($_ eq "f") {
+	$tarfile = shift @ARGV;
+    }
+    elsif ($_ eq "v") {
+	$verbose = 1;
+    }
+    elsif ($_ eq "d") {
+	$debug = 1;
+    }
+    elsif ($_ eq "-") {
+	# Oh, a leading dash! How cute!
+    }
+    else {
+	warn "Unknown switch: $_\n";
+    }
+}
+
+if ($extract+$list+$create>1) {
+    die "More than one of x, c and t doesn't make sense.\n";
+}
+elsif ($list) {
+    print join "\n", Archive::Tar->list_archive ($tarfile),"";
+}
+elsif ($extract) {
+    Archive::Tar->extract_archive ($tarfile);
+}
+elsif ($create) {
+    my @f;
+    
+    find (sub { push @f,$File::Find::name;
+		print $File::Find::name,"\n" if $verbose}, @ARGV);
+    Archive::Tar->create_archive ($tarfile, $compress, @f);
+}

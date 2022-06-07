@@ -1,0 +1,6 @@
+TYPE 0
+DISPLAY If Object Frame is !1!
+ICON ObjectFrame.png
+CONDITION 1
+ARG Frame Number,0
+if (Get_Frame(AppliesTo) == !1!) {

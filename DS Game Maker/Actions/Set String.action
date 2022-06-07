@@ -1,0 +1,9 @@
+TYPE 2
+DISPLAY Set !1! to "!2!"
+ICON StringSet.png
+CONDITION 0
+ARG Variable,3
+ARG Value,0
+Set_String(!1!, "!2!");
+
+NOAPPLIES

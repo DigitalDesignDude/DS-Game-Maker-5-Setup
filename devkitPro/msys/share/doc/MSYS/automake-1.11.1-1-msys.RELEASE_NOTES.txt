@@ -1,0 +1,143 @@
+msys automake
+========================================================================
+This is not the automake you are looking for.
+
+This is the current version of automake, the GNU automatic makefile
+generator, as modified specifically for use in the MSYS DVLPR environment;
+that is, it is intended to be used only when producing binary packages
+for the MSYS subsystem.  If you intend to produce executables for the
+native "mingw32" subsystem (that is, applications that should work on
+Microsoft Windows installations without the MSYS DLL), then you should
+use the following versions instead, which are generally installed into
+the /mingw (C:\MinGW) directory:
+   automake1.4-*-mingw32-bin
+   automake1.5-*-mingw32-bin
+   automake1.6-*-mingw32-bin
+   automake1.7-*-mingw32-bin
+   automake1.8-*-mingw32-bin
+   automake1.9-*-mingw32-bin
+   automake1.10-*-mingw32-bin
+   automake1.11-*-mingw32-bin
+   automake-*-mingw32-bin     (wrapper script)
+
+This msys-specific version of automake, and the related msys-specific
+versions of autoconf, libtool, and gettext, are NOT intended for use
+other than from within the MSYS DVLPR environment.  These packages are
+installed into /bin, but the /mingw/bin directory typically precedes
+that directory in the PATH -- and the "normal" versions of the autotools
+should be installed into /mingw/bin, so they usually take precedence.
+Only in the MSYS DVLPR environment would this version of automake be
+encounted.
+
+Proper operation of this automake distribution requires a working
+MSYS installation, as well as certain other elements available from
+the MinGW team (http://www.mingw.org/) as listed below.  This automake
+distribution was configured as part of the "msys" subsystem, and should
+be installed into the / directory (which is usually, but not always, 
+C:\msys\1.0).
+
+
+Runtime requirements
+  MSYS Environment
+    msysCORE-1.0.13-2-msys-1.0.13-bin
+    perl-5.6.1_2-2-msys-1.0.13-bin
+    libcrypt-1.1_1-3-msys-1.0.13-dll-0
+    libgdbm-1.8.3-3-msys-1.0.13-dll-3
+    zlib-1.2.3-2-msys-1.0.13-dll
+    coreutils-5.97-2-msys-1.0.11-bin
+    m4-1.4.13-1-msys-1.0.11-bin
+    texinfo-4.13a-1-msys-1.0.11-bin
+
+Build requirements (these, or newer)
+  Same as above, plus
+    autoconf-2.65-1-msys-1.0.13-bin
+    make-3.81-2-msys-1.0.11-bin
+    bash-3.1.17-2-msys-1.0.11-bin
+    tar-1.22-1-msys-1.0.11-bin
+    xz-4.999.9beta_20091209-1-msys-1.0.12-bin
+    bzip2-1.0.5-2-msys-1.0.13-bin
+    liblzma-4.999.9beta_20091209-1-msys-1.0.12-dll-1
+    libbz2-1.0.5-2-msys-1.0.13-dll-1
+
+  MSYS toolchain
+    binutils-2.19.51-3-msys-1.0.13-bin
+    gcc-3.4.4-3-msys-1.0.13-bin
+    w32api-3.14-3-msys-1.0.12-dev
+    msysCORE-1.0.13-2-msys-1.0.13-dev
+
+Canonical homepage:
+  http://www.gnu.org/software/automake/
+
+Canonical download:
+  ftp://ftp.gnu.org/pub/gnu/automake/
+
+License:
+  GPL
+
+Language:
+  perl, m4
+
+========================================================================
+
+Build instructions:
+  unpack automake-1.11.1-1-msys-1.0.13-src.tar.gz
+  ./msys-build-automake automake-1.11.1.tar.bz2
+
+This will create:
+  automake-1.11.1-1-msys-1.0.13-src.tar.gz
+  automake-1.11.1-1-msys-1.0.13-bin.tar.gz
+  automake-1.11.1-1-msys-1.0.13-lic.tar.gz
+  automake-1.11.1-1-msys-1.0.13-doc.tar.gz
+
+========================================================================
+
+Test suite results
+   1 of 675 tests failed
+   (60 tests were not run)
+The failures were:
+   FAIL: lzma.test       (actually an xz:lzma bug: error is 
+                          lzma: (stdin): Not enough memory)
+So, automake-1.11.1 works very well, on msys, and the observed
+failures are not due to issues with automake itself. This is a
+significant improvement over the (already good) test results of
+automake-1.11; 2 tests which failed now pass, and 56 additional
+tests that were skipped, are now run and pass as well.
+
+========================================================================
+References:
+
+For a discussion of the packaging standards used by the MinGW
+project for pre-built components -- especially as related to
+the autotools such as autoconf, automake, and libtool, see:
+
+  here:     http://www.mingw.org/PackageIdentificationHOWTO
+  here:     http://article.gmane.org/gmane.comp.gnu.mingw.devel/3330
+  and here: http://article.gmane.org/gmane.comp.gnu.mingw.devel/3305
+
+If you're REALLY curious, the following threads are quite
+informative, if extremely long, and detail the discussion and
+reasoning behind the current packaging schema. Presented in
+reverse chronological order:
+  
+  "New Packages"
+  2009-06-21 22:38:19 GMT
+  http://thread.gmane.org/gmane.comp.gnu.mingw.devel/3297
+
+  "GCC 4.4.0: Naming conventions"
+  2009-04-18 06:35:28 GMT
+  http://thread.gmane.org/gmane.comp.gnu.mingw.devel/3225
+
+  "Standards for Building MinGW Release Packages"
+  2008-03-27 12:36:25 GMT
+  http://thread.gmane.org/gmane.comp.gnu.mingw.devel/2739
+
+========================================================================
+
+Port Notes:
+
+----------  automake-1.11.1-1 -- 2010 Jan 30 -----------
+* Update to latest release
+
+----------  automake-1.11-1 -- 2009 Jul 30 -----------
+* First release of automake for msys under the new packaging standard.
+

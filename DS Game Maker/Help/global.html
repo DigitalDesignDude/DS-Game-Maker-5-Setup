@@ -1,0 +1,45 @@
+<h1>
+ The Global Concept
+</h1>
+
+<p>
+ Creating your first game will naturally be a challenge but with some effort you can have it running in half an hour.
+</p>
+
+<h2>
+ The Basics of Game creation
+</h2>
+
+<p>
+ Games created in DS Game Maker take place in different <i>rooms</i> (rooms are flat/2D, not 3D, but might contain 3D-looking isometric graphics). In these rooms you plot objects, each of which is responsible for its own behaviour in the game. Typical objects are walls, moving enemies, buttons or the player. Objects have events, and in each event, a list of actions which are executed when the event is triggered. For example, in a 'collision event' with monster objects, the player would die. The actions for that would be to reset the score and show a 'death' screen.
+</p>
+
+<p>
+ In designing games with DS Game Maker, objects are the most important element. Each object usually has a sprite, which is effecitvely its displayed image. If the object does not have a sprite, it is simply just invisible to the player, but its events continue to execute as normal in the room. A sprite is sometimes just one image (like a static ball), but often it is animated, such that it contains multiple frames that play after one another (like a walking man). Whilst the game is running, you can change the sprite of any object. For example, the character appears differently when walking left or right.
+</p>
+
+<p>
+ During the game, things will happen to objects: events. There are many different events available in DS Game Maker, such as collision events with other objects or input from the player. As previously mentioned, each event has a list of actions which are executed when the event is triggered. Actions are things like 'Set Score', 'Play Sound' or 'Go to Room'.
+</p>
+
+<p>
+ Instancing is also an important concept in DS Game Maker. You can plot more than one instance of any object in a room. This is crucial for many games so that you can create just 1 'wall' or 'enemy' object but plot it many times within the room. You do not have to create multiple wall objects with the same behaviour. You can create and destroy instances of objects whilst the game is running. For example, when a bullet collides with an enemy, you can destroy that instance of the enemy object, and create another instance of the enemy object at a random position.
+</p>
+
+<p>
+ Rooms in DS Game Maker have 2 backgrounds (one for each screen). The background is displayed behind any plotted objects (and any text drawn by actions in objects). Generally, significantly different pieces of gameplay are separated into different rooms, such that you would have different rooms for the game menu, credits screen, and a different room for each level.
+</p>
+
+<h2>Other Types of Resource</h2>
+
+<p>
+ There are other types of resource that can be used in DS Game Maker apart from sprites, objects and rooms. The first is a <i>sound</i>, which can be either a 'Sound Effect' (lasts just a few seconds and is played once at a time), or a 'Background Sound' which is usually looped like background music in a level.
+</p>
+
+<p>
+ The second type is a <i>path</i> which consists of multiple defined co-ordinates. You can instruct an object to follow a path and when doing so, the object moves smoothly from each co-ordinate to the next.
+</p>
+
+<p>
+ The third and fourth types are really for programmers: DBAS Scripts and C Scripts. You can use these resources to input computer code into your games. These are certainly important for more complicated games.
+</p>
