@@ -42,7 +42,7 @@ Since the DSGM 5.20 installer that was released years ago installs a buggy versi
   2.  When the new window opens click the "Environment Variables..." button to be brought to where you can edit or create the needed system environment variables below.
 
 <br>
-NOTE: the environment variables and values are case sensitive so they must be entered or pasted in exactly as shown below. If you installed devkitPro on a drive different than the C drive, then be sure to use the appropriate drive letter instead of "c" for variables' values.
+NOTE: the environment variables and values are case sensitive so they must be entered or pasted in exactly as shown below. If you installed devkitPro on a drive different than the C drive, then be sure to use the appropriate drive letter instead of "c" for the variables' values.
 <br>
 <br>
 <br>
@@ -69,4 +69,21 @@ NOTE: the environment variables and values are case sensitive so they must be en
 2. Test compiling a blank project by pressing the "Test Game" button from the top ribbon of DSGM's interface (it looks like a play button).
 
 Congrats! If you have no errors you're ready to start building Nintendo DS games with Ds Game Maker!
+<br>
+<br>
+<br>
+
+# DSGM Knowlegde Resources!
+
+### DS Game Maker Example Files Coming Soon!  
+Follow my [Itch Page](https://surrealcubemedia.itch.io/) for Updates.
+
+### DS Game Maker Video Tutorials Coming Soon! 
+Subscibe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg) to keep informed on when they are released.
+
+### DS Game Maker Discord Servers
+- [DS Game Maker](https://discord.gg/uzNM8gGSA4)
+- [DSGM Online](https://discord.gg/HqbuAy9xJf)
+
+
 
