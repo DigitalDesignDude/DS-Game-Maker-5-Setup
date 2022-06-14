@@ -79,7 +79,7 @@ Congrats! If you have no errors you're ready to start building Nintendo DS games
 Follow my [Itch Page](https://surrealcubemedia.itch.io/) for Updates.
 
 ### DS Game Maker Video Tutorials Coming Soon! 
-Subscibe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg) to keep informed on when they are released.
+Subscribe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg) to keep informed on when they are released.
 
 ### DS Game Maker Discord Servers
 - [DS Game Maker](https://discord.gg/uzNM8gGSA4)
