@@ -74,6 +74,10 @@ Congrats! If you have no errors you're ready to start building Nintendo DS games
 <br>
 
 # DSGM Knowlegde Resources!
+![banner_DsgmKnowlegdeResources](https://user-images.githubusercontent.com/106634287/173729565-1b842d40-cd44-4376-91d4-6eb6a5515957.png)
+<br>
+<br>
+
 
 ### DS Game Maker Example Files Coming Soon!  
 Follow my [Itch Page](https://surrealcubemedia.itch.io/) for Updates.
@@ -85,5 +89,11 @@ Subscribe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg)
 - [DS Game Maker](https://discord.gg/uzNM8gGSA4)
 - [DSGM Online](https://discord.gg/HqbuAy9xJf)
 
+### DS Game Maker Documentation
+- [DS Game Maker 5 Manual.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905375/DS.Game.Maker.5.Manual.pdf)
+- [DSGM Syntax at a Glance.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905386/DSGM.Syntax.at.a.Glance.pdf)
+- [Index of DS Game Maker Functions.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905373/Index.of.DS.Game.Maker.Functions.pdf)
+- [PAlib Functions Reference.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905406/PAlib.Functions.Reference.pdf)
+- [Troubleshooting Common Errors in DSGM 5.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905369/Troubleshooting.Common.Errors.in.DSGM.5.pdf)
 
 
