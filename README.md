@@ -91,7 +91,7 @@ Subscribe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg)
 
 ### DS Game Maker Documentation
 - [DS Game Maker 5 Manual.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905375/DS.Game.Maker.5.Manual.pdf)
-- [DSGM Syntax at a Glance.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905386/DSGM.Syntax.at.a.Glance.pdf)
+- [DSGM Coding at a Glance.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8953813/DSGM.Coding.at.a.Glance.pdf)
 - [Index of DS Game Maker Functions.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8953578/Index.of.DS.Game.Maker.Functions.pdf)
 - [PAlib Functions Reference.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905406/PAlib.Functions.Reference.pdf)
 - [Troubleshooting Common Errors in DSGM 5.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905369/Troubleshooting.Common.Errors.in.DSGM.5.pdf)
