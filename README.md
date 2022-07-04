@@ -13,7 +13,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo Ds homebre
 
 
 ## 1st Step - DevkitPro Setup
-  1. Download the devkitPro.zip file, extract it, and place it on the root of C drive of your computer. Thus the devkitPro folder's location will be "C:\devkitPro"
+  1. Download the "devkitPro" folder and place it on the root of C drive of your computer. Thus the devkitPro folder's location will be "C:\devkitPro"
 	
   2. If you don't have a C drive or wish to place devkit pro on the root of another drive you should be able to but you'll have to make sure to use the appropriate drive letter instead of "C" when creating the system variables later on in this tutorial. 
 <br>
@@ -23,7 +23,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo Ds homebre
 
 ## 2nd Step - DS Game Maker Setup
 
-  1. Download the DS Game Maker.zip file, extract it and place the "DS Game Maker" folder it anywhere you want on your PC. Such as in the Documents folder where it's easy to get to.
+  1. Download the "DS Game Maker" folder and place it anywhere you want on your PC. Such as in the Documents folder where it's easy to get to.
 	
   2. Within the "DS Game Maker" folder make the "DS Game Maker.exe" file always  run in administrator mode by right clicking it then choosing "properties" from the right click menu options and then checking the "Run this program as an administrator" option from under the Compatibility tab in the file properties window.
 <br>
@@ -31,7 +31,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo Ds homebre
 
 
 
-## 3rd Step - Add the Proper PC Environment Variables DSGM needs
+## 3rd Step - Add the Proper PC Environment Variables DSGM Needs
 
 PC environment variables provide extra information that apps may need to in order to find other files or data on your computer and it would normally be added for you when you install a program using a program installer file.
 
@@ -42,7 +42,7 @@ Since the DSGM 5.20 installer that was released years ago installs a buggy versi
   2.  When the new window opens click the "Environment Variables..." button to be brought to where you can edit or create the needed system environment variables below.
 
 <br>
-NOTE: the environment variables and values are case sensitive so they must be entered or pasted in exactly as shown below. If you installed devkitPro on a drive different than the C drive, then be sure to use the appropriate drive letter instead of "c" for the variables' values.
+NOTE: the environment variables and values are case sensitive so they must be entered or pasted in exactly as shown below. If you placed the devkitPro folder on a drive different than the C drive, then be sure to use the appropriate drive letter instead of "c" for the variables' values.
 <br>
 <br>
 <br>
@@ -63,8 +63,18 @@ NOTE: the environment variables and values are case sensitive so they must be en
 <br>
 <br>
 
-## LAST Step - Test Making a Nintendo DS Game file with DSGM
-1. Run the DSGameMaker.exe and click "yes" if prompted by the windows administrator permission request popup.
+## 4th Step - Ensure You Have Microsoft .NET Framework 3.5 Installed
+
+Certain Windows apps require Microsoft .Net Framework 3.5 in order to function so it may already be installed on your computer. But we should verify that and install it if it's not already, otherwise DS Game Maker will not work properly.
+
+1. Using the Windows 10 or 11 search bar search for the "Turn Windows features on and off" option and click on it.
+
+2. In the "Turn Windows features on and off" menu, ensure that the check box besides ".NET Framework 3.5 (includes .Net 2.0 and 3.0)" is filled. If not, click the check box to proceed to download and install .NET Framework 3.5.
+<br>
+<br>
+
+## LAST Step - Test Making a Nintendo DS Game File with DSGM
+1. Run the DSGameMaker.exe and click "yes" if prompted by the Windows administrator permission request popup.
 
 2. Test compiling a blank project by pressing the "Test Game" button from the top ribbon of DSGM's interface (it looks like a play button).
 
