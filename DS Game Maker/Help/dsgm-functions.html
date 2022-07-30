@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSGM Functions</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Site Style -->
+    <link rel="stylesheet" type="text/css" href="page-style.css">
+    
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <img id="site-logo" class="img-responsive" src="images/logo-dsgm.png">
+        </header>
+
+        <div class="separator"></div>
+
+        <div id="main-content">
+
+            <!--SECTION - INSTALLATION GUIDES-->
+            <section class="section-container">
+
+                <div class="section-headline">
+                    <h2>Index of DS Game Maker Functions</h2>
+                </div>
+
+                <p>
+                    This is an index of all the in-built functions of DS Game Maker. You can use these anywhere in actions, DBAS Scripts and C Scripts.
+                </p>
+                
+                <br><br><br>
+
+                <div class="section-headline">
+                    <h2>Objects</h2>
+                </div>
+
+                <h4>Get_Single_ID(ObjectName)</h4>
+                <p>
+                    If you have just one instance of an object, this function returns its ID which you can use in other functions. If there is more than one instance, the first ID will be returned.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Dim ID As Integer = Get_Single_ID(ball)
+Delete_Instance(ID)
+</pre>
+
+                <h4>NextInstance()</h4>
+                <p>
+                    Returns the next available instance ID that you can use to create an object. When you create an object, you have to provide an instance ID for it (where you want it to go in the instances array). If you create and delete many objects, you can lose track of what positions are free. In these cases use this function. If you don't care about what instance number an object gets, use this function for the instance ID every time you create an object.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Create_Object(SofaObject, NextInstance(), Top_Screen, 32, 32)
+Create_Object(DoorObject, NextInstance(), Top_Screen, 64, 64)
+</pre>
+
+                <h4>Sprite_Collision(InstanceID1, InstanceID2)</h4>
+                <p>
+                    Detects the collision of 2 objects, specified by their instance numbers. This is the function used for the 'If Collision' event. You cannot provide the names of 2 objects like this: Is_Sprite_Collision(ball, paddle), you must use their instance IDs. See the function Get_Single_ID.
+                </p>
+
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Dim BulletID As Unsigned Byte = Get_Single_ID(Bullet_Object)
+Dim PlayerID As Unsigned Byte = Get_Single_ID(Player_Object)
+If Is_Sprite_Collision(BulletID, PlayerID)
+  Delete_Instance(BulletID)
+End If
+</pre>
+
+                <h4>Sprite_Collision_Mid(InstanceID1, InstanceID2)</h4>
+                <p>
+                    Very similar to the function Is_Sprite_Collision but a collision is only detected if the mid-point of an instance intersects the boundary of another. This is more useful for non-square objects.
+                </p>
+
+                <h4>Object_Under_Point(Screen, X, Y, ObjectName)</h4>
+                <p>
+                    Returns whether there is an instance of ObjectName under a specified point.
+                </p>
+
+                <h4>Object_Under_H_Line(Screen, X1, X2, Y, ObjectName)</h4>
+                <p>
+                    Returns whether there is an instance of ObjectName under the line specified with the co-ordinates (horizontal line; so Y applies to both X points).
+                </p>
+
+                <h4>Object_Under_V_Line(Screen, Y1, Y2, X, ObjectName)</h4>
+                <p>
+                    Returns whether there is an instance of ObjectName under the line specified with the co-ordinates (vertical line; so X applies to both Y points).
+                </p>
+
+                <h4>Move_Object_Stylus(InstanceID)</h4>
+                <p>
+                    Allows the instance to be dragged about with the Stylus. This function must be called every frame; therefore it must be called in a Step event.
+                </p>
+
+                <h4>Animate(InstanceID, FirstFrame, LastFrame, FPS)</h4>
+                <p>
+                    Animates an instance (based upon the frames in its Sprite). The first argument is the instance number to animate. The second is the start frame, the first frame being 0 (not 1!). The fourth argument is 'frames per second' and it means how many frames should cycle visually within 1 second.
+                </p>
+
+                <h4>Set_V_Flip(InstanceID, Flip)</h4>
+                <p>
+                    Determines whether an instance appears flipped vertically or not. The last argument should be true or false.
+                </p>
+
+                <h4>Set_H_Flip(InstanceID, Flip)</h4>
+                <p>
+                    Determines whether an instance appears flipped horizontally or not. The last argument should be true or false.
+                </p>
+
+                <h4>Create_Object(ObjectName, InstanceID, Screen, X, Y)</h4>
+                <p>
+                    Creates an instance of an Object. The first argument (object name) should be enclosed in quotes. For Screen, use Top_Screen or Bottom_Screen. InstanceID can be NextInstance() if the next free ID is not known.
+                </p>
+
+                <h4>Set_Sprite(InstanceID, "SpriteName", DeleteOldSprite)</h4>
+                <p>
+                    Sets the Sprite of the provided instance. The Sprite Name should be enclosed in quotes. DeleteOldSprite is a boolean value that is used mostly when DSGM calls the function. It usually always takes a value of true.
+                </p>
+
+                <h4>Delete_Instance(InstanceID)</h4>
+                <p>
+                    Deletes the selected instance.
+                </p>
+
+                <h4>Get_X(InstanceID)</h4>
+                <p>
+                    Returns the X Position of the instance.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Set_X(Get_Single_ID(Ball2), 64)
+'Whatever object is in instance slot 0, set X position to 64:
+Set_X(0, 64)
+</pre>
+
+                <h4>Get_Y(InstanceID)</h4>
+                <p>
+                    Returns the Y position of the instance.
+                </p>
+
+                <h4>Set_X(InstanceID, X)</h4>
+                <p>
+                    Sets the X Position of an instance.
+                </p>
+
+
+                <h4>Set_Y(InstanceID, X)</h4>
+                <p>
+                    Sets the Y Position of an instance.
+                </p>
+
+
+                <h4>Set_XY(InstanceID, X, Y)</h4>
+                <p>
+                    Sets the X and Y Positions of an instance.
+                </p>
+
+                <h4>Set_Frame(InstanceID)</h4>
+                <p>
+                    Sets the animation Frame of the instance. The first frame is number 0.
+                </p>
+
+                <h4>Get_Frame(InstanceID, Frame)</h4>
+                <p>
+                    Returns the animation Frame of the instance.
+                </p>
+
+                <h4>Count_Instances(ObjectName)</h4>
+                <p>
+                    Returns the number of instances of the specificed object.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">'Breakout type game
+Dim Count As Unsigned Byte = Count_Instances(BrickObject)
+If Count = 0
+  Goto_Next_Room()
+End If
+</pre>
+                <br><br><br>
+
+                <div class="section-headline">
+                    <h2>Graphics</h2>
+                </div>
+                <p>
+                    Text functions require the X and Y Positions to be provided in Tiles.
+                </p>
+
+                <h4>Draw_Health(Screen, XTiles, YTiles)</h4>
+                <p>
+                    Draws the 'health' variable on the selected screen at the provided X and Y tile co-ordinates.
+                </p>
+
+                <h4>Draw_Lives(Screen, XTiles, YTiles)</h4>
+                <p>
+                    Draws the 'lives' variable on the selected screen at the provided X and Y tile co-ordinates.
+                </p>
+
+                <h4>Draw_Score(Screen, XTiles, YTiles)</h4>
+                <p>
+                    Draws the 'score' variable on the selected screen at the provided X and Y tile co-ordinates.
+                </p>
+
+                <h4>Draw_String(Screen, XTiles, YTiles, StringVariable)</h4>
+                <p>
+                    Draws a Sting variable at the specified X and Y tile co-ordinates on the specificed screen. The variable must be declared in the Script or Global Variable/Arrays/Structures managers as a 'String' type.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Dim MyName As String
+MyName = "James"
+Draw_String(Top_Screen, 1, 1, MyName)
+</pre>
+
+                <h4>Draw_Variable(Screen, XTiles, YTiles, VariableName, IsFloat)</h4>
+                <p>
+                    Draws the value of a Variable. The last argument, IsFloat, takes either true or false. Use 'true' for a floating (decimal number). For types such as Integer or Unsigned Byte, use false.
+                </p>
+
+                <h4>Set_BG_Scroll(Screen, Layer, X, Y)</h4>
+                <p>
+                    Scrolls the loaded background to the specificed X and Y co-ordinates. You can load 4 backgrounds onto the screen from 0 to 3 so there is a Layer argument for which layer to scroll with the function. If you scroll past the constraints of the background (greater X or Y than the width or height), the background may repeat or show corrupt data. If the function does not do anything, check the Layer and that in the room 'Scroll BG with Camera' is not checked because this will overwrite the work of this function. The default Layer number is 2, for backgrounds placed on the screens within DS Game Maker.
+                </p>
+
+                <h4>Draw_Text(Screen, XTiles, YTiles, Text)</h4>
+                <p>
+                    Draws text at the specified X and Y tile co-ordinates on the specificed screen. The text must be enclosed in quotes and you cannot use a variable. To do that see Draw_String.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">'Length of "Hello!"
+Dim Length as Integer = 6
+'Centering algorithm
+Dim X as Integer = (32/2) - (Length/2)
+Dim Y as Integer = (24/2) - 1
+Draw_Text(Top_Screen, X, Y, "Hello!")
+</pre>
+
+                <h4>Set_Camera_XY(Screen, X, Y)</h4>
+                <p>
+                    Sets the position of the camera in the room. Moving the camera to the right, for example, shifts plotted objects to the left. Objects still retain their X and Y co-ordinates after camera moving; the offset is only visual. You can compute the locations of objects relative to the physical screen borders by using the variables RoomData.TopX, (..) TopY, BottomX, BottomY.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Dim XPos as Integer = 0
+Dim YPos as Integer = 0
+If Pad.Newpress.Left
+  XPos -= 1 
+End If
+ If Pad.Newpress.Right
+  XPos += 1 
+End If
+Set_Camera_XY(Bottom_Screen, XPos, YPos)
+</pre>
+
+                <h4>Get_Camera_X(Screen)</h4>
+                <p>
+                    Returns the X position of the Camera.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">'Move the camera to the right
+Set_Camera_XY(Top_Screen, Get_Camera_X(Top_Screen) + 5, Get_Camera_Y(Top_Screen))
+</pre>
+
+                <h4>Get_Camera_Y(Screen)</h4>
+                <p>
+                    Returns the Y position of the Camera.
+                </p>
+                
+                <br><br><br>
+
+                <div class="section-headline">
+                    <h2>Logic</h2>
+                </div>
+
+                <h4>Test_Chance(Sides)</h4>
+                <p>
+                    You specify the number of sides of a dice which is then thrown. Use this function to test the probability of the event happening with the supplied sides. If the dice is thrown and lands on 1, the function returns true, otherwise false. For example when the ball hits a brick you can provide a particular 'chance' of a bonus score.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">If Test_Chance(10)
+'1 in 10 times (random), these functions will run...
+End If
+</pre>
+
+                <h4>Is_Divisible(Nunber, Divisor)</h4>
+                <p>
+                    Returns whether the first number is divisible by the second (with the answer being integral). Arguments of 10, 5 return true but 19, 6 return false.
+                </p>
+
+                <h4>Is_Position_Free(Screen, X, Y)</h4>
+                <p>
+                    Returns if a position on a collision map background is free (is magenta), at the specified X and Y co-ordinates. Use in conjuction with the action 'Load Collision Map'.
+                </p>
+
+                <h4>Is_Position_Occupied(Screen, X, Y)</h4>
+                <p>
+                    Returns if a position on a collision map background is occupied (is not magenta), at the specified X and Y co-ordinates. Use in conjuction with the action 'Load Collision Map'.
+                </p>
+
+                <h4>Random(Minimum, Maximum)</h4>
+                <p>
+                    Returns a random number between the provided constraints. Numbers can be negatively signed. For better random numbers, use a physical Nintendo DS.
+                </p>
+
+                <h4>Set_String(Variable, Text)</h4>
+                <p>
+                    Sets a String variable to the provided value. This is a rare function to have to use as DBAS automatically does this when you do an = assignment for a String.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Set_String(FirstName, "James")
+Set_String(LastName, "Garner")
+</pre>
+
+                <h4>Strings_Same(String1, String2)</h4>
+                <p>
+                    Returns true if the strings are equal, and false if they are not.
+                </p>
+                <h5>Example Usage</h5>
+                <pre class="code-snippet">Dim MyName as string = "James"
+Dim HisName as string = "James"
+If Strings_Same(MyName, HisName)
+  Draw_Text(Top_Screen, 1, 1, "Names are the same.")
+Else
+  Draw_Text(Top_Screen, 1, 1, "They are different.")
+End If
+</pre>
+
+                <h4>Pause_Alarm(AlarmID, Pause))</h4>
+                <p>
+                    Pauses the specified Alarm (0 - 31). Pause takes true or false; true to pause the alarm and false to unpause it.
+                </p>
+
+                <h4>Set_Alarm(AlarmID, Time)</h4>
+                <p>
+                    Sets the time of the specified Alarm (0 - 31) and activates it.
+                </p>
+
+                <h4>Goto_Next_Room()</h4>
+                <p>
+                    Goes to the next room from the current room, if another room exists.
+                </p>
+                
+                <br><br><br>
+
+                <div class="section-headline">
+                    <h2>Sound</h2>
+                </div>
+
+                <h4>Stream_BG_Sound("SoundName")</h4>
+                <p>
+                    Streams the provided Background sound. Use in a 'Step' Event.
+                </p>
+
+                <h4>Stop_BG_Sound()</h4>
+                <p>
+                    Stops the Background (MP3) sound from playing.
+                </p>
+
+                <h4>Pause_BG_Sound()</h4>
+                <p>
+                    Pauses the current playing Background sound. Due to the nature of the streaming, use with care if you plan to create and delete objects that stream the sound.
+                </p>
+
+                <h4>Unpause_BG_Sound()</h4>
+                <p>
+                    Unpauses the current playing Background sound; does the opposite of the above.
+                </p>
+
+                <h4>Unpause_BG_Sound(Loop)</h4>
+                <p>
+                    Sets the looping of the Background sound. Provide a boolean value such that 'true' makes the Background sound play again at the end, and 'false' does not.
+                </p>
+
+                <h4>Stop_Sound_Effects</h4>
+                <p>
+                    Stops all sound effects from playing.
+                </p>
+
+                <h4>Set_Volume(u8 Volume)</h4>
+                <p>
+                    Sets the master volume for all sounds.
+                </p>
+
+                <h4>Set_BG_Panning(Panning)</h4>
+                <p>
+                    Sets the horizontal panning of all sounds. The Panning parameter ranges from -64 to 64. -64 is far-left panning and 64 is far right; 0 being the mid-point as default.
+                </p>
+                
+                <br><br><br>
+
+                <div class="section-headline">
+                    <h2>PRO Functions</h2>
+                </div>
+
+                <p>
+                    The following functions were originally only available in the Pro Edition of DS Game Maker but as DS Game Maker 5.20 they are now unlocked by default.
+
+                </p>
+
+                <h4>Read_File(Content, Path)</h4>
+                <p>
+                    Reads the content from the file at 'Path' into the previously declared 'Content' variable.
+                </p>
+                <pre class="code-snippet">Dim FileContent As String
+Read_File(FileContent, "story.txt")
+Draw_Text(Top_Screen, 1, 1, FileContent)
+'Draws the contents of story.txt on the top screen at position 1, 1
+</pre>
+
+                <h4>Write_File(Content, Path)</h4>
+                <p>
+                    Writes the 'Content' to the file at the 'Path'.
+                </p>
+                <pre class="code-snippet">Dim Content As String = "Hello, World"
+Write_File(Content, "new_born.txt")
+'Writes 'Hello World' to 'new_born.txt'
+</pre>
+
+                <h4>List_Files(Screen, X, Y, Path)</h4>
+                <p>
+                    Lists files in the selected file system (see Switch_To_NitroFS() and Switch_To_FAT()). Default file system is NitroFS. Add files in 'Game Settings'.
+                </p>
+
+                <h4>Switch_To_NitroFS()</h4>
+                <p>
+                    Switches the file system commands to work with NitroFS (files contained within the NDS - See 'Game Settings' window).
+                </p>
+
+                <h4>Switch_To_FAT()</h4>
+                <p>
+                    Switches the file system commands to work with FAT (files stored alongside the NDS on the MicroSD card).
+                </p>
+
+                <h4>Enable_Rotation(InstanceID)</h4>
+                <p>
+                    Enables the rotation of the specified instance. Most commonly, call it once in the 'Creation' event for the object. You can then set its angle with 'Set_Angle'.
+                </p>
+
+                <h4>Disable_Rotation(InstanceID)</h4>
+                <p>
+                    Disables the rotation of the specified instance caused by Enable_Rotation or Set_Angle.
+                </p>
+
+                <h4>Set_Angle(InstanceID, Angle)</h4>
+                <p>
+                    Sets the rotation angle for the specified instance. The angle is in Radians, and be sure to use Enable_Rotation first. To convert to and from Radians, see the below functions.
+                </p>
+
+                <h4>Angle_To_Radians(Angle)</h4>
+                <p>
+                    Converts a "human" angle (0-360) to Radians; commonly for use with Set_Angle.
+                </p>
+
+                <h4>Radians_To_Angle(Radians)</h4>
+                <p>
+                    Converts a Radian angle back to "human form" (0-360).
+                </p>
+
+                <h4>Angle_Between_Points(X1, Y1, X2, Y2)</h4>
+                <p>
+                    Returns the angle between 2 points in Radians. You can use this with [X], [Y], Stylus.X, Stylus.Y to make objects face the stylus.
+                </p>
+
+                <h4>Distance_Between_Points(X1, Y1, X2, Y2)</h4>
+                <p>
+                    Returns the distance between 2 points using Pythagoras. This is slow so use with care.
+                </p>
+
+            </section>
+
+        </div>
+        <!--End of Main Content-->
+        <div class="separator"></div>
+        <footer>
+            <p>Last updated for DS Game Maker ver 5.21</p>
+        </footer>
+
+    </main>
+
+
+</body>
+
+</html>

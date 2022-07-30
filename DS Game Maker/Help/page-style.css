@@ -1,0 +1,260 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #65BAFF;
+    margin-top: 10px;
+    background-image: linear-gradient(#65BAFF, #0081EA);
+}
+
+main {
+    width: 80%;
+    max-width: 1024px;
+    padding: 40px 0px;
+    margin: 0 auto;
+}
+
+#main-content {
+    background-color: white;
+    padding: 80px 5%;
+    margin: 0 auto;
+}
+
+
+p,
+li,
+span,
+label,
+input,
+select option,
+strong,
+dt,
+dd {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #666666;
+}
+
+p {
+    line-height: 24px;
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 8%;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+
+
+/*HEADER====================================*/
+
+header {
+    background-image: url(images/backdrop-grey.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 16px 16px 0px 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+#site-logo {
+    margin-bottom: 5px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.separator {
+    background-image: linear-gradient(#DEDEDE, #6B6B6B);
+    height: 10px;
+}
+
+
+/*FOOTER=====================================*/
+
+footer {
+    background-color: black;
+    padding: 30px;
+    border-radius: 0px 0px 16px 16px;
+    text-align: center
+}
+
+
+
+/*HEADLINES AND SPECIAL TEXT======================*/
+
+h1 {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    font-size: 42px;
+    color: #D8D8D8;
+
+}
+
+
+
+
+h2 {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    font-size: 32px;
+    color: #666666;
+    display: inline;
+    margin-bottom: 0px;
+    font-weight: 400;
+}
+
+
+h3 {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    color: #393939;
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+h4 {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    font-weight: 400;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: 30px;
+}
+
+h5 {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    font-size: 1rem;
+    margin-bottom: 0px !important;
+    font-weight: 400;
+    background-color: #d0d0d0;
+    margin-bottom: 0;
+    padding: 6px 4px;
+}
+
+
+
+.themed-text {
+    font-family: 'Ubuntu', 'Trebuchet MS', Sans-Serif !important;
+    color: #D8D8D8;
+    font-weight: 400;
+    text-shadow: -2px -2px 0 #3e3e3e, 2px -2px 0 #3e3e3e, -2px 2px 0 #3e3e3e, 2px 2px 0 #3e3e3e;
+}
+
+
+
+/*SECTIONS AND SECTION CONTENT============================*/
+
+.section-headline {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+}
+
+
+.section-container {
+    margin-bottom: 80px;
+}
+
+.sub-section {
+    margin-bottom: 40px;
+}
+
+
+
+
+
+/*MISC ====================================*/
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.code-snippet {
+    border: 1px solid #d0d0d0;
+    color: #0080ff;
+    padding: 6px;
+    margin-top: 0px;
+    overflow-x:auto;
+    line-height: 21px;
+    font-size: 14px;
+}
+
+
+
+
+
+/*MEDIA QUERIES===============================*/
+
+
+/*Bootstrap Large Media Query*/
+@media only screen and (max-width: 991px) {}
+
+
+/*Mobile*/
+@media only screen and (max-width: 767px) {
+
+    main {
+        width: 90%;
+    }
+
+    /*HEADLINES ----------------------*/
+
+    h1 {
+        font-size: 42px;
+        text-align: center
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+
+}
+
+/*Mobile Small*/
+@media only screen and (max-width: 360px) {
+
+    main {
+        width: 92%;
+    }
+
+    #main-content {
+        padding: 40px 5%;
+    }
+
+
+    /*HEADLINES ----------------------*/
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+
+    .section-headline {
+        padding-bottom: 5px;
+    }
+
+}
