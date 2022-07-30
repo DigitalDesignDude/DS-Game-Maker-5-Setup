@@ -1,4 +1,4 @@
-# DS Game Maker 5.20 Setup for Windows 11/10
+# DS Game Maker 5 Setup for Windows 11/10
 
 ![Thumbnail_SetupDsgmOnWindows](https://user-images.githubusercontent.com/106634287/172290113-be6cfb1b-8691-4e6e-a118-03230c9ca70b.png)
 
