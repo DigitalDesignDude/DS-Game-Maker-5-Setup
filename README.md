@@ -5,7 +5,7 @@
 
 ## About DS Game Maker
 
-DS Game Maker (DSGM) is early 2000's software for developing Nintendo DS homebrew games with basic drag-and-drop visual coding, the C programming language, or with it's own language called DBAS. It was developed By James Garner and has been tested to still run on Windows 7, 10 and now 11 computers using this setup tutorial by DigitalDesignDude.
+DS Game Maker (DSGM) is early 2000's software for developing Nintendo DS homebrew games with basic drag-and-drop visual coding, the C programming language, or with DSGM's own language called DBAS. It was developed By James Garner and has been tested to still run on Windows 7, 10 and now 11 computers using this setup tutorial by DigitalDesignDude.
 <br>
 <br>
 <br>
@@ -78,7 +78,7 @@ Certain Windows apps require Microsoft .Net Framework 3.5 in order to function s
 
 2. Test compiling a blank project by pressing the "Test Game" button from the top ribbon of DSGM's interface (it looks like a play button).
 
-Congrats! If you have no errors you're ready to start building Nintendo DS games with DS Game Maker!
+If you have no errors, then congrats! You're ready to start building Nintendo DS games with DS Game Maker!
 <br>
 <br>
 <br>
