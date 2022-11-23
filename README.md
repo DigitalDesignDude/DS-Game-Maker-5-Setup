@@ -97,7 +97,7 @@ Subscribe on [YouTube](https://www.youtube.com/channel/UCVmba1o66nWG6p-82g22iyg)
 
 ### DS Game Maker Discord Servers
 - [DS Game Maker](https://discord.gg/uzNM8gGSA4)
-- [DSGM Online](https://discord.gg/HqbuAy9xJf)
+- [DSGM Online!](https://discord.gg/HqbuAy9xJf)
 
 ### DS Game Maker Documentation
 - [DS Game Maker 5 Manual.pdf](https://github.com/DigitalDesignDude/DS-Game-Maker-5.20-Setup/files/8905375/DS.Game.Maker.5.Manual.pdf)
