@@ -78,7 +78,7 @@ Certain Windows apps require Microsoft .Net Framework 3.5 in order to function s
 
 2. Test compiling a blank project by pressing the "Test Game" button from the top ribbon of DSGM's interface (it looks like a play button).
 
-Congrats! If you have no errors you're ready to start building Nintendo DS games with Ds Game Maker!
+Congrats! If you have no errors you're ready to start building Nintendo DS games with DS Game Maker!
 <br>
 <br>
 <br>
