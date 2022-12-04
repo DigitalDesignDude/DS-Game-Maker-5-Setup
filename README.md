@@ -15,7 +15,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo DS homebre
 ## 1st Step - DevkitPro Setup
   1. Download the "devkitPro" folder and place it on the root of C drive of your computer. Thus the devkitPro folder's location will be "C:\devkitPro"
 	
-  2. If you don't have a C drive or wish to place devkitPro on the root of another drive you should be able to but you'll have to make sure to use the appropriate drive letter instead of "C" when creating the system variables later on in this tutorial. 
+If you don't have a C drive, you might be able to put the "devkitPro" folder on the root of another drive, but you'll have to make sure to use the appropriate drive letter instead of "C" when creating the system environment variables later on in this tutorial. 
 <br>
 <br>
 
@@ -23,7 +23,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo DS homebre
 
 ## 2nd Step - DS Game Maker Setup
 
-  1. Download the "DS Game Maker" folder and place it anywhere you want on your PC. Such as in the Documents folder where it's easy to get to.
+  1. Download the "DS Game Maker" folder and place it anywhere you want on your PC so long as it's on the same drive as the devkitPro folder. For example, assuming you placed the devkitPro folder on your C Drive, you should be able to place the "DS Game Maker" folder in your "Documents" folder without any issues. 
 	
   2. Within the "DS Game Maker" folder make the "DS Game Maker.exe" file always  run in administrator mode by right clicking it then choosing "properties" from the right click menu options and then checking the "Run this program as an administrator" option from under the Compatibility tab in the file properties window.
 <br>
