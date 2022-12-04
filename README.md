@@ -16,6 +16,7 @@ DS Game Maker (DSGM) is early 2000's software for developing Nintendo DS homebre
   1. Download the "devkitPro" folder and place it on the root of C drive of your computer. Thus the devkitPro folder's location will be "C:\devkitPro"
 	
 If you don't have a C drive, you might be able to put the "devkitPro" folder on the root of another drive, but you'll have to make sure to use the appropriate drive letter instead of "C" when creating the system environment variables later on in this tutorial. 
+
 <br>
 <br>
 
@@ -78,7 +79,7 @@ Certain Windows apps require Microsoft .Net Framework 3.5 in order to function s
 
 2. Test compiling a blank project by pressing the "Test Game" button from the top ribbon of DSGM's interface (it looks like a play button).
 
-Congrats! If you have no errors you're ready to start building Nintendo DS games with Ds Game Maker!
+Congrats! If you have no errors you're ready to start building Nintendo DS games with DS Game Maker!
 <br>
 <br>
 <br>
