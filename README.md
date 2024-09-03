@@ -57,6 +57,7 @@ NOTE: the environment variables and values are case sensitive so they must be en
 	System Variable: Path
 	Values Added:
 	c:\devkitPro\msys\bin
+	C:\devkitPro\devkitARM\bin
 
 	
 	NOTE: Just add the above value to the "Path" Variable because it may contain multiple values already.
